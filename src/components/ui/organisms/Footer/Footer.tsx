@@ -19,17 +19,19 @@ const linkCol2 = [
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      {/* ── Quote ── */}
-      <div className={styles.quoteSection}>
-        <div className={styles.quoteInner}>
-          <span className={styles.quoteMarkLeft}>&ldquo;</span>
-          <p className={styles.quoteText}>Excellence is not a skill, it&apos;s an attitude</p>
-          <span className={styles.quoteMarkRight}>&rdquo;</span>
+      {/* ── Quote + Footer Top Wrapper ── */}
+      <div className={styles.footerBgWrapper}>
+        {/* ── Quote ── */}
+        <div className={styles.quoteSection}>
+          <div className={styles.quoteInner}>
+            <span className={styles.quoteMarkLeft}>&ldquo;</span>
+            <p className={styles.quoteText}>Excellence is not a skill, it&apos;s an attitude</p>
+            <span className={styles.quoteMarkRight}>&rdquo;</span>
+          </div>
         </div>
-      </div>
 
-      {/* ── Footer Top ── */}
-      <div className={styles.footerTop}>
+        {/* ── Footer Top ── */}
+        <div className={styles.footerTop}>
         <div className={styles.topInner}>
           <div className={styles.brand}>
             <Image
@@ -102,6 +104,7 @@ export default function Footer() {
                 <span>Office No. : +91 86574 99151</span>
               </li>
             </ul>
+          </div>
           </div>
         </div>
       </div>

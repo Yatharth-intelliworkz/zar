@@ -22,7 +22,7 @@ export default function ManufacturingSection() {
             <p className={styles.description}>
               With advanced infrastructure and experienced teams, Zar delivers consistency, quality, and reliability at scale—making us a trusted manufacturing partner for retailers nationwide.
             </p>
-            <Button href="/partner" variant="primary" showArrow>
+            <Button href="/partner" variant="outline" showArrow>
               Become a Partner
             </Button>
           </div>
