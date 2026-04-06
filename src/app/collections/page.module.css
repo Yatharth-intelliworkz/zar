@@ -1,0 +1,106 @@
+.page {
+  padding-top: 80px;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-warm-bg);
+}
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-4xl);
+  font-weight: var(--fw-semibold);
+  line-height: 80px;
+  color: var(--color-brown);
+  text-align: center;
+}
+
+.content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.introText {
+  font-size: var(--fs-base);
+  line-height: 26px;
+  color: var(--color-gray-600);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.card {
+  position: relative;
+  aspect-ratio: 1 / 1.2;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.cardImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.cardImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.card:hover .cardImage img {
+  transform: scale(1.05);
+}
+
+.cardOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+}
+
+.cardName {
+  font-family: var(--font-heading);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  color: var(--color-white);
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 48px;
+    line-height: 56px;
+  }
+}

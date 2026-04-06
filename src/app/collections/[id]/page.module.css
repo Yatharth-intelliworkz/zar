@@ -1,0 +1,138 @@
+.page {
+  padding-top: 80px;
+}
+
+.content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.productSection {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mainImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-gray-200);
+  overflow: hidden;
+}
+
+.mainImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 12px;
+}
+
+.thumb {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  background-color: var(--color-gray-200);
+  cursor: pointer;
+  overflow: hidden;
+  border: 2px solid transparent;
+}
+
+.thumbActive {
+  border-color: var(--color-gold-primary);
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.category {
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-gray-600);
+}
+
+.productName {
+  font-family: var(--font-heading);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-semibold);
+  line-height: 66px;
+  color: var(--color-brown);
+}
+
+.description {
+  font-size: var(--fs-base);
+  line-height: 26px;
+  color: var(--color-gray-600);
+}
+
+.specs {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-top: 1px solid var(--color-gray-200);
+  padding-top: 30px;
+}
+
+.specRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-gray-100);
+}
+
+.specLabel {
+  font-size: var(--fs-base);
+  color: var(--color-gray-600);
+}
+
+.specValue {
+  font-size: var(--fs-base);
+  color: var(--color-black);
+  font-weight: var(--fw-medium);
+}
+
+@media (min-width: 1024px) {
+  .productSection {
+    flex-direction: row;
+  }
+
+  .gallery {
+    flex: 0 0 55%;
+  }
+
+  .details {
+    flex: 1;
+    padding-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .productName {
+    font-size: 36px;
+    line-height: 44px;
+  }
+}

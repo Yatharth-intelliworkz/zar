@@ -1,0 +1,27 @@
+import HeroSection from '@/components/ui/organisms/HeroSection/HeroSection';
+import LegacySection from '@/components/ui/organisms/LegacySection/LegacySection';
+import CollectionShowcase from '@/components/ui/organisms/CollectionShowcase/CollectionShowcase';
+import ManufacturingSection from '@/components/ui/organisms/ManufacturingSection/ManufacturingSection';
+import CraftsmanshipSection from '@/components/ui/organisms/CraftsmanshipSection/CraftsmanshipSection';
+import ModernWomanSection from '@/components/ui/organisms/ModernWomanSection/ModernWomanSection';
+import ExhibitionsSection from '@/components/ui/organisms/ExhibitionsSection/ExhibitionsSection';
+import TestimonialsSection from '@/components/ui/organisms/TestimonialsSection/TestimonialsSection';
+import TrustedBrandsSection from '@/components/ui/organisms/TrustedBrandsSection/TrustedBrandsSection';
+import InstagramSection from '@/components/ui/organisms/InstagramSection/InstagramSection';
+
+export default function Home() {
+  return (
+    <>
+      <HeroSection />
+      <LegacySection />
+      <CollectionShowcase />
+      <ManufacturingSection />
+      <CraftsmanshipSection />
+      <ModernWomanSection />
+      <ExhibitionsSection />
+      <TestimonialsSection />
+      <InstagramSection />
+      <TrustedBrandsSection />
+    </>
+  );
+}
