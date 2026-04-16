@@ -19,21 +19,21 @@ interface Category {
 
 const categoriesByKt: Record<string, Category[]> = {
   '22kt': [
-    { label: 'Bangles & Bracelet', href: '/collections/bangles-bracelet', image: '/images/menu-bangles-bracelet.svg' },
-    { label: 'Mangalsutra & Necklace', href: '/collections/mangalsutra-necklace', image: '/images/menu-mangalsutra-necklace.svg' },
-    { label: 'Mens Jewellery', href: '/collections/mens-jewellery', image: '/images/menu-mens-jewellery.svg' },
-    { label: 'Earrings', href: '/collections/earrings', image: '/images/menu-earrings.svg' },
-    { label: 'Kids Jewellery', href: '/collections/kids-jewellery', image: '/images/menu-kids-jewellery.svg' },
-    { label: 'Lightweight Jewellery', href: '/collections/lightweight-jewellery', image: '/images/menu-lightweight-jewellery.svg' },
-    { label: 'Rings', href: '/collections/rings', image: '/images/menu-rings.svg' },
+    { label: 'Bangles & Bracelet', href: '/collections/bangles-bracelet', image: '/images/menu-kids-jewellery.webp' },
+    { label: 'Mangalsutra & Necklace', href: '/collections/mangalsutra-necklace', image: '/images/menu-kids-jewellery.webp' },
+    { label: 'Mens Jewellery', href: '/collections/mens-jewellery', image: '/images/menu-kids-jewellery.webp' },
+    { label: 'Earrings', href: '/collections/earrings', image: '/images/menu-kids-jewellery.webp' },
+    { label: 'Kids Jewellery', href: '/collections/kids-jewellery', image: '/images/menu-kids-jewellery.webp' },
+    { label: 'Lightweight Jewellery', href: '/collections/lightweight-jewellery', image: '/images/menu-kids-jewellery.webp' },
+    { label: 'Rings', href: '/collections/rings', image: '/images/menu-kids-jewellery.webp' },
   ],
   '18kt': [
-    { label: 'Bangles & Bracelet', href: '/collections/bangles-bracelet-18kt', image: '/images/menu-bangles-bracelet.svg' },
-    { label: 'Mangalsutra & Necklace', href: '/collections/mangalsutra-necklace-18kt', image: '/images/menu-mangalsutra-necklace.svg' },
-    { label: 'Lightweight Jewellery', href: '/collections/lightweight-jewellery-18kt', image: '/images/menu-lightweight-jewellery.svg' },
-    { label: 'Earrings', href: '/collections/earrings-18kt', image: '/images/menu-earrings.svg' },
-    { label: 'Rings', href: '/collections/rings-18kt', image: '/images/menu-rings.svg' },
-    { label: 'Kids Jewellery', href: '/collections/kids-jewellery-18kt', image: '/images/menu-kids-jewellery.svg' },
+    { label: 'Bangles & Bracelet', href: '/collections/bangles-bracelet-18kt', image: '/images/menu-kids-jewellery.webp' },
+    { label: 'Mangalsutra & Necklace', href: '/collections/mangalsutra-necklace-18kt', image: '/images/menu-kids-jewellery.webp' },
+    { label: 'Lightweight Jewellery', href: '/collections/lightweight-jewellery-18kt', image: '/images/menu-kids-jewellery.webp' },
+    { label: 'Earrings', href: '/collections/earrings-18kt', image: '/images/menu-kids-jewellery.webp' },
+    { label: 'Rings', href: '/collections/rings-18kt', image: '/images/menu-kids-jewellery.webp' },
+    { label: 'Kids Jewellery', href: '/collections/kids-jewellery-18kt', image: '/images/menu-kids-jewellery.webp' },
   ],
 };
 
@@ -79,7 +79,7 @@ export default function MegaMenu({ open, onClose }: MegaMenuProps) {
               onClick={onClose}
             >
               <div className={styles.categoryImage}>
-                <Image src={cat.image} alt={cat.label} fill sizes="180px" />
+                <Image src={cat.image} alt={cat.label} fill sizes="230px" />
               </div>
               <span className={styles.categoryName}>{cat.label}</span>
             </Link>
@@ -89,10 +89,10 @@ export default function MegaMenu({ open, onClose }: MegaMenuProps) {
         <div className={styles.featured}>
           <div className={styles.featuredImage}>
             <Image
-              src="/images/menu-featured-collection.svg"
+              src="/images/dazz-coll.webp"
               alt="Dazzling Collection"
               fill
-              sizes="240px"
+              sizes="300px"
             />
           </div>
           <h3 className={styles.featuredTitle}>Dazzling Collection (Stone)</h3>

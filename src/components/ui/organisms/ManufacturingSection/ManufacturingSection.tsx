@@ -1,22 +1,31 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import Button from '@/components/ui/atoms/Button/Button';
 import styles from './ManufacturingSection.module.css';
 
 export default function ManufacturingSection() {
   return (
     <section className={styles.section}>
-      <video
+      <motion.video
         className={styles.backgroundVideo}
         autoPlay
         muted
         loop
         playsInline
-        poster="/images/homepage/video.webp"
+        poster="/images/homepage/video.webp"        
       >
         <source src="/videos/manufacturing.mp4" type="video/mp4" />
-      </video>
+      </motion.video>
       <div className={styles.overlay} />
       <div className={styles.content}>
-        <div className={styles.card}>
+        <motion.div 
+          className={styles.card}
+          initial={{ opacity: 0, x: 80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: 'easeOut' }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <h2 className={styles.heading}>Manufacturing Strength</h2>
           <div className={styles.textBlock}>
             <p className={styles.description}>
@@ -26,7 +35,7 @@ export default function ManufacturingSection() {
               Become a Partner
             </Button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

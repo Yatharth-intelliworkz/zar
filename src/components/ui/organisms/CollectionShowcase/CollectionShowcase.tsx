@@ -48,7 +48,13 @@ export default function CollectionShowcase() {
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
-        <div className={styles.header}>
+        <motion.div 
+          className={styles.header}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
           <h2 className="fs_54">Signature Gold Bangles</h2>
           <p className={styles.subtitle}>
             Discover a range of thoughtfully curated designs that balance tradition and modernity.
@@ -56,8 +62,14 @@ export default function CollectionShowcase() {
           <Button href="/collections" variant="primary" showArrow>
             Explore Collections
           </Button>
-        </div>
-        <div className={styles.carousel}>
+        </motion.div>
+        <motion.div 
+          className={styles.carousel}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+        >
           <AnimatePresence mode="popLayout" initial={false}>
             <motion.div
               key={`prev-${prev}`}
@@ -115,7 +127,7 @@ export default function CollectionShowcase() {
               <path d="M1 1L11 12L1 23" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

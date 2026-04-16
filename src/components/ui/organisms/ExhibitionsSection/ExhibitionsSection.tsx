@@ -1,4 +1,7 @@
+'use client';
+
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import Button from '@/components/ui/atoms/Button/Button';
 import styles from './ExhibitionsSection.module.css';
 
@@ -16,13 +19,25 @@ export default function ExhibitionsSection() {
       </div>
       <div className={styles.overlay} />
       <div className={styles.inner}>
-        <div className={styles.header}>
+        <motion.div 
+          className={styles.header}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <h2 className={styles.heading}>Upcoming Exhibitions</h2>
           <p className={styles.subtitle}>
             Discover our latest jewellery showcases and exclusive retail partner events.
           </p>
-        </div>
-        <div className={styles.eventCard}>
+        </motion.div>
+        <motion.div 
+          className={styles.eventCard}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className={styles.eventImage}>
             <Image
               src="/images/homepage/event.webp"
@@ -53,7 +68,7 @@ export default function ExhibitionsSection() {
               View Event
             </Button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

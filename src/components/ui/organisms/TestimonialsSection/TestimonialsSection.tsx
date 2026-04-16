@@ -8,6 +8,7 @@ import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import styles from './TestimonialsSection.module.css';
 import { useRef } from 'react';
 import type { Swiper as SwiperType } from 'swiper';
@@ -62,13 +63,25 @@ export default function TestimonialsSection() {
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
-        <div className={styles.header}>
+        <motion.div 
+          className={styles.header}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <h2 className="fs_54">What Our Retailers Say</h2>
           <p className={styles.subtitle}>
             Hear from our patrons about their journey through our exclusive showcases.
           </p>
-        </div>
-        <div className={styles.testimonialWrapper}>
+        </motion.div>
+        <motion.div 
+          className={styles.testimonialWrapper}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <Swiper
             modules={[Autoplay]}
             slidesPerView={3}
@@ -119,7 +132,7 @@ export default function TestimonialsSection() {
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

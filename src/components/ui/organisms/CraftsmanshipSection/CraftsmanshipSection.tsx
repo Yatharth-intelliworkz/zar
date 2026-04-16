@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import FeatureCard from '@/components/ui/molecules/FeatureCard/FeatureCard';
 import styles from './CraftsmanshipSection.module.css';
 
@@ -27,7 +30,13 @@ const features = [
 export default function CraftsmanshipSection() {
   return (
     <section className={styles.section}>
-      <div className={styles.inner}>
+      <motion.div 
+        className={styles.inner}
+        initial={{ opacity: 0, scale: 0.95, rotate: -1 }}
+        whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
         <div className={styles.header}>
           <h2 className="fs_54">Where Art Meets Precision</h2>
           <p className={styles.subtitle}>
@@ -39,7 +48,7 @@ export default function CraftsmanshipSection() {
             <FeatureCard key={feature.title} {...feature} />
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect } from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import Button from '@/components/ui/atoms/Button/Button';
@@ -65,17 +66,28 @@ export default function HeroSection() {
         <div className={styles.container}>
           {slides.map((slide, index) => (
             <div className={styles.slide} key={index}>
-              <div className={styles.backgroundImage}>
+              <motion.div 
+                className={styles.backgroundImage}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.1, ease: 'easeOut' }}
+              >
                 <Image
                   src={slide.image}
                   alt={slide.alt}
                   fill
                   sizes="100vw"
+                  style={{ width: "100%"}}
                   priority={index === 0}
                 />
-              </div>
+              </motion.div>
               <div className={styles.content}>
-                <div className={styles.textBlock}>
+                <motion.div 
+                  className={styles.textBlock}
+                  initial={{ opacity: 0, y: 30, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.9, ease: 'easeOut' }}
+                >
                   <h1 className={styles.heading}>
                     {slide.heading.split('\n').map((line, i) => (
                       <span key={i}>
@@ -85,14 +97,20 @@ export default function HeroSection() {
                     ))}
                   </h1>
                   <p className={styles.subtitle}>{slide.subtitle}</p>
-                </div>
-                <Button
-                  variant="outline"
-                  showArrow
-                  onClick={() => setEnquiryOpen(true)}
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5, duration: 0.8 }}
                 >
-                  Enquire Now
-                </Button>
+                  <Button
+                    variant="outline"
+                    showArrow
+                    onClick={() => setEnquiryOpen(true)}
+                  >
+                    Enquire Now
+                  </Button>
+                </motion.div>
               </div>
             </div>
           ))}

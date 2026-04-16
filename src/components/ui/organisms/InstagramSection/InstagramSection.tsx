@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect } from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import InstagramCard from '@/components/ui/molecules/InstagramCard/InstagramCard';
 import styles from './InstagramSection.module.css';
 
@@ -56,7 +57,13 @@ export default function InstagramSection() {
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
-        <div className={styles.header}>
+        <motion.div 
+          className={styles.header}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <Image
             src="/images/instagram-icon.svg"
             alt="Instagram"
@@ -70,20 +77,31 @@ export default function InstagramSection() {
               Discover new designs, upcoming exhibitions, and real moments from our jewellery journey.
             </p>
           </div>
-        </div>
+        </motion.div>
 
         <div className={styles.slider}>
-          <div
+          <motion.div
             className={styles.track}
             style={{
               transform: `translateX(-${currentIndex * (100 / visibleCount)}%)`,
             }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={{
+              visible: { transition: { staggerChildren: 0.1 } },
+              hidden: {}
+            }}
           >
             {posts.map((post, i) => (
-              <div
+              <motion.div
                 key={i}
                 className={styles.slide}
                 style={{ width: `${100 / visibleCount}%` }}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.96 },
+                  visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: 'easeOut' } }
+                }}
               >
                 <a
                   href={INSTAGRAM_URL}
@@ -93,9 +111,9 @@ export default function InstagramSection() {
                 >
                   <InstagramCard image={post.image} alt={post.alt} />
                 </a>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         <div className={styles.navigation}>

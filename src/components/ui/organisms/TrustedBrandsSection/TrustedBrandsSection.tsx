@@ -2,6 +2,7 @@
 
 import ClientLogo from '@/components/ui/molecules/ClientLogo/ClientLogo';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { motion } from 'framer-motion';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import styles from './TrustedBrandsSection.module.css';
@@ -24,14 +25,26 @@ export default function TrustedBrandsSection() {
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
-        <div className={styles.header}>
+        <motion.div 
+          className={styles.header}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <h2 className="fs_54">Trusted Across Generations</h2>
           <p className={styles.subtitle}>
             Zar&apos;s commitment to quality and design has earned the trust of partners and patrons alike. We don&apos;t just sell bangles; we build relationships that last as long as our gold.
           </p>
-        </div>
+        </motion.div>
       </div>
-      <div className={styles.marquee}>
+      <motion.div 
+        className={styles.marquee}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
         <Swiper
           modules={[Autoplay]}
           spaceBetween={40}
@@ -50,7 +63,7 @@ export default function TrustedBrandsSection() {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
+      </motion.div>
     </section>
   );
 }
