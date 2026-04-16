@@ -47,8 +47,11 @@ export default function MegaMenu({ open, onClose }: MegaMenuProps) {
 
   const categories = categoriesByKt[activeKt] ?? categoriesByKt['22kt'];
 
+  const overlayClass = cn(styles.overlay, open && styles.overlayOpen);
+  console.log('MegaMenu open:', open, 'class:', overlayClass);
+
   return (
-    <div className={cn(styles.overlay, open && styles.overlayOpen)}>
+    <div className={overlayClass}>
       <div className={styles.inner}>
         <div className={styles.sidebar}>
           {ktFilters.map((filter) => (

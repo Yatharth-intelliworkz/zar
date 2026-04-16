@@ -39,24 +39,15 @@
   overflow: hidden;
 }
 
-.track {
+.swiperSlide {
+  width: auto !important;
   display: flex;
-  width: max-content;
-  animation: scroll 30s linear infinite;
-  will-change: transform;
+  justify-content: center;
+  align-items: center;
 }
 
-.track:hover {
-  animation-play-state: paused;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+.marquee :global(.swiper-wrapper) {
+  transition-timing-function: linear !important;
 }
 
 @media (max-width: 768px) {

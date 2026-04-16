@@ -2,15 +2,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-color: var(--color-gray-200); */
-  padding: 35px;
   min-height: 126px;
   min-width: 200px;
   flex-shrink: 0;
 }
 
 .clientLogo img {
-  max-width: 100%;
-  max-height: 60px;
+  width: 100%;
+  height: auto;
   object-fit: contain;
 }

@@ -1,64 +1,124 @@
+"use client";
+// @ts-ignore
+import 'swiper/css';
+// @ts-ignore
+import 'swiper/css/navigation';
+// @ts-ignore
+import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
 import Image from 'next/image';
 import styles from './TestimonialsSection.module.css';
+import { useRef } from 'react';
+import type { Swiper as SwiperType } from 'swiper';
+
+const testimonials = [
+  {
+    video: '/images/testimonial-video.svg',
+    quote: "The bangles I found at the expo were exactly what I'd been searching for. The craftsmanship is truly world-class.",
+    author: 'Priya Sharma',
+    role: 'Bridal Client',
+  },
+  {
+    video: '/images/testimonial-video.svg',
+    quote: "Zar's collection is unique and the service is exceptional. I recommend them to all my friends!",
+    author: 'Amit Patel',
+    role: 'Retail Partner',
+  },
+  {
+    video: '/images/testimonial-video.svg',
+    quote: 'Every piece tells a story. I am always impressed by the quality and design.',
+    author: 'Sunita Rao',
+    role: 'Repeat Customer',
+  },
+  {
+    video: '/images/testimonial-video.svg',
+    quote: 'The lightweight jewellery collection is perfect for everyday wear. Absolutely love the designs!',
+    author: 'Neha Gupta',
+    role: 'Fashion Blogger',
+  },
+  {
+    video: '/images/testimonial-video.svg',
+    quote: 'As a retailer, partnering with Zar has been one of the best decisions. Their designs sell themselves.',
+    author: 'Rajesh Mehta',
+    role: 'Jewellery Retailer',
+  },
+  {
+    video: '/images/testimonial-video.svg',
+    quote: 'The mangalsutra designs are both modern and traditional. My customers always come back for more.',
+    author: 'Kavita Joshi',
+    role: 'Store Owner',
+  },
+  {
+    video: '/images/testimonial-video.svg',
+    quote: 'Exceptional craftsmanship and timely delivery. Zar has set a new standard in the industry.',
+    author: 'Vikram Singh',
+    role: 'Wholesale Partner',
+  },
+];
 
 export default function TestimonialsSection() {
+  const swiperRef = useRef<SwiperType | null>(null);
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
         <div className={styles.header}>
-          <h2 className={styles.heading}>What Our Retailers Say</h2>
+          <h2 className="fs_54">What Our Retailers Say</h2>
           <p className={styles.subtitle}>
             Hear from our patrons about their journey through our exclusive showcases.
           </p>
         </div>
         <div className={styles.testimonialWrapper}>
-          <div className={styles.sideImage}>
-            <Image
-              src="/images/testimonial-left.svg"
-              alt="Gold bangles"
-              fill
-              sizes="600px"
-            />
-          </div>
-          <div className={styles.centerContent}>
-            <div className={styles.videoWrapper}>
-              <Image
-                src="/images/testimonial-video.svg"
-                alt="Testimonial video"
-                fill
-                sizes="800px"
-              />
-              <div className={styles.playIcon}>
-                <svg viewBox="0 0 60 70" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10 5L55 35L10 65V5Z" />
-                </svg>
-              </div>
-            </div>
-            <div className={styles.quoteBlock}>
-              <Image
-                src="/images/quote-icon.svg"
-                alt=""
-                width={54}
-                height={41}
-                className={styles.quoteIcon}
-              />
-              <p className={styles.quoteText}>
-                &ldquo;The bangles I found at the expo were exactly what I&apos;d been searching for. The craftsmanship is truly world-class.&rdquo;
-              </p>
-              <div className={styles.authorBlock}>
-                <p className={styles.authorName}>Priya Sharma</p>
-                <p className={styles.authorRole}>Bridal Client</p>
-              </div>
-            </div>
-          </div>
-          <div className={styles.sideImage}>
-            <Image
-              src="/images/testimonial-right.svg"
-              alt="Gold bangles"
-              fill
-              sizes="600px"
-            />
-          </div>
+          <Swiper
+            modules={[Autoplay]}
+            slidesPerView={3}
+            centeredSlides
+            loop
+            autoplay={{ delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true }}
+            style={{ width: '100%' }}
+            onSwiper={(swiper: SwiperType) => (swiperRef.current = swiper)}
+            className={styles.testimonialSwiper}
+          >
+            {testimonials.map((testimonial, idx) => (
+              <SwiperSlide key={idx} onClick={() => (swiperRef.current as any)?.slideToLoop(idx)} style={{ cursor: 'pointer' }}>
+                {(slideProps: { isActive: boolean }) => (
+                  <div className={slideProps.isActive ? styles.centerContent : styles.sideImageContent}>
+                    <div className={styles.videoWrapper}>
+                      <Image
+                        src={testimonial.video}
+                        alt="Testimonial video"
+                        fill
+                        sizes="800px"
+                      />
+                      <div className={styles.playIcon}>
+                        <svg viewBox="0 0 60 70" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M10 5L55 35L10 65V5Z" />
+                        </svg>
+                      </div>
+                    </div>
+                    {slideProps.isActive && (
+                      <div className={styles.quoteBlock}>
+                        <Image
+                          src="/images/quote-icon.svg"
+                          alt=""
+                          width={54}
+                          height={41}
+                          className={styles.quoteIcon}
+                        />
+                        <p className={styles.quoteText}>
+                          &ldquo;{testimonial.quote}&rdquo;
+                        </p>
+                        <div className={styles.authorBlock}>
+                          <p className={styles.authorName}>{testimonial.author}</p>
+                          <p className={styles.authorRole}>{testimonial.role}</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </section>

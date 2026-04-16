@@ -65,7 +65,7 @@ export default function InstagramSection() {
             className={styles.instagramIcon}
           />
           <div className={styles.titleBlock}>
-            <h2 className={styles.heading}>Join Our Instagram Community</h2>
+            <h2 className="fs_54">Join Our Instagram Community</h2>
             <p className={styles.subtitle}>
               Discover new designs, upcoming exhibitions, and real moments from our jewellery journey.
             </p>

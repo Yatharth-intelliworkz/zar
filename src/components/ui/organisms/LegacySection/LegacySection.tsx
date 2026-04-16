@@ -21,7 +21,7 @@ export default function LegacySection() {
             </div>
           </div>
           <div className={styles.textBlock}>
-            <h2 className={styles.heading}>A Legacy Forged in Gold</h2>
+            <h2 className="fs_54">A Legacy Forged in Gold</h2>
             <div className={styles.paragraphs}>
               <p>
                 For over 60 years, Zar has been one of India&apos;s leading gold bangle manufacturers. Known for refined design, advanced manufacturing, and uncompromising quality.

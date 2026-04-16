@@ -1,5 +1,5 @@
-@import './variables.css';
-@import './responsive.css';
+@import "./variables.css";
+@import "./responsive.css";
 
 /* ============================================
    ZAR JEWELS — Global Styles
@@ -33,7 +33,12 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   font-weight: var(--fw-semibold);
   color: var(--color-brown);
@@ -49,6 +54,7 @@ a {
 img {
   max-width: 100%;
   height: auto;
+  width: 100%;
   display: block;
 }
 
@@ -61,10 +67,50 @@ button {
   width: fit-content;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
 main {
   flex: 1;
+}
+
+.position-relative {
+  position: relative;
+}
+
+/* utilities */
+.mb_30{
+  margin-bottom: 30px;
+}
+/* utilities */
+
+/* heading css */
+.fs_70{
+  color: var(--color-brown);
+font-family: var(--font-heading);
+font-size: 72px;
+font-style: normal;
+font-weight: 600;
+line-height: 80px; 
+text-transform: uppercase;
+margin-bottom: 30px;
+}
+.fs_54 {
+  color: var(--color-brown);
+  font-family: var(--font-heading);
+  font-size: 54px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 66px;
+  text-transform: uppercase;
+}
+.fs_30{
+  color: var(--color-black);
+font-family: var(--font-body);
+font-size: 30px;
+font-style: normal;
+font-weight: 400;
+line-height: 36px;
 }

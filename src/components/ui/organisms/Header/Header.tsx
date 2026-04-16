@@ -44,12 +44,16 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+
   const openMegaMenu = useCallback(() => {
+    console.log('openMegaMenu called');
     if (megaMenuTimeout.current) clearTimeout(megaMenuTimeout.current);
     setMegaMenuOpen(true);
   }, []);
 
+
   const closeMegaMenu = useCallback(() => {
+    console.log('closeMegaMenu called');
     megaMenuTimeout.current = setTimeout(() => setMegaMenuOpen(false), 200);
   }, []);
 
@@ -60,6 +64,10 @@ export default function Header() {
   const handleMegaMenuLeave = useCallback(() => {
     megaMenuTimeout.current = setTimeout(() => setMegaMenuOpen(false), 200);
   }, []);
+
+  useEffect(() => {
+    console.log('megaMenuOpen state:', megaMenuOpen);
+  }, [megaMenuOpen]);
 
   return (
     <>

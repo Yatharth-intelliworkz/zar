@@ -9,7 +9,7 @@ interface ClientLogoProps {
 export default function ClientLogo({ name, logo }: ClientLogoProps) {
   return (
     <div className={styles.clientLogo}>
-      <Image src={logo} alt={name} width={150} height={60} />
+      <Image src={logo} alt={name} width={200} height={125} />
     </div>
   );
 }

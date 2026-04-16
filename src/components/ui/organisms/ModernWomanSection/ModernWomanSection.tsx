@@ -15,7 +15,7 @@ export default function ModernWomanSection() {
       </div>
       <div className={styles.inner}>
         <div className={styles.textBlock}>
-          <h2 className={styles.heading}>Designed for the{'\n'}Modern Woman</h2>
+          <h2 className="fs_54">Designed for the{'\n'}Modern Woman</h2>
           <div>
             <p className={styles.description}>
               Zar bangles are thoughtfully created for today&apos;s woman—confident, graceful, and contemporary. Lightweight yet luxurious, each design blends elegance with comfort.

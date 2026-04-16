@@ -49,7 +49,7 @@ export default function CollectionShowcase() {
     <section className={styles.section}>
       <div className={styles.inner}>
         <div className={styles.header}>
-          <h2 className={styles.heading}>Signature Gold Bangles</h2>
+          <h2 className="fs_54">Signature Gold Bangles</h2>
           <p className={styles.subtitle}>
             Discover a range of thoughtfully curated designs that balance tradition and modernity.
           </p>

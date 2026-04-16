@@ -12,11 +12,19 @@ interface NavLinkProps {
 }
 
 export default function NavLink({ label, href, hasDropdown, active, onMouseEnter, onMouseLeave }: NavLinkProps) {
+  const handleMouseEnter = () => {
+    console.log('NavLink onMouseEnter', label);
+    if (onMouseEnter) onMouseEnter();
+  };
+  const handleMouseLeave = () => {
+    console.log('NavLink onMouseLeave', label);
+    if (onMouseLeave) onMouseLeave();
+  };
   return (
     <div
       className={styles.wrapper}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <Link href={href} className={cn(styles.navLink, active && styles.active)}>
         {label}

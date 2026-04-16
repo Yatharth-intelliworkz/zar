@@ -1,1 +1,9 @@
 @import '../styles/index.css';
+
+/* Reusable container class for max width */
+.container {
+	width: 100%;
+	max-width: 1600px;
+	margin-left: auto;
+	margin-right: auto;
+}

@@ -14,7 +14,7 @@ export default function FeatureCard({ icon, title, description }: FeatureCardPro
         <Image src={icon} alt={title} width={60} height={60} />
       </div>
       <div className={styles.content}>
-        <h3 className={styles.title}>{title}</h3>
+        <h3 className="fs_30">{title}</h3>
         <p className={styles.description}>{description}</p>
       </div>
     </div>

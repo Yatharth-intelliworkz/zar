@@ -1,6 +1,10 @@
-import ClientLogo from '@/components/ui/molecules/ClientLogo/ClientLogo';
-import styles from './TrustedBrandsSection.module.css';
+"use client";
 
+import ClientLogo from '@/components/ui/molecules/ClientLogo/ClientLogo';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import styles from './TrustedBrandsSection.module.css';
 const brands = [
   { name: 'Senco Gold', logo: '/images/homepage/brand-senco.svg' },
   { name: 'BC Jeweller', logo: '/images/homepage/brand-bcj.svg' },
@@ -21,21 +25,31 @@ export default function TrustedBrandsSection() {
     <section className={styles.section}>
       <div className={styles.inner}>
         <div className={styles.header}>
-          <h2 className={styles.heading}>Trusted Across Generations</h2>
+          <h2 className="fs_54">Trusted Across Generations</h2>
           <p className={styles.subtitle}>
             Zar&apos;s commitment to quality and design has earned the trust of partners and patrons alike. We don&apos;t just sell bangles; we build relationships that last as long as our gold.
           </p>
         </div>
       </div>
       <div className={styles.marquee}>
-        <div className={styles.track}>
-          {brands.map((brand) => (
-            <ClientLogo key={brand.name} name={brand.name} logo={brand.logo} />
+        <Swiper
+          modules={[Autoplay]}
+          spaceBetween={40}
+          slidesPerView="auto"
+          loop={true}
+          speed={3000}
+          autoplay={{
+            delay: 0,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+        >
+          {brands.map((brand, index) => (
+            <SwiperSlide key={index} className={styles.swiperSlide}>
+              <ClientLogo name={brand.name} logo={brand.logo} />
+            </SwiperSlide>
           ))}
-          {brands.map((brand) => (
-            <ClientLogo key={`dup-${brand.name}`} name={brand.name} logo={brand.logo} />
-          ))}
-        </div>
+        </Swiper>
       </div>
     </section>
   );
