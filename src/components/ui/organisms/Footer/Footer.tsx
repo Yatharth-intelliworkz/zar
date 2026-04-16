@@ -37,8 +37,7 @@ export default function Footer() {
               <Image
                 src="/images/zar-logo.svg"
                 alt="Zar Jewels"
-                width={120}
-                height={40}
+                width={150}
                 className={styles.brandLogo}
               />
               <p className={styles.brandText}>

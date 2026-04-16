@@ -10,7 +10,7 @@
 }
 
 .logoImage {
-  width: auto;
-  height: 40px;
+  /* widtx`h: auto; */
+  /* height: 40px; */
   object-fit: contain;
 }

@@ -48,7 +48,7 @@ export default function MegaMenu({ open, onClose }: MegaMenuProps) {
   const categories = categoriesByKt[activeKt] ?? categoriesByKt['22kt'];
 
   const overlayClass = cn(styles.overlay, open && styles.overlayOpen);
-  console.log('MegaMenu open:', open, 'class:', overlayClass);
+  // console.log('MegaMenu open:', open, 'class:', overlayClass);
 
   return (
     <div className={overlayClass}>
@@ -93,6 +93,7 @@ export default function MegaMenu({ open, onClose }: MegaMenuProps) {
               alt="Dazzling Collection"
               fill
               sizes="300px"
+              loading="eager"
             />
           </div>
           <h3 className={styles.featuredTitle}>Dazzling Collection (Stone)</h3>

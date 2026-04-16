@@ -1,11 +1,17 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Allow the homepage and the about page
-  if (pathname === '/' || pathname === '/about') {
+  // Let Next.js handle internal requests, APIs, and static files
+  if (
+    pathname === '/' ||
+    pathname === '/about' ||
+    pathname.startsWith('/_next') ||
+    pathname.startsWith('/api') ||
+    pathname.includes('.')
+  ) {
     return NextResponse.next();
   }
 
@@ -19,6 +25,6 @@ export function middleware(request: NextRequest) {
 // and ignored for static files, APIs, and Next.js internal calls.
 export const config = {
   matcher: [
-    '/((?!api|_next/static|_next/image|favicon.ico|.*\\.).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico).*)',
   ],
 };

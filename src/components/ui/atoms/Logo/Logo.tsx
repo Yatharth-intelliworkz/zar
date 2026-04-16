@@ -10,7 +10,7 @@ export default function Logo() {
           src="/images/zar-logo.svg"
           alt="Zar Jewels"
           width={150}
-          height={50}
+          height={40}
           priority
           className={styles.logoImage}
         />

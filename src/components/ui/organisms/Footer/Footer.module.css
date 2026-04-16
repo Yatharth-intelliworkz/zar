@@ -84,8 +84,8 @@
 }
 
 .brandLogo {
-  width: auto;
-  height: 40px;
+  width: 150px;
+  height: 60px;
   object-fit: contain;
 }
 
