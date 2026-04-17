@@ -16,7 +16,7 @@
 
 .primary {
   background-color: var(--color-black);
-  color: var(--color-white);
+  color: var(--color-white)!important;
 }
 
 .primary:hover {

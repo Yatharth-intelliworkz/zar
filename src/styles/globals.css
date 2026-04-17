@@ -82,31 +82,38 @@ main {
 
 /* utilities */
 .container {
-	width: 100%;
-	max-width: 1600px;
-	margin-left: auto;
-	margin-right: auto;
+  width: 100%;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.mb_30{
+.mb_30 {
   margin-bottom: 30px;
 }
-.mt-100{
+
+.mt-100 {
   margin-top: 100px;
 }
+
+.txt_center {
+  text-align: center;
+}
+
 /* utilities */
 
 /* heading css */
-.fs_70{
+.fs_70 {
   color: var(--color-brown);
-font-family: var(--font-heading);
-font-size: 72px;
-font-style: normal;
-font-weight: 600;
-line-height: 80px; 
-text-transform: uppercase;
-margin-bottom: 30px;
+  font-family: var(--font-heading);
+  font-size: 72px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 80px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
 }
+
 .fs_54 {
   color: var(--color-brown);
   font-family: var(--font-heading);
@@ -116,11 +123,12 @@ margin-bottom: 30px;
   line-height: 66px;
   text-transform: uppercase;
 }
-.fs_30{
+
+.fs_30 {
   color: var(--color-black);
-font-family: var(--font-body);
-font-size: 30px;
-font-style: normal;
-font-weight: 400;
-line-height: 36px;
+  font-family: var(--font-body);
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 36px;
 }

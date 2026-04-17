@@ -26,7 +26,7 @@ export default function Footer() {
           <div className={styles.quoteInner}>
             <span className={styles.quoteMarkLeft}>&ldquo;</span>
             <p className={styles.quoteText}>Excellence is not a skill, it&apos;s an attitude</p>
-            <span className={styles.quoteMarkRight}>&rdquo;</span>
+            <span className={styles.quoteMarkRight}>&ldquo;</span>
           </div>
         </div>
 
@@ -103,23 +103,65 @@ export default function Footer() {
               <h4 className={styles.linksTitle}>Contact</h4>
               <ul className={styles.contactList}>
                 <li className={styles.contactItem}>
-                  <svg className={styles.contactIcon} viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15.75 7.5C15.75 12.75 9 17.25 9 17.25S2.25 12.75 2.25 7.5a6.75 6.75 0 1 1 13.5 0Z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                    <path d="M9 9.75a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5Z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  <svg 
+    className={styles.contactIcon} 
+    width="19" 
+    height="25" 
+    viewBox="0 0 19 25" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <path 
+        fillRule="evenodd" 
+        clipRule="evenodd" 
+        d="M3.00112 2.97887C4.70732 1.32628 6.76248 0.5 9.16667 0.5C11.5709 0.5 13.6163 1.31689 15.3031 2.9507C16.9899 4.58451 17.8333 6.56572 17.8333 8.89437C17.8333 10.0587 17.5328 11.392 16.9318 12.8944C16.3307 14.3967 15.6037 15.8052 14.7506 17.1197C13.8975 18.4343 13.0541 19.6643 12.2204 20.8099C11.3866 21.9554 10.679 22.8662 10.0973 23.5423L9.16667 24.5C8.934 24.2371 8.62379 23.8897 8.23602 23.4577C7.84825 23.0258 7.15027 22.162 6.14206 20.8662C5.13385 19.5704 4.25168 18.3122 3.49553 17.0915C2.73937 15.8709 2.05108 14.4906 1.43065 12.9507C0.810213 11.4108 0.5 10.0587 0.5 8.89437C0.5 6.56572 1.3337 4.5939 3.00112 2.97887Z" 
+        stroke="#D0B480" 
+        strokeLinecap="round" 
+        strokeLinejoin="round"
+    />
+    <path 
+        d="M10.5 9.16667C10.5 9.90305 9.90305 10.5 9.16667 10.5C8.43029 10.5 7.83333 9.90305 7.83333 9.16667C7.83333 8.43029 8.43029 7.83333 9.16667 7.83333C9.90305 7.83333 10.5 8.43029 10.5 9.16667Z" 
+        stroke="#D0B480" 
+        strokeLinecap="round" 
+        strokeLinejoin="round"
+    />
+</svg>
                   <span>Ground floor, Peninsula spenta, Mathuradas mill compound, N. M. Joshi Marg, Lower Parel(W), Mumbai - 400 013.</span>
                 </li>
                 <li className={styles.contactItem}>
-                  <svg className={styles.contactIcon} viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 3h12c.825 0 1.5.675 1.5 1.5v9c0 .825-.675 1.5-1.5 1.5H3c-.825 0-1.5-.675-1.5-1.5v-9C1.5 3.675 2.175 3 3 3Z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                    <path d="M16.5 4.5 9 9.75 1.5 4.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  <svg 
+    className={styles.contactIcon} 
+    width="25" 
+    height="20" 
+    viewBox="0 0 25 20" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <path 
+        d="M0.5 4.5L12.145 12.2633C12.36 12.4066 12.64 12.4066 12.855 12.2633L24.5 4.5M1.14 19.1667H23.86C24.2135 19.1667 24.5 18.8801 24.5 18.5267V1.14C24.5 0.786538 24.2135 0.5 23.86 0.5H1.14C0.786538 0.5 0.5 0.786537 0.5 1.14V18.5267C0.5 18.8801 0.786537 19.1667 1.14 19.1667Z" 
+        stroke="#D0B480" 
+        strokeLinecap="round" 
+        strokeLinejoin="round"
+    />
+</svg>
                   <span>info@zarjewels.com</span>
                 </li>
                 <li className={styles.contactItem}>
-                  <svg className={styles.contactIcon} viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16.5 12.69v2.25a1.5 1.5 0 0 1-1.635 1.5A14.843 14.843 0 0 1 8.4 13.905a14.625 14.625 0 0 1-4.5-4.5A14.843 14.843 0 0 1 1.365 2.96 1.5 1.5 0 0 1 2.85 1.335h2.25a1.5 1.5 0 0 1 1.5 1.29c.095.72.27 1.428.525 2.108a1.5 1.5 0 0 1-.337 1.583l-.953.953a12 12 0 0 0 4.5 4.5l.952-.953a1.5 1.5 0 0 1 1.583-.337c.68.254 1.388.43 2.108.525a1.5 1.5 0 0 1 1.29 1.527l.232-.001Z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  <svg 
+    className={styles.contactIcon} 
+    width="25" 
+    height="25" 
+    viewBox="0 0 25 25" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <path 
+        d="M0.500246 2.38746C0.81717 14.0176 10.9824 24.1828 22.6125 24.4998C22.9367 24.5086 23.217 24.2785 23.2806 23.9604L24.4867 17.9299C24.5469 17.629 24.3983 17.3251 24.1239 17.1879L19.4269 14.8394C19.1328 14.6924 18.7756 14.7767 18.5783 15.0397L16.997 17.1482C16.8685 17.3195 16.6676 17.4255 16.4559 17.3934C13.6009 16.9598 8.04024 11.3991 7.60663 8.54412C7.57448 8.3324 7.68052 8.1315 7.85184 8.00301L9.96027 6.42169C10.2233 6.2244 10.3076 5.86723 10.1606 5.57314L7.81209 0.876145C7.67488 0.601727 7.37098 0.453094 7.07013 0.513264L1.03956 1.71938C0.721545 1.78298 0.491412 2.06326 0.500246 2.38746Z" 
+        stroke="#D0B480" 
+        strokeLinecap="round" 
+        strokeLinejoin="round"
+    />
+</svg>
                   <span>Office No. : +91 86574 99151</span>
                 </li>
               </ul>

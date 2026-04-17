@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import Button from '@/components/ui/atoms/Button/Button';
 import styles from './MegaMenu.module.css';
 import { cn } from '@/lib/utils';
 
@@ -97,14 +98,17 @@ export default function MegaMenu({ open, onClose }: MegaMenuProps) {
             />
           </div>
           <h3 className={styles.featuredTitle}>Dazzling Collection (Stone)</h3>
-          <Link href="/collections/dazzling" className={styles.featuredButton} onClick={onClose}>
+          {/* <Link href="/collections/dazzling" className={styles.featuredButton}>
             Explore Collection
             <span className={styles.featuredArrow}>
               <svg viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 5H12M8.5 1L12.5 5L8.5 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </span>
-          </Link>
+          </Link> */}
+          <Button href="/collections/dazzling"  variant="primary" showArrow>
+            Explore Collections
+          </Button>
         </div>
       </div>
     </div>

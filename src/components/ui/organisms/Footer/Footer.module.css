@@ -188,13 +188,13 @@
   gap: 10px;
   font-family: var(--font-body);
   font-size: 18px;
-  line-height: 36px;
+  line-height: 26px;
   color: var(--color-white);
 }
 
 .contactIcon {
-  width: 16px;
-  height: 16px;
+  width: 19px;
+  height: 20px;
   flex-shrink: 0;
   margin-top: 3px;
   color: var(--color-gold-primary);

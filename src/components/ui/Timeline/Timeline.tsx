@@ -16,31 +16,31 @@ const timelineData: TimelineItem[] = [
     year: '1950',
     title: '1950',
     description: 'The journey begins with Girdharlal & Bros, focusing on specialised gold bangle manufacturing.',
-    image: '/images/homepage/about_home.webp',
+    image: '/images/about/about_5.webp',
   },
   {
     year: '1975',
     title: '1975',
     description: 'Expansion of craftsmanship techniques and establishing a reputation for quality across the region.',
-    image: '/images/homepage/about_home.webp',
+    image: '/images/about/about_5.webp',
   },
   {
     year: '2007',
     title: '2007',
     description: 'Modernisation of manufacturing processes while preserving traditional artistry and heritage.',
-    image: '/images/homepage/about_home.webp',
+    image: '/images/about/about_5.webp',
   },
   {
     year: '2020',
     title: '2020',
     description: 'ZAR is born — a modern brand built on heritage, precision, and innovation in gold bangle design.',
-    image: '/images/homepage/about_home.webp',
+    image: '/images/about/about_5.webp',
   },
   {
     year: '2021',
     title: '2021',
     description: 'ZAR establishes itself as a leader in gold bangle manufacturing, serving partners across India.',
-    image: '/images/homepage/about_home.webp',
+    image: '/images/about/about_5.webp',
   },
 ];
 

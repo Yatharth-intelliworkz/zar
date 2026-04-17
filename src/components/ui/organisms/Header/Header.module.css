@@ -52,7 +52,7 @@
   position: relative;
 }
 
-.menuList a {
+.menuList li a {
   display: flex;
   align-items: center;
   gap: 8px;

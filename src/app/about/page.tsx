@@ -10,13 +10,6 @@ export const metadata = {
   description: 'Discover the legacy behind Zar Jewels  over 60 years of crafting the finest gold bangles in India.',
 };
 
-const collections = [
-  { id: 'classic', name: 'Classic', image: '/images/collection-1.svg' },
-  { id: 'dazzling', name: 'Dazzling', image: '/images/collection-2.svg' },
-  { id: 'heritage', name: 'Heritage', image: '/images/collection-3.svg' },
-  { id: 'bridal', name: 'Bridal', image: '/images/collection-1.svg' },
-];
-
 export default function AboutPage() {
 
   return (
@@ -26,12 +19,12 @@ export default function AboutPage() {
         heading="THE STORY OF ZAR"
         description="Crafting timeless gold bangles through generations of heritage, precision, and design."
       />
-      <div style={{ width: '100%', position: 'relative', height: 300, marginBottom: 40 }}>
+      <div style={{ width: '100%', position: 'relative', height: 400, margin: '40px 0' }}>
         <Image
-          src="/images/about-banner.png"
+          src="/images/about/about_banner.webp"
           alt="Crafting gold bangle"
           fill
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: 'contain' }}
           priority
         />
       </div>
@@ -53,10 +46,10 @@ export default function AboutPage() {
         <div className="container">
           <div className={styles.storyGrid}>
             <div className={styles.storyImageWrapper}>
-              <Image src="/images/homepage/about_home.webp" alt="Zar team at work" fill className={styles.storyImage} />
+              <Image src="/images/about/about_1.webp" alt="Zar team at work" fill className={styles.storyImage} />
             </div>
             <div className={styles.storyTextBlock}>
-              <h2 className="fs_54">OUR STORY</h2>
+              <h2 className={`fs_54 ${styles.margin_fs_54}`}>OUR STORY</h2>
               <p>
                 The journey of ZAR draws inspiration from the vision of Bhima Bhattar, a pioneering jeweller whose commitment to honesty and craftsmanship shaped one of India&apos;s most respected jewellery traditions.
               </p>
@@ -79,13 +72,13 @@ export default function AboutPage() {
         <div className="container">
           <div className={styles.legacyGrid}>
             <div className={styles.legacyTextBlock}>
-              <h2 className="fs_54">LEGACY THAT BUILT THE FOUNDATION</h2>
+              <h2 className={`fs_54 ${styles.margin_fs_54}`}>LEGACY THAT BUILT THE FOUNDATION</h2>
               <p>
                 Our legacy is built on decades of dedication, expert craftsmanship, and a relentless pursuit of perfection. Every piece we create is a testament to the values and vision that have guided us since the beginning.
               </p>
             </div>
             <div className={styles.legacyImageWrapper}>
-              <Image src="/images/homepage/about_home.webp" alt="Zar founders and team" fill className={styles.legacyImage} />
+              <Image src="/images/about/about_2.webp" alt="Zar founders and team" fill className={styles.legacyImage} />
             </div>
           </div>
         </div>
@@ -159,7 +152,7 @@ export default function AboutPage() {
       {/* Our Values Section */}
       <section className={styles.valuesSection}>
         <div className="container">
-          <h2 className="fs_54">OUR VALUES</h2>
+          <h2 className="fs_54 txt_center">OUR VALUES</h2>
           <p className={styles.valuesSectionSubtitle}>Timeless craftsmanship, uncompromising quality, and trust carried through generations.</p>
           <div className={styles.valuesGrid}>
             <div className={styles.valueCard}>
@@ -235,14 +228,14 @@ export default function AboutPage() {
         <div className="container">
           <div className={styles.legacyGrid}>
             <div className={styles.legacyTextBlock}>
-              <h2 className="fs_54">Our Philosophy</h2>
+              <h2 className={`fs_54 ${styles.margin_fs_54}`}>Our Philosophy</h2>
               <p>Crafted with Care. Built to Scale.</p>
               <p>At ZAR, craftsmanship and precision go hand in hand.</p>
               <p>Traditional expertise is combined with modern manufacturing to create gold bangles that are refined, consistent, and elegant.</p>
               <p>This approach allows ZAR to grow while remaining true to its craft.</p>
             </div>
             <div className={styles.legacyImageWrapper}>
-              <Image src="/images/homepage/about_home.webp" alt="Zar founders and team" fill className={styles.legacyImage} />
+              <Image src="/images/about/about_4.webp" alt="Zar founders and team" fill className={styles.legacyImage} />
             </div>
           </div>
         </div>
@@ -257,7 +250,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div>
-              <h2 className="fs_54">
+              <h2 className={`fs_54 ${styles.margin_fs_54}`}>
                 Design & Finish
               </h2>
               <p>Excellence in Every Detail</p>
@@ -265,35 +258,6 @@ export default function AboutPage() {
               <p>Our artisans and designers work together to create bangles defined by balance, elegance, and precision.</p>
               <p>Every piece is finished with meticulous care, reflecting the craftsmanship that defines the ZAR legacy.</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Collections Grid Section */}
-      <section className={styles.collectionsSection}>
-        <div className="container">
-          <h2 className="fs_54">Our Collections</h2>
-          <p className={styles.collectionsSubtitle}>Explore our curated selection of timeless designs</p>
-          <div className={styles.collectionsGrid}>
-            {collections.map((collection) => (
-              <Link
-                key={collection.id}
-                href={`/collections/${collection.id}`}
-                className={styles.collectionCard}
-              >
-                <div className={styles.collectionCardImage}>
-                  <Image
-                    src={collection.image}
-                    alt={collection.name}
-                    fill
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                  />
-                </div>
-                <div className={styles.collectionCardOverlay}>
-                  <h3 className={styles.collectionCardName}>{collection.name}</h3>
-                </div>
-              </Link>
-            ))}
           </div>
         </div>
       </section>

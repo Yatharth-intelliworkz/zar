@@ -14,8 +14,8 @@ export default function CollectionCard({ name, image, href, active = false }: Co
   return (
     <Link href={href} className={cn(styles.card, active && styles.cardActive)}>
       <div className={styles.imageWrapper}>
-        <div className={styles.circleOuter} />
-        <div className={styles.circleInner} />
+        {/* <div className={styles.circleOuter} />
+        <div className={styles.circleInner} /> */}
         <Image
           src={image}
           alt={name}
