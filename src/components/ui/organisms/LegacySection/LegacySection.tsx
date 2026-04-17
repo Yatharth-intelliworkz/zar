@@ -22,40 +22,42 @@ const textVariants = {
 
 export default function LegacySection() {
   return (
-    <section className={styles.section}>
-      <div className={styles.inner}>
-        <motion.div 
-          className={styles.grid}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={containerVariants}
-        >
-          <div className={styles.imageBlock}>
-            <motion.div className={styles.mainImage} variants={imageVariants}>
-              <Image
-                src="/images/homepage/about_home.webp"
-                alt="Gold bangle craftsmanship"
-                fill
-                sizes="(max-width: 1024px) 100vw, 800px"
-              />
-            </motion.div>            
-            <motion.div className={styles.statOverlay} variants={imageVariants}>
-              <StatCard value="60+" label="Years of Excellence" animate />
-            </motion.div>
-          </div>
-          <div className={styles.textBlock}>
-            <motion.h2 className="fs_54" variants={textVariants}>A Legacy Forged in Gold</motion.h2>
-            <motion.div className={styles.paragraphs} variants={textVariants}>
-              <p>
-                For over 60 years, Zar has been one of India&apos;s leading gold bangle manufacturers. Known for refined design, advanced manufacturing, and uncompromising quality.
-              </p>
-              <p>
-                Every Zar bangle reflects a legacy of trust built across generations—a testament to our unwavering commitment to excellence and the art of goldsmithing.
-              </p>
-            </motion.div>
-          </div>
-        </motion.div>
+    <section className={`${styles.section} mt-100`}>
+      <div className="container">
+        <div className={styles.inner}>
+          <motion.div 
+            className={styles.grid}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={containerVariants}
+          >
+            <div className={styles.imageBlock}>
+              <motion.div className={styles.mainImage} variants={imageVariants}>
+                <Image
+                  src="/images/homepage/about_home.webp"
+                  alt="Gold bangle craftsmanship"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 800px"
+                />
+              </motion.div>            
+              <motion.div className={styles.statOverlay} variants={imageVariants}>
+                <StatCard value="60+" label="Years of Excellence" animate />
+              </motion.div>
+            </div>
+            <div className={styles.textBlock}>
+              <motion.h2 className="fs_54" variants={textVariants}>A Legacy Forged in Gold</motion.h2>
+              <motion.div className={styles.paragraphs} variants={textVariants}>
+                <p>
+                  For over 60 years, Zar has been one of India&apos;s leading gold bangle manufacturers. Known for refined design, advanced manufacturing, and uncompromising quality.
+                </p>
+                <p>
+                  Every Zar bangle reflects a legacy of trust built across generations—a testament to our unwavering commitment to excellence and the art of goldsmithing.
+                </p>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

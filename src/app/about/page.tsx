@@ -1,6 +1,7 @@
 
 import styles from './page.module.css';
 import Image from 'next/image';
+import Link from 'next/link';
 import PageHeader from '@/components/ui/PageHeader/PageHeader';
 import Timeline from '@/components/ui/Timeline/Timeline';
 
@@ -8,6 +9,13 @@ export const metadata = {
   title: 'Story of Zar  Zar Jewels',
   description: 'Discover the legacy behind Zar Jewels  over 60 years of crafting the finest gold bangles in India.',
 };
+
+const collections = [
+  { id: 'classic', name: 'Classic', image: '/images/collection-1.svg' },
+  { id: 'dazzling', name: 'Dazzling', image: '/images/collection-2.svg' },
+  { id: 'heritage', name: 'Heritage', image: '/images/collection-3.svg' },
+  { id: 'bridal', name: 'Bridal', image: '/images/collection-1.svg' },
+];
 
 export default function AboutPage() {
 
@@ -257,6 +265,35 @@ export default function AboutPage() {
               <p>Our artisans and designers work together to create bangles defined by balance, elegance, and precision.</p>
               <p>Every piece is finished with meticulous care, reflecting the craftsmanship that defines the ZAR legacy.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Collections Grid Section */}
+      <section className={styles.collectionsSection}>
+        <div className="container">
+          <h2 className="fs_54">Our Collections</h2>
+          <p className={styles.collectionsSubtitle}>Explore our curated selection of timeless designs</p>
+          <div className={styles.collectionsGrid}>
+            {collections.map((collection) => (
+              <Link
+                key={collection.id}
+                href={`/collections/${collection.id}`}
+                className={styles.collectionCard}
+              >
+                <div className={styles.collectionCardImage}>
+                  <Image
+                    src={collection.image}
+                    alt={collection.name}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                </div>
+                <div className={styles.collectionCardOverlay}>
+                  <h3 className={styles.collectionCardName}>{collection.name}</h3>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

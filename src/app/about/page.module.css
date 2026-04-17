@@ -296,4 +296,104 @@
     grid-template-columns: 1fr 1fr;
     gap: 20px;
   }
+
+  .collectionsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Collections Section */
+.collectionsSection {
+  padding: 80px 0;
+  background-color: #fafafa;
+}
+
+.collectionsSection h2 {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.collectionsSubtitle {
+  text-align: center;
+  font-size: var(--fs-base);
+  line-height: 26px;
+  color: var(--color-gray-600);
+  margin-bottom: 50px;
+}
+
+.collectionsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.collectionCard {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.collectionCard:hover {
+  transform: translateY(-8px);
+}
+
+.collectionCardImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+.collectionCardImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.collectionCard:hover .collectionCardImage img {
+  transform: scale(1.05);
+}
+
+.collectionCardOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  padding: 20px;
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+  justify-content: center;
+}
+
+.collectionCardName {
+  font-family: var(--font-heading);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  color: white;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .collectionsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .collectionsGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .collectionCard {
+    max-width: 100%;
+  }
 }

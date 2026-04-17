@@ -3,22 +3,11 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import Logo from '@/components/ui/atoms/Logo/Logo';
-import NavLink from '@/components/ui/molecules/NavLink/NavLink';
 import Button from '@/components/ui/atoms/Button/Button';
 import MegaMenu from '@/components/ui/organisms/MegaMenu/MegaMenu';
 import EnquiryModal from '@/components/ui/organisms/EnquiryModal/EnquiryModal';
 import styles from './Header.module.css';
 import { cn } from '@/lib/utils';
-import type { NavItem } from '@/types';
-
-const navItems: NavItem[] = [
-  { label: 'Story of Zar', href: '/about' },
-  { label: 'Collections', href: '/collections', hasDropdown: true },
-  { label: 'Our Clientele', href: '/clientele' },
-  { label: 'Become a Partner', href: '/partner' },
-  { label: 'Careers', href: '/careers' },
-  { label: 'Contact', href: '/contact' },
-];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -46,15 +35,12 @@ export default function Header() {
 
 
   const openMegaMenu = useCallback(() => {
-    // console.log('openMegaMenu called');
     if (megaMenuTimeout.current) clearTimeout(megaMenuTimeout.current);
     setMegaMenuOpen(true);
   }, []);
 
-
   const closeMegaMenu = useCallback(() => {
-    // console.log('closeMegaMenu called');
-    megaMenuTimeout.current = setTimeout(() => setMegaMenuOpen(false), 200);
+    megaMenuTimeout.current = setTimeout(() => setMegaMenuOpen(false), 100);
   }, []);
 
   const handleMegaMenuEnter = useCallback(() => {
@@ -62,7 +48,7 @@ export default function Header() {
   }, []);
 
   const handleMegaMenuLeave = useCallback(() => {
-    megaMenuTimeout.current = setTimeout(() => setMegaMenuOpen(false), 200);
+    megaMenuTimeout.current = setTimeout(() => setMegaMenuOpen(false), 100);
   }, []);
 
   useEffect(() => {
@@ -76,14 +62,45 @@ export default function Header() {
           <Logo />
           <div className={styles.nav}>
             <nav className={styles.navLinks}>
-              {navItems.map((item) => (
-                <NavLink
-                  key={item.href}
-                  {...item}
-                  onMouseEnter={item.hasDropdown ? openMegaMenu : undefined}
-                  onMouseLeave={item.hasDropdown ? closeMegaMenu : undefined}
-                />
-              ))}
+              <ul className={styles.menuList}>
+                <li>
+                  <a href="/about">Story of Zar</a>
+                </li>
+                <li
+                  className={styles.collectionsItem}
+                  onMouseEnter={openMegaMenu}
+                  onMouseLeave={closeMegaMenu}
+                >
+                  <a href="/collections">
+                    Collections
+                    <span className={styles.chevron}>
+                      <svg viewBox="0 0 11 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L5.5 5L10 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                  </a>
+                  <div className={styles.dropdown}>
+                    <div
+                      onMouseEnter={handleMegaMenuEnter}
+                      onMouseLeave={handleMegaMenuLeave}
+                    >
+                      <MegaMenu open={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <a href="/clientele">Our Clientele</a>
+                </li>
+                <li>
+                  <a href="/partner">Become a Partner</a>
+                </li>
+                <li>
+                  <a href="/careers">Careers</a>
+                </li>
+                <li>
+                  <a href="/contact">Contact</a>
+                </li>
+              </ul>
             </nav>
             <div className={styles.cta}>
               <Button variant="primary" showArrow onClick={() => setEnquiryOpen(true)}>
@@ -103,24 +120,15 @@ export default function Header() {
         </div>
       </header>
 
-      <div
-        onMouseEnter={handleMegaMenuEnter}
-        onMouseLeave={handleMegaMenuLeave}
-      >
-        <MegaMenu open={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />
-      </div>
-
       <div className={cn(styles.mobileMenu, menuOpen && styles.mobileMenuOpen)}>
-        {navItems.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className={styles.mobileNavLink}
-            onClick={() => setMenuOpen(false)}
-          >
-            {item.label}
-          </Link>
-        ))}
+        <ul className={styles.mobileMenuList}>
+          <li><Link href="/about">Story of Zar</Link></li>
+          <li><Link href="/collections">Collections</Link></li>
+          <li><Link href="/clientele">Our Clientele</Link></li>
+          <li><Link href="/partner">Become a Partner</Link></li>
+          <li><Link href="/careers">Careers</Link></li>
+          <li><Link href="/contact">Contact</Link></li>
+        </ul>
         <Button variant="primary" showArrow onClick={() => { setMenuOpen(false); setEnquiryOpen(true); }}>
           Enquire Now
         </Button>
