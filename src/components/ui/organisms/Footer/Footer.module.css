@@ -48,7 +48,10 @@
   line-height: 80px;
   color: var(--color-gold-accent);
 }
-
+.quoteMarkRight{
+   -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
 .quoteText {
   font-family: var(--font-heading);
   font-size: var(--fs-3xl);
