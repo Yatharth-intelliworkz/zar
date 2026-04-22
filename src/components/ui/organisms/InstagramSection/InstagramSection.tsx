@@ -55,7 +55,7 @@ export default function InstagramSection() {
   const progress = maxIndex > 0 ? currentIndex / maxIndex : 0;
 
   return (
-    <section className={styles.section}>
+    <section className="mt-100">
       <div className={styles.inner}>
         <motion.div 
           className={styles.header}

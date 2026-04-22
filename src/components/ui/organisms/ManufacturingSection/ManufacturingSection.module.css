@@ -60,14 +60,6 @@
   text-align: center;
 }
 
-.description {
-  font-family: var(--font-body);
-  font-size: var(--fs-base);
-  font-weight: var(--fw-regular);
-  line-height: 32px;
-  color: var(--color-white);
-}
-
 .textBlock button {
   margin-inline: auto;
 }

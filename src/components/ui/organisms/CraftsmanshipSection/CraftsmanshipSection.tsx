@@ -29,7 +29,7 @@ const features = [
 
 export default function CraftsmanshipSection() {
   return (
-    <section className={styles.section}>
+    <section className="mt-100">
       <motion.div 
         className={styles.inner}
         initial={{ opacity: 0, scale: 0.95, rotate: -1 }}

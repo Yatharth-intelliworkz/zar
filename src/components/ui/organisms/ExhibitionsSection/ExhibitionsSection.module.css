@@ -2,6 +2,7 @@
   position: relative;
   padding: 100px 20px 120px;
   overflow: hidden;
+  color: var(--color-white)!important;
 }
 
 .backgroundImage {
@@ -50,12 +51,6 @@
   text-transform: uppercase;
 }
 
-.subtitle {
-  font-family: var(--font-body);
-  font-size: var(--fs-base);
-  line-height: 26px;
-  color: rgba(255, 255, 255, 0.8);
-}
 
 /* Event card */
 .eventCard {
@@ -88,14 +83,6 @@
   padding: 40px 30px;
 }
 
-.eventTitle {
-  font-family: var(--font-heading);
-  font-size: var(--fs-md);
-  font-weight: var(--fw-semibold);
-  line-height: 32px;
-  color: var(--color-white);
-}
-
 .eventMeta {
   display: flex;
   flex-direction: column;
@@ -106,10 +93,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-body);
-  font-size: var(--fs-xs);
-  line-height: 20px;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--color-white);
 }
 
 .metaIcon {
@@ -119,12 +103,6 @@
   color: var(--color-gold-primary);
 }
 
-.eventDescription {
-  font-family: var(--font-body);
-  font-size: var(--fs-xs);
-  line-height: 22px;
-  color: rgba(255, 255, 255, 0.7);
-}
 
 @media (min-width: 1024px) {
   .section {

@@ -59,19 +59,16 @@
 
 .heading {
   font-family: var(--font-heading);
-  font-size: 48px;
+  font-size: 72px;
   font-weight: var(--fw-semibold);
-  line-height: 56px;
+  line-height: 80px;
   color: var(--color-white);
+  text-transform: uppercase;
 }
 
 .subtitle {
-  font-family: var(--font-body);
-  font-size: var(--fs-base);
-  font-weight: var(--fw-regular);
-  line-height: 26px;
   color: var(--color-white);
-  max-width: 525px;
+  max-width: 80%;
 }
 
 /* Dot pagination */
@@ -110,10 +107,6 @@
     padding: 0 40px;
   }
 
-  .heading {
-    font-size: 60px;
-    line-height: 68px;
-  }
 }
 
 @media (min-width: 1024px) {
@@ -121,10 +114,6 @@
     padding: 0 60px;
   }
 
-  .heading {
-    font-size: var(--fs-4xl);
-    line-height: 80px;
-  }
 }
 
 @media (min-width: 1440px) {

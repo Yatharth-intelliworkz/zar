@@ -6,7 +6,7 @@ import styles from './ManufacturingSection.module.css';
 
 export default function ManufacturingSection() {
   return (
-    <section className={styles.section}>
+    <section className={`${styles.section} mt-100`}>
       <motion.video
         className={styles.backgroundVideo}
         autoPlay
@@ -28,7 +28,7 @@ export default function ManufacturingSection() {
         >
           <h2 className={styles.heading}>Manufacturing Strength</h2>
           <div className={styles.textBlock}>
-            <p className={styles.description}>
+            <p className="txt_white">
               With advanced infrastructure and experienced teams, Zar delivers consistency, quality, and reliability at scale—making us a trusted manufacturing partner for retailers nationwide.
             </p>
             <Button href="/partner" variant="outline" showArrow>

@@ -40,10 +40,6 @@
 }
 
 .description {
-  font-family: var(--font-body);
-  font-size: var(--fs-base);
-  line-height: 26px;
-  color: var(--color-gray-600);
   margin-bottom: 40px;
 }
 

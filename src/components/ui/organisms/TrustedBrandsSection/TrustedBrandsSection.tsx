@@ -23,7 +23,7 @@ const brands = [
 
 export default function TrustedBrandsSection() {
   return (
-    <section className={styles.section}>
+    <section className="mt-100">
       <div className={styles.inner}>
         <motion.div 
           className={styles.header}
@@ -33,7 +33,7 @@ export default function TrustedBrandsSection() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <h2 className="fs_54">Trusted Across Generations</h2>
-          <p className={styles.subtitle}>
+          <p className="">
             Zar&apos;s commitment to quality and design has earned the trust of partners and patrons alike. We don&apos;t just sell bangles; we build relationships that last as long as our gold.
           </p>
         </motion.div>

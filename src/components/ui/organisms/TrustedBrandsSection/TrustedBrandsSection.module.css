@@ -26,16 +26,9 @@
   color: var(--color-brown);
 }
 
-.subtitle {
-  font-size: var(--fs-base);
-  line-height: 26px;
-  color: var(--color-gray-600);
-  max-width: 1354px;
-}
-
 .marquee {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
+  margin-top: 50px;
+  width: 100dvw;
   overflow: hidden;
 }
 

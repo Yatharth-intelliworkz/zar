@@ -22,7 +22,7 @@ const textVariants = {
 
 export default function LegacySection() {
   return (
-    <section className={`${styles.section} mt-100`}>
+    <section className="mt-100">
       <div className="container">
         <div className={styles.inner}>
           <motion.div 

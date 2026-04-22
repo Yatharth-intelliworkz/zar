@@ -1,8 +1,15 @@
 import styles from './PageHeader.module.css';
 import React from 'react';
+import Link from 'next/link';
+
+interface BreadcrumbItem {
+  label: string;
+  href?: string;
+  isActive?: boolean;
+}
 
 interface PageHeaderProps {
-  breadcrumbs: React.ReactNode;
+  breadcrumbs: BreadcrumbItem[];
   heading: string;
   description?: string;
 }
@@ -10,9 +17,24 @@ interface PageHeaderProps {
 export default function PageHeader({ breadcrumbs, heading, description }: PageHeaderProps) {
   return (
     <div className="container">
-      <div className={styles.breadcrumbs}>{breadcrumbs}</div>
+      <div className={styles.breadcrumbs}>
+        {breadcrumbs.map((item, index) => (
+          <React.Fragment key={index}>
+            {item.isActive ? (
+              <span className={styles.active}>{item.label}</span>
+            ) : (
+              <>
+                <Link href={item.href || '/'} className={styles.link}>
+                  {item.label}
+                </Link>
+                <span className={styles.separator}> | </span>
+              </>
+            )}
+          </React.Fragment>
+        ))}
+      </div>
       <h1 className={styles.heading}>{heading}</h1>
-      {description && <p className={styles.description}>{description}</p>}
+      {description && <p>{description}</p>}
     </div>
   );
 }

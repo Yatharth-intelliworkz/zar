@@ -38,7 +38,7 @@ export default function HeroSection() {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: 5000, stopOnInteraction: true }),
+    // Autoplay({ delay: 5000, stopOnInteraction: true }),
   ]);
 
   const onSelect = useCallback(() => {

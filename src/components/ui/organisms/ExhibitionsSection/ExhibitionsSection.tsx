@@ -26,8 +26,8 @@ export default function ExhibitionsSection() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           viewport={{ once: true, amount: 0.2 }}
         >
-          <h2 className={styles.heading}>Upcoming Exhibitions</h2>
-          <p className={styles.subtitle}>
+          <h2 className="fs_54 txt_white">Upcoming Exhibitions</h2>
+          <p className="txt_white">
             Discover our latest jewellery showcases and exclusive retail partner events.
           </p>
         </motion.div>
@@ -48,7 +48,7 @@ export default function ExhibitionsSection() {
             />
           </div>
           <div className={styles.eventDetails}>
-            <h3 className={styles.eventTitle}>Watch and Jewellery Show Sharjah</h3>
+            <h3 className="fs_30 txt_white">Watch and Jewellery Show Sharjah</h3>
             <div className={styles.eventMeta}>
               <div className={styles.metaItem}>               
                 <span>08 Apr - 12 Apr 2026</span>

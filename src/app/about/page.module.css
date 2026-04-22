@@ -1,6 +1,4 @@
-.page {
-  padding-top: 80px;
-}
+
 
 .hero {
   position: relative;
@@ -31,8 +29,8 @@
   gap: 60px;
 }
 
-
-.margin_fs_54 {
+.margin_fs_54 {  
+  composes: fs_54 from 'src\styles\globals.css';
   margin-bottom: 60px;
 }
 

@@ -46,7 +46,7 @@ export default function CollectionShowcase() {
   const { prev, next } = getVisibleIndices(activeIndex, total);
 
   return (
-    <section className={styles.section}>
+    <section className="mt-100">
       <div className={styles.inner}>
         <motion.div 
           className={styles.header}

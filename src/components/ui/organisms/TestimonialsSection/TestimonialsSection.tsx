@@ -61,7 +61,7 @@ const testimonials = [
 export default function TestimonialsSection() {
   const swiperRef = useRef<SwiperType | null>(null);
   return (
-    <section className={styles.section}>
+    <section className="mt-100">
       <div className={styles.inner}>
         <motion.div 
           className={styles.header}
@@ -71,7 +71,7 @@ export default function TestimonialsSection() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <h2 className="fs_54">What Our Retailers Say</h2>
-          <p className={styles.subtitle}>
+          <p className="">
             Hear from our patrons about their journey through our exclusive showcases.
           </p>
         </motion.div>

@@ -56,14 +56,6 @@
   gap: 20px;
 }
 
-.paragraphs p {
-  font-family: var(--font-body);
-  font-size: var(--fs-base);
-  font-weight: var(--fw-regular);
-  line-height: 28px;
-  color: var(--color-gray-600);
-}
-
 @media (min-width: 768px) {
 
   .heading {

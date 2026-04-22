@@ -15,7 +15,10 @@ export default function AboutPage() {
   return (
     <div className={styles.page}>
       <PageHeader
-        breadcrumbs={<span>Home | The Story of Zar</span>}
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'The Story of Zar', isActive: true }
+        ]}
         heading="THE STORY OF ZAR"
         description="Crafting timeless gold bangles through generations of heritage, precision, and design."
       />
@@ -33,10 +36,10 @@ export default function AboutPage() {
       <section className={styles.descriptionSection}>
         <div className="container">
           <p>
-            The story of ZAR is rooted in a legacy built on trust, craftsmanship, and enduring relationships.
+            The story of ZAR is rooted in a legacy built on trust, craftsmanship, and enduring relationships.<br/><br/>
           </p>
           <p>
-            Inspired by the heritage of <strong>Bhima Jewellery</strong>, a name long associated with purity and integrity, ZAR represents the evolution of that tradition into a modern expression of gold jewellery. Today, ZAR carries this legacy forward by creating gold bangles that blend <strong>timeless artistry with modern precision</strong>.
+            Inspired by the heritage of <strong className="txt_black">Bhima Jewellery</strong>, a name long associated with purity and integrity, ZAR represents the evolution of that tradition into a modern expression of gold jewellery. Today, ZAR carries this legacy forward by creating gold bangles that blend <strong className="txt_black">timeless artistry with modern precision</strong>.
           </p>
         </div>
       </section>
@@ -49,7 +52,7 @@ export default function AboutPage() {
               <Image src="/images/about/about_1.webp" alt="Zar team at work" fill className={styles.storyImage} />
             </div>
             <div className={styles.storyTextBlock}>
-              <h2 className={`fs_54 ${styles.margin_fs_54}`}>OUR STORY</h2>
+              <h2 className="fs_54">OUR STORY</h2>
               <p>
                 The journey of ZAR draws inspiration from the vision of Bhima Bhattar, a pioneering jeweller whose commitment to honesty and craftsmanship shaped one of India&apos;s most respected jewellery traditions.
               </p>

@@ -6,7 +6,8 @@
   background-color: var(--color-white);
   padding: 20px;
   border: 1px solid var(--color-brown);
-
+  width: 348px;
+  justify-content: space-between;
 }
 
 .value {

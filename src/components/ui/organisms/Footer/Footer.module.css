@@ -1,5 +1,6 @@
 /* ── Base Footer ── */
 .footer {
+  margin-top:120px;
   position: relative;
   color: var(--color-white);
 }
@@ -223,8 +224,6 @@
 
 .copyright {
   font-family: var(--font-body);
-  font-size: var(--fs-xs);
-  line-height: 20px;
   color: var(--color-brown);
 }
 
@@ -236,8 +235,6 @@
 
 .legalLinks a {
   font-family: var(--font-body);
-  font-size: var(--fs-xs);
-  line-height: 20px;
   color: var(--color-brown);
   transition: color var(--transition-fast);
 }
