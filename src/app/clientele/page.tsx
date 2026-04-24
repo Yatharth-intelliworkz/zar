@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import styles from './page.module.css';
+import PageHeader from '@/components/ui/PageHeader/PageHeader';
+import RetailerSlider from '@/components/ui/organisms/RetailerSlider/RetailerSlider';
 
 export const metadata = {
   title: 'Our Clientele — Zar Jewels',
@@ -21,24 +23,39 @@ const clients = [
 
 export default function ClientelePage() {
   return (
-    <div className={styles.page}>
-      <section className={styles.hero}>
-        <h1>Our Clientele</h1>
-      </section>
-      <div className={styles.content}>
-        <div className={styles.intro}>
-          <p className={styles.introText}>
-            Zar&apos;s commitment to quality and design has earned the trust of India&apos;s most prestigious jewellery retailers. We are proud to partner with brands that share our passion for excellence.
-          </p>
-        </div>
-        <div className={styles.logosGrid}>
-          {clients.map((client) => (
-            <div key={client.name} className={styles.logoCard}>
+    <main className={styles.page}>
+      <PageHeader 
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Our Clientele', isActive: true }
+        ]} 
+        heading="Our Clientele" 
+      />
+      
+      <section className={`container mt-100 ${styles.section2}`}>
+        <p className={styles.staticText}>
+          Zar&apos;s commitment to quality and design has earned the trust of India&apos;s most prestigious jewellery retailers. We are proud to partner with brands that share our passion for excellence.
+        </p>
+        <div className={styles.flexBox}>
+          {clients.map((client, i) => (
+            <div key={i} className={styles.logoItem}>
               <Image src={client.logo} alt={client.name} width={160} height={60} />
             </div>
           ))}
         </div>
-      </div>
-    </div>
+      </section>
+
+      <section className={`container mt-100 ${styles.imageSection}`}>
+        <Image 
+          src="/images/Distributor-Testimonials.png" 
+          alt="Distributor Testimonials" 
+          width={1200} 
+          height={600} 
+          className={styles.fullImage}
+        />
+      </section>
+
+      <RetailerSlider />
+    </main>
   );
 }

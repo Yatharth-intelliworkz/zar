@@ -1,83 +1,79 @@
 .page {
-  padding-top: 80px;
+  padding-top: 150px;
+  padding-bottom: 100px;
 }
 
-.hero {
-  position: relative;
-  width: 100%;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-warm-bg);
-}
-
-.hero h1 {
-  font-family: var(--font-heading);
-  font-size: var(--fs-4xl);
-  font-weight: var(--fw-semibold);
-  line-height: 80px;
-  color: var(--color-brown);
-  text-align: center;
-}
-
-.content {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 80px 20px;
+.section2 {
   display: flex;
   flex-direction: column;
   gap: 60px;
 }
 
-.intro {
-  text-align: center;
-}
-
-.introText {
-  font-size: var(--fs-base);
-  line-height: 26px;
-  color: var(--color-gray-600);
+.staticText {
+  font-size: var(--fs-base, 16px);
+  line-height: 1.6;
+  color: var(--color-gray-600, #666);
   max-width: 800px;
+  text-align: center;
   margin: 0 auto;
 }
 
-.logosGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+.flexBox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
 }
 
-.logoCard {
+.logoItem {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-gray-200);
-  padding: 40px;
-  min-height: 150px;
+  background-color: var(--color-gray-200, #f9f9f9);
+  padding: 30px;
+  border-radius: 8px;
+  min-width: 180px;
+  height: 120px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.logoCard img {
-  max-width: 160px;
-  max-height: 60px;
+.logoItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.logoItem img {
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
 }
 
-@media (min-width: 768px) {
-  .logosGrid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+.imageSection {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
-@media (min-width: 1280px) {
-  .logosGrid {
-    grid-template-columns: repeat(5, 1fr);
-  }
+.fullImage {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
 }
 
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 48px;
-    line-height: 56px;
+  .page {
+    padding-top: 100px;
+  }
+  
+  .flexBox {
+    gap: 20px;
+  }
+  
+  .logoItem {
+    min-width: 140px;
+    height: 100px;
+    padding: 20px;
   }
 }

@@ -1,0 +1,215 @@
+/* ── Section ── */
+.section {
+  padding: 70px 0 80px;
+}
+
+/* ── Header ── */
+.hd {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.hd h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #1a1410;
+  margin-bottom: 10px;
+}
+
+.hd p {
+  font-size: 12.5px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: #9a8a7a;
+}
+
+/* ── Outer container ── */
+.outer {
+  margin: 0 auto;
+  padding: 0 24px;
+  overflow: hidden;
+}
+
+/* ── Swiper ── */
+.swiper {
+  overflow: visible !important;
+}
+
+.swiper :global(.swiper-wrapper) {
+  align-items: flex-start !important;
+}
+
+/* ── Slide base (inactive) ── */
+.slide {
+  width: 500px !important;
+  border-radius: 4px;
+  overflow: hidden;
+  opacity: 0.65;
+  cursor: pointer;
+  transition:
+    width   0.55s cubic-bezier(.4,0,.2,1),
+    opacity 0.50s ease,
+    box-shadow 0.50s ease;
+  box-shadow: 0 3px 14px rgba(0,0,0,.10);
+  flex-shrink: 0;
+  position: relative;
+  background: #fff;
+}
+
+/* ── Active slide ──
+   .slide:global() ensures this only targets slides in THIS component  */
+.slide:global(.swiper-slide-active) {
+  width: 800px !important;
+  opacity: 1;
+  box-shadow: 0 10px 40px rgba(0,0,0,.18);
+  z-index: 2;
+  cursor: default;
+}
+
+/* ── Video wrapper ── */
+.vwrap {
+  position: relative;
+  width: 100%;
+  height: 281px;       /* 500 × 9/16 */
+  background: #1c1510;
+  overflow: hidden;
+  transition: height 0.55s cubic-bezier(.4,0,.2,1);
+}
+
+/* Expand video on active slide */
+.slide:global(.swiper-slide-active) .vwrap {
+  height: 450px;       /* 800 × ~9/16 */
+}
+
+.vwrap video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.slide:global(.swiper-slide-active) .vwrap video {
+  pointer-events: auto;
+}
+
+/* Gradient overlay */
+.vwrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,.30) 100%);
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.vwrap.playing::after {
+  opacity: 0;
+}
+
+/* ── Play button — hidden on inactive, shown on active ── */
+.pbtn {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  cursor: pointer;
+  transition: opacity 0.25s;
+}
+
+.slide:global(.swiper-slide-active) .pbtn {
+  display: flex;
+}
+
+.pbtn svg {
+  width: 60px;
+  height: 60px;
+  filter: drop-shadow(0 3px 10px rgba(0,0,0,.4));
+  transition: transform 0.2s ease;
+}
+
+.pbtn:hover svg {
+  transform: scale(1.07);
+}
+
+.vwrap.playing .pbtn {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Slide body — collapsed on inactive ── */
+.slideBody {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height 0.55s cubic-bezier(.4,0,.2,1),
+    opacity    0.40s ease;
+  background: #fff;
+}
+
+.slide:global(.swiper-slide-active) .slideBody {
+  max-height: 380px;
+  opacity: 1;
+  transition:
+    max-height 0.55s cubic-bezier(.4,0,.2,1) 0.05s,
+    opacity    0.40s ease 0.15s;
+}
+
+/* ── Slide body inner ── */
+.slideBodyInner {
+  padding: 0 32px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-top: 1px solid rgba(184,145,74,.15);
+}
+
+/* ── Quote image ── */
+.quoteImg {
+  margin-top: 30px;
+  flex-shrink: 0;
+}
+
+/* ── Message ── */
+.message {
+  margin: 30px 0;
+  color: #666;
+  text-align: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* ── Name ── */
+.name {
+  color: #A38274;
+  text-align: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ── Designation ── */
+.designation {
+  color: #666;
+  text-align: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  display: block;
+}
