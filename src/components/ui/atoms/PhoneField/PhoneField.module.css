@@ -1,10 +1,4 @@
-/* Override intl-tel-input to match our input style */
 
-.fieldGroup :global(.iti) {
-    width: 100%;
-}
-
-.fieldGroup :global(.iti__tel-input),
 .input {
     height: 60px;
     width: 100%;
@@ -21,15 +15,6 @@
     transition: border-color 0.2s;
 }
 
-.fieldGroup :global(.iti__tel-input):focus,
-.input:focus {
-    border-color: #c0392b;
-}
-
-.fieldGroup :global(.iti__tel-input)::placeholder,
-.input::placeholder {
-    color: #000;
-}
 
 /* Flag button container */
 .fieldGroup :global(.iti__flag-container) {

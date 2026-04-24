@@ -1,4 +1,10 @@
 import Button from '@/components/ui/atoms/Button/Button';
+import InputField from '@/components/ui/atoms/InputField/InputField';
+import PhoneField from '@/components/ui/atoms/PhoneField/PhoneField';
+import PageHeader from '@/components/ui/PageHeader/PageHeader';
+import SelectField from '@/components/ui/atoms/SelectField/SelectField';
+import TextareaField from '@/components/ui/atoms/TextareaField/TextareaField';
+import Image from 'next/image';
 import styles from './page.module.css';
 
 export const metadata = {
@@ -9,51 +15,184 @@ export const metadata = {
 export default function PartnerPage() {
   return (
     <div className={styles.page}>
-      <section className={styles.hero}>
-        <h1>Become a Partner</h1>
-      </section>
+      <PageHeader
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Partner', isActive: true },
+        ]}
+        heading="Become a Partner"
+        description="Join India's most trusted gold bangle manufacturer. Zar offers competitive pricing, consistent quality, and a wide range of designs tailored for your market."
+      />
+
+      <div style={{ width: '100%', position: 'relative', height: 400, margin: '40px 0' }}>
+        <Image
+          src="/images/about/about_banner.webp"
+          alt="Partnership with Zar Jewels"
+          fill
+          style={{ objectFit: 'contain' }}
+          priority
+        />
+      </div>
+
       <div className={styles.content}>
-        <div className={styles.intro}>
-          <p className={styles.introText}>
-            Join India&apos;s most trusted gold bangle manufacturer. Zar offers competitive pricing, consistent quality, and a wide range of designs tailored for your market.
-          </p>
-          <p className={styles.introText}>
-            Fill out the form below and our partnership team will get back to you within 24 hours.
-          </p>
+        <div className={styles.container}>
+          <h2 className="formHeading txt_center mt-100">Distributor Testimonials</h2>
+          <div className={styles.benefitsGrid}>
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div key={i} className={styles.benefitCard}>
+                <Image src="/images/Distributor-Testimonials.png" alt="Benefit" width={538} height={280} style={{ objectFit: 'cover' }} />
+                <h3 className={styles.benefitTitle}>Benefit Title {i}</h3>
+                <p className={styles.benefitSubtitle}>Benefit subtitle description goes here.</p>
+              </div>
+            ))}
+          </div>
         </div>
-        <form className={styles.form}>
-          <div className={styles.formRow}>
-            <div className={styles.inputGroup}>
-              <label htmlFor="name">Full Name</label>
-              <input type="text" id="name" placeholder="Your full name" />
-            </div>
-            <div className={styles.inputGroup}>
-              <label htmlFor="company">Company Name</label>
-              <input type="text" id="company" placeholder="Your company" />
-            </div>
+
+        <div className={styles.grid}>
+          <div className={styles.formSection}>
+            <h2 className="formHeading mt-100">Build A Connection With Zar</h2>
+            <form className={styles.form}>
+              <div className={styles.formRow}>
+                <InputField
+                  id="name"
+                  name="name"
+                  label="Full Name"
+                  placeholder="Type full name here"
+                  wrapperClassName={styles.inputGroup}
+                  required
+                />
+                <InputField
+                  id="company"
+                  name="company"
+                  label="Company Name"
+                  placeholder="Type your company name here"
+                  wrapperClassName={styles.inputGroup}
+                  required
+                />
+              </div>
+              <div className={styles.formRow}>
+                <SelectField
+                  id="country"
+                  name="country"
+                  label="Country"
+                  placeholder="Select your country"
+                  options={[
+                    { label: 'India', value: 'india' },
+                    { label: 'Other', value: 'other' },
+                  ]}
+                  wrapperClassName={styles.inputGroup}
+                  required
+                />
+                <SelectField
+                  id="state"
+                  name="state"
+                  label="State"
+                  placeholder="Select your state"
+                  options={[
+                    { label: 'Maharashtra', value: 'maharashtra' },
+                    { label: 'Gujarat', value: 'gujarat' },
+                    { label: 'Other', value: 'other' },
+                  ]}
+                  wrapperClassName={styles.inputGroup}
+                  required
+                />
+              </div>
+              <div className={styles.formRow}>
+                <SelectField
+                  id="city"
+                  name="city"
+                  label="City"
+                  placeholder="Select your city"
+                  options={[
+                    { label: 'Mumbai', value: 'mumbai' },
+                    { label: 'Surat', value: 'surat' },
+                    { label: 'Other', value: 'other' },
+                  ]}
+                  wrapperClassName={styles.inputGroup}
+                  required
+                />
+                <InputField
+                  id="pincode"
+                  name="pincode"
+                  label="Pincode"
+                  placeholder="Enter your pincode"
+                  wrapperClassName={styles.inputGroup}
+                  required
+                />
+              </div>
+              <div className={styles.formRow}>
+                <InputField
+                  id="email"
+                  name="email"
+                  type="email"
+                  label="Email ID"
+                  placeholder="Enter your email ID"
+                  wrapperClassName={styles.inputGroup}
+                  required
+                />
+                <PhoneField
+                  id="phone"
+                  name="phone"
+                  label="Contact No."
+                  placeholder="Enter your contact number"
+                  wrapperClassName={styles.inputGroup}
+                  required
+                />
+              </div>
+              <div className={styles.formRow}>
+                <SelectField
+                  id="category"
+                  name="category"
+                  label="Category"
+                  placeholder="Select Category"
+                  options={[
+                    { label: 'Distributor', value: 'distributor' },
+                    { label: 'Retailer', value: 'retailer' },
+                    { label: 'Wholesaler', value: 'wholesaler' },
+                  ]}
+                  wrapperClassName={styles.inputGroup}
+                  required
+                />
+                <SelectField
+                  id="referred_by"
+                  name="referred_by"
+                  label="Referred By"
+                  placeholder="Select referred by"
+                  options={[
+                    { label: 'ZAR Retail Partner', value: 'zar_retail_partner' },
+                    { label: 'Distributor', value: 'distributor' },
+                    { label: 'Social Media', value: 'social_media' },
+                  ]}
+                  wrapperClassName={styles.inputGroup}
+                  required
+                />
+              </div>
+              <div className={styles.formRow}>
+                <InputField
+                  id="website"
+                  name="website"
+                  label="Company Website"
+                  placeholder="Type your company website URL here"
+                  wrapperClassName={styles.inputGroup}
+                  required
+                />
+              </div>
+              <div className={styles.formRow}>
+                <TextareaField
+                  id="message"
+                  name="message"
+                  label="Message"
+                  placeholder="Type here..."
+                  wrapperClassName={styles.inputGroup}
+                  required
+                />
+              </div>
+              <Button variant="primary" showArrow>
+                Submit
+              </Button>
+            </form>
           </div>
-          <div className={styles.formRow}>
-            <div className={styles.inputGroup}>
-              <label htmlFor="email">Email Address</label>
-              <input type="email" id="email" placeholder="you@company.com" />
-            </div>
-            <div className={styles.inputGroup}>
-              <label htmlFor="phone">Phone Number</label>
-              <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX" />
-            </div>
-          </div>
-          <div className={styles.inputGroup}>
-            <label htmlFor="city">City / State</label>
-            <input type="text" id="city" placeholder="Your city" />
-          </div>
-          <div className={styles.inputGroup}>
-            <label htmlFor="message">Message</label>
-            <textarea id="message" placeholder="Tell us about your business and partnership interest..." />
-          </div>
-          <Button variant="primary" showArrow>
-            Submit Enquiry
-          </Button>
-        </form>
+        </div>
       </div>
     </div>
   );
