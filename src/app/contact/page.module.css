@@ -2,81 +2,25 @@
   padding-top: 80px;
 }
 
-.hero {
-  width: 100%;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-warm-bg);
-}
-
-.hero h1 {
-  font-family: var(--font-heading);
-  font-size: var(--fs-4xl);
-  font-weight: var(--fw-semibold);
-  line-height: 80px;
-  color: var(--color-brown);
-  text-align: center;
-}
-
 .content {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 80px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
 }
+
 
 .grid {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 60px;
+  margin: 100px 0;
 }
 
-.infoSection {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.infoItem {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.infoLabel {
-  font-size: var(--fs-xs);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--color-gray-600);
-}
-
-.infoValue {
-  font-family: var(--font-body);
-  font-size: var(--fs-base);
-  line-height: 26px;
-  color: var(--color-black);
-}
-
-.infoValue a {
-  color: var(--color-brown);
-  text-decoration: underline;
-}
 
 .formSection {
   display: flex;
   flex-direction: column;
   gap: 30px;
-}
-
-.formHeading {
-  font-family: var(--font-heading);
-  font-size: var(--fs-xl);
-  font-weight: var(--fw-semibold);
-  color: var(--color-brown);
+  flex: 1;
 }
 
 .form {
@@ -87,68 +31,109 @@
 
 .formRow {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 20px;
 }
 
 .inputGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
   flex: 1;
 }
 
-.inputGroup label {
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-medium);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--color-gray-600);
+.contactMapSection {
+  display: grid;
+  grid-template-columns: 35% 50%;
+  gap: 50px;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.inputGroup input,
-.inputGroup textarea {
-  padding: 12px 16px;
-  border: 1px solid var(--color-gray-200);
+.contactMapInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactMapInfo>div:not(:last-child) {
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--color-gold-accent);
+}
+
+
+.contactMapItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.contactMapIcon {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+
+.contactMapTextGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: end;
+}
+
+.contactMapLink,
+.contactMapSocialLink {
   font-family: var(--font-body);
-  font-size: var(--fs-base);
-  color: var(--color-black);
-  background-color: var(--color-white);
-  transition: border-color var(--transition-fast);
+  font-size: 18px;
+  line-height: 1.5;
+  text-decoration: none;
 }
 
-.inputGroup input:focus,
-.inputGroup textarea:focus {
-  outline: none;
-  border-color: var(--color-gold-primary);
+.contactMapLink:hover,
+.contactMapSocialLink:hover {
+  text-decoration: underline;
 }
 
-.inputGroup textarea {
-  min-height: 120px;
-  resize: vertical;
+.contactMapSocialRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
 }
 
-@media (min-width: 1024px) {
-  .grid {
-    flex-direction: row;
-  }
-
-  .infoSection {
-    flex: 0 0 35%;
-  }
-
-  .formSection {
-    flex: 1;
-  }
-
-  .formRow {
-    flex-direction: row;
-  }
+.contactMapSocialIcons {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
+
+.contactMapSocialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contactMapSocialLink svg {
+  display: block;
+}
+
+.contactMapFrameWrap {
+  border: 1px solid var(--color-gold-accent);
+}
+
+
 
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 48px;
-    line-height: 56px;
+  .content {
+    padding: 24px 16px 64px;
+  }
+
+  .headerInfo {
+    gap: 12px;
+    padding: 14px 16px;
+  }
+
+  .contactMapSection {
+    padding: 20px;
   }
 }

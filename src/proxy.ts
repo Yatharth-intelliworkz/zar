@@ -8,14 +8,14 @@ export function proxy(request: NextRequest) {
   if (
     pathname === '/' ||
     pathname === '/about' ||
-    // pathname === '/careers' ||
-    // pathname === '/clientele' ||
-    // pathname === '/collections' ||
-    // pathname.startsWith('/collections/') ||
-    // pathname === '/contact' ||
-    // pathname === '/partner' ||
-    // pathname === '/privacy' ||
-    // pathname === '/terms' ||
+    pathname === '/careers' ||
+    pathname === '/clientele' ||
+    pathname === '/collections' ||
+    pathname.startsWith('/collections/') ||
+    pathname === '/contact' ||
+    pathname === '/partner' ||
+    pathname === '/privacy' ||
+    pathname === '/terms' ||
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
     pathname.includes('.')

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Button from '@/components/ui/atoms/Button/Button';
+import PageHeader from '@/components/ui/PageHeader/PageHeader';
 import styles from './page.module.css';
 
 interface Props {

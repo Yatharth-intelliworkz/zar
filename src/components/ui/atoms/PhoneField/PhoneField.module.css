@@ -1,0 +1,42 @@
+/* Override intl-tel-input to match our input style */
+
+.fieldGroup :global(.iti) {
+    width: 100%;
+}
+
+.fieldGroup :global(.iti__tel-input),
+.input {
+    height: 60px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    padding: 14px 14px 14px 90px;
+    color: #000;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    font-family: var(--font-body);
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.fieldGroup :global(.iti__tel-input):focus,
+.input:focus {
+    border-color: #c0392b;
+}
+
+.fieldGroup :global(.iti__tel-input)::placeholder,
+.input::placeholder {
+    color: #000;
+}
+
+/* Flag button container */
+.fieldGroup :global(.iti__flag-container) {
+    border-right: 1px solid #cccccc;
+}
+
+.fieldGroup :global(.iti__selected-dial-code) {
+    font-size: 14px;
+    color: #000;
+}
