@@ -1,0 +1,91 @@
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: var(--text-color, #333);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-weight: 500;
+  margin: 0;
+  color: var(--primary-color, #a8813a);
+}
+
+.sku {
+  font-size: 0.9rem;
+  color: var(--text-muted, #777);
+  margin-top: -10px;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-color, #444);
+}
+
+.specificationsContainer {
+  margin-top: 20px;
+  border-top: 1px solid var(--border-light, #e0e0e0);
+  padding-top: 20px;
+}
+
+.specificationsTitle {
+  font-size: 1.5rem;
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.specTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.specTable tr {
+  border-bottom: 1px solid var(--border-light, #eaeaea);
+}
+
+.specTable tr:last-child {
+  border-bottom: none;
+}
+
+.specKey {
+  text-align: left;
+  padding: 12px 0;
+  font-weight: 600;
+  color: var(--text-color, #333);
+  width: 40%;
+}
+
+.specValue {
+  text-align: left;
+  padding: 12px 0;
+  color: var(--text-color, #555);
+}
+
+.actions {
+  margin-top: 30px;
+}
+
+.inquireBtn {
+  background-color: var(--primary-color, #a8813a);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  max-width: 300px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.inquireBtn:hover {
+  background-color: #8c6a2c;
+  transform: translateY(-2px);
+}
