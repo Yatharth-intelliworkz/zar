@@ -13,16 +13,12 @@
   font-size: var(--fs-base, 16px);
   line-height: 1.6;
   color: var(--color-gray-600, #666);
-  max-width: 800px;
-  text-align: center;
-  margin: 0 auto;
 }
 
 .flexBox {
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
-  justify-content: center;
   align-items: center;
 }
 

@@ -6,16 +6,16 @@ export function proxy(request: NextRequest) {
 
   // Let Next.js handle internal requests, APIs, and static files
   if (
-    pathname === '/' ||
-    pathname === '/about' ||
-    pathname === '/careers' ||
-    pathname === '/clientele' ||
-    pathname === '/collections' ||
-    pathname.startsWith('/collections/') ||
-    pathname === '/contact' ||
-    pathname === '/partner' ||
-    pathname === '/privacy' ||
-    pathname === '/terms' ||
+    // pathname === '/' ||
+    // pathname === '/about' ||
+    // pathname === '/careers' ||
+    // pathname === '/clientele' ||
+    // pathname === '/collections' ||
+    // pathname.startsWith('/collections/') ||
+    // pathname === '/contact' ||
+    // pathname === '/partner' ||
+    // pathname === '/privacy' ||
+    // pathname === '/terms' ||
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
     pathname.includes('.')

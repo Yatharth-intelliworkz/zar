@@ -48,31 +48,7 @@ const testimonials: Testimonial[] = [
     name: 'Sunita Joshi',
     designation: 'Heritage Curator, Jaipur',
   },
-  /* duplicate set so Swiper loop has enough slides */
-  {
-    video: 'https://www.w3schools.com/html/mov_bbb.mp4',
-    quote: "The bangles I found at the expo were exactly what I'd been searching for. The craftsmanship is truly world-class.",
-    name: 'Priya Sharma',
-    designation: 'Bridal Client, Mumbai',
-  },
-  {
-    video: 'https://www.w3schools.com/html/movie.mp4',
-    quote: "Every piece feels curated with intention. Our customers keep coming back for the exclusivity this platform provides.",
-    name: 'Ananya Mehta',
-    designation: 'Boutique Director, Delhi',
-  },
-  {
-    video: 'https://www.w3schools.com/html/mov_bbb.mp4',
-    quote: "Partnering with them transformed our store. The quality of their jewellery collection is simply unmatched in the market.",
-    name: 'Rekha Nair',
-    designation: 'Jewellery Store Owner, Kochi',
-  },
-  {
-    video: 'https://www.w3schools.com/html/movie.mp4',
-    quote: "The designs speak to our heritage beautifully. I have never seen my clients so excited about a new collection.",
-    name: 'Sunita Joshi',
-    designation: 'Heritage Curator, Jaipur',
-  },
+  
 ];
 
 export default function RetailerSlider() {
@@ -126,12 +102,12 @@ export default function RetailerSlider() {
       <div className={styles.outer}>
         <Swiper
           modules={[Autoplay]}
-          centeredSlides
-          slidesPerView="auto"
+          loop={true}
+          centeredSlides={true}
+          slidesPerView={3}
           spaceBetween={50}
           speed={600}
           grabCursor
-          loop={true}
           autoplay={{ delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true }}
           onSwiper={(s) => { swiperRef.current = s; }}
           onSlideChange={stopAll}

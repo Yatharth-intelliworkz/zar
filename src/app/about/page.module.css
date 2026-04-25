@@ -106,40 +106,6 @@
   }
 }
 
-.storySection {
-  padding: 80px 0;
-}
-
-.storyGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 60px;
-}
-
-.storyImageWrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-}
-
-.storyImage {
-  object-fit: cover;
-}
-
-
-.storyTextBlock p {
-  font-size: var(--fs-base);
-  line-height: 26px;
-  color: var(--color-gray-600);
-  margin-bottom: 16px;
-}
-
-.storyTextBlock p:last-child {
-  margin-bottom: 0;
-}
-
 .legacySection {
   padding: 80px 0;
 }
@@ -175,7 +141,7 @@
 
 .visionMissionSection {
   padding: 100px 0;
-  background-image: url('/images/about-bg.png');
+  background-image: url('/images/about/about-bg.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -227,46 +193,6 @@
   margin-bottom: 0;
 }
 
-.valuesSection {
-  padding: 80px 0;
-}
-
-.valuesSectionSubtitle {
-  font-size: var(--fs-base);
-  line-height: 26px;
-  color: var(--color-gray-600);
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.valuesGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 50px;
-}
-
-.valueCard {
-  border: 1px solid var(--color-brown);
-  padding: 30px;
-}
-
-.valueIcon {
-  margin-bottom: 20px;
-}
-
-.valueCard h4 {
-  font-family: var(--font-heading);
-  font-size: var(--fs-lg);
-  font-weight: var(--fw-semibold);
-  color: var(--color-brown);
-  margin-bottom: 12px;
-}
-
-.valueCard p {
-  font-size: var(--fs-sm);
-  line-height: 24px;
-  color: var(--color-gray-600);
-}
 
 @media (max-width: 768px) {
   .hero h1 {
