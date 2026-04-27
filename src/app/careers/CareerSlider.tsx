@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
-import 'swiper/css';
 import styles from './CareerSlider.module.css';
 
 export default function CareerSlider() {
@@ -14,7 +13,7 @@ export default function CareerSlider() {
       <Swiper
         modules={[Autoplay]}
         spaceBetween={30}
-        slidesPerView={4.5}
+        slidesPerView={3}
         centeredSlides={true}
         loop={true}
         autoplay={{
@@ -24,15 +23,15 @@ export default function CareerSlider() {
         }}
         breakpoints={{
           320: {
-            slidesPerView: 1.5,
+            slidesPerView: 1,
             spaceBetween: 15,
           },
           768: {
-            slidesPerView: 2.5,
+            slidesPerView: 2,
             spaceBetween: 20,
           },
           1024: {
-            slidesPerView: 4.5,
+            slidesPerView: 2.5,
             spaceBetween: 30,
           },
         }}

@@ -37,7 +37,7 @@ export default function SelectField({
       <select
         id={id}
         required={required}
-        defaultValue={props.defaultValue ?? ''}
+        // defaultValue={props.defaultValue ?? ''}
         className={cn(styles.select, selectClassName)}
         {...props}
       >

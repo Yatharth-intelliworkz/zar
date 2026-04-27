@@ -5,9 +5,14 @@ import { motion } from 'framer-motion';
 import Button from '@/components/ui/atoms/Button/Button';
 import styles from './ExhibitionsSection.module.css';
 
-export default function ExhibitionsSection() {
+interface ExhibitionsSectionProps {
+  title?: string;
+  id?: string;
+}
+
+export default function ExhibitionsSection({ title = "Upcoming Exhibitions", id }: ExhibitionsSectionProps) {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id={id}>
       <div className={styles.backgroundImage}>
         <Image
           src="/images/homepage/event_bg.webp"
@@ -26,7 +31,7 @@ export default function ExhibitionsSection() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           viewport={{ once: true, amount: 0.2 }}
         >
-          <h2 className="fs_54 txt_white">Upcoming Exhibitions</h2>
+          <h2 className="fs_54 txt_white">{title}</h2>
           <p className="txt_white">
             Discover our latest jewellery showcases and exclusive retail partner events.
           </p>

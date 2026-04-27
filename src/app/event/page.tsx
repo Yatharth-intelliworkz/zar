@@ -1,64 +1,80 @@
 'use client';
 
-import { useRef, useState } from 'react';
-import Button from '@/components/ui/atoms/Button/Button';
-import styles from './page.module.css';
+import { useState } from 'react';
 import Image from 'next/image';
 import PageHeader from '@/components/ui/PageHeader/PageHeader';
-import CareerSlider from './CareerSlider';
-import SelectField from '@/components/ui/atoms/SelectField/SelectField';
-import InputField from '@/components/ui/atoms/InputField/InputField';
-import PhoneField from '@/components/ui/atoms/PhoneField/PhoneField';
+import Button from '@/components/ui/atoms/Button/Button';
+import ExhibitionsSection from '@/components/ui/organisms/ExhibitionsSection/ExhibitionsSection';
+import GalleryModal from '@/components/ui/molecules/GalleryModal/GalleryModal';
+import styles from './EventPage.module.css';
 
-const positions = [
+// Dummy data for Past Exhibitions
+const pastExhibitionsData = [
   {
-    title: 'HR Executive',
-    location: 'Mumbai',
-    experience: '2-4 Years',
-    description: 'Join our team of expert goldsmiths crafting premium bangles. 5+ years of experience required in traditional goldsmithing techniques.',
+    id: 1,
+    title: 'Dubai International Jewellery Show 2025',
+    date: '15 Nov - 18 Nov 2025',
+    location: 'Dubai, UAE',
+    description: 'A spectacular showcase of our latest collections and bespoke craftsmanship at the heart of Dubai.',
+    thumbnail: '/images/homepage/event.webp',
+    images: [
+      '/images/homepage/event.webp',
+      '/images/about/about_banner.webp',
+    ]
   },
   {
-    title: 'Quality Assurance Manager',
-    location: 'Mumbai',
-    experience: '1-4 Years',
-    description: 'Lead our quality assurance processes and ensure every Zar product meets the highest standards of excellence.',
+    id: 2,
+    title: 'Jewellery & Watch Show Abu Dhabi 2024',
+    date: '10 Oct - 14 Oct 2024',
+    location: 'Abu Dhabi, UAE',
+    description: 'Discover the elegance of Zar Jewels at the premier jewellery event in the capital.',
+    thumbnail: '/images/homepage/event.webp',
+    images: [
+      '/images/about/about_banner.webp',
+      '/images/homepage/event.webp',
+    ]
   },
   {
-    title: 'Product Designer',
-    location: 'Mumbai',
-    experience: '2-5 Years',
-    description: 'Design the next generation of gold bangles that blend traditional aesthetics with contemporary appeal.',
-  },
-  {
-    title: 'Sales Executive — Retail Partnerships',
-    location: 'Pan India',
-    experience: '2-4 Years',
-    description: 'Build and maintain relationships with our retail partners across India. Travel required.',
-  },
+    id: 3,
+    title: 'Sharjah Watch and Jewellery Show 2024',
+    date: '05 Apr - 09 Apr 2024',
+    location: 'Sharjah, UAE',
+    description: 'Explore our latest collections and exclusive retail partner events in Sharjah.',
+    thumbnail: '/images/homepage/event.webp',
+    images: [
+      '/images/homepage/event.webp',
+      '/images/about/about_banner.webp',
+    ]
+  }
 ];
 
-export default function CareersPage() {
-  const [selectedPosition, setSelectedPosition] = useState<string>('');
-  const formRef = useRef<HTMLDivElement>(null);
+export default function EventPage() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [currentGallery, setCurrentGallery] = useState<string[]>([]);
 
-  const handleApplyNow = (positionTitle: string) => {
-    setSelectedPosition(positionTitle);
-    setTimeout(() => {
-      formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 0);
+  const handleOpenGallery = (images: string[]) => {
+    setCurrentGallery(images);
+    setModalOpen(true);
+  };
+
+  const handleScrollToUpcoming = () => {
+    const el = document.getElementById('upcoming-events');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   return (
-    <div className={styles.page}>
-      <PageHeader
+    <main className={styles.eventPage}>
+      <PageHeader 
         breadcrumbs={[
           { label: 'Home', href: '/' },
-          { label: 'Careers', isActive: true }
-        ]}
-        heading="Build Your Career with ZAR"
-        description="Join a team driven by craftsmanship, innovation, and excellence. At ZAR, we combine traditional artistry with modern techniques to create jewellery that stands out."
+          { label: 'Events', isActive: true }
+        ]} 
+        heading="Events" 
       />
-      <div style={{ width: '100%', position: 'relative', height: 400, margin: '40px 0' }}>
+
+      <div className={styles.banner}>
         <Image
           src="/images/about/about_banner.webp"
           alt="Crafting gold bangle"
@@ -67,52 +83,76 @@ export default function CareersPage() {
           priority
         />
       </div>
-      {/* Section 2: Static Description */}
-      <section className={styles.descriptionSection}>
+
+      <section className={styles.introSection}>
         <div className="container">
-          <p>
-            At ZAR, craftsmanship is not just a process—it’s a shared philosophy. Every piece of jewellery is the result of seamless collaboration between designers, artisans, technicians, and business teams, all working towards a single standard of excellence.
-          </p>
-          <div className={styles.btn_wrapper}>
-            <Button href="/contact" variant="primary" showArrow>
-              View Open Positions
-            </Button>
-            <Button href="/contact" variant="secondary" showArrow>
-              Apply Now
+          <div className={styles.introContent}>
+            <p className={styles.introText}>
+              Discover Zar Jewels at our exclusive events and exhibitions worldwide. 
+              We showcase our latest collections, bespoke craftsmanship, and timeless designs.
+            </p>
+            <Button onClick={handleScrollToUpcoming} variant="outline" showArrow>
+              View Upcoming Events
             </Button>
           </div>
         </div>
       </section>
-      {/* Our Story Section */}
-      <section className="storySection">
+
+      <ExhibitionsSection id="upcoming-events" title="Upcoming Events" />
+
+      <section className={styles.pastExhibitions}>
         <div className="container">
-          <div className="storyGrid">
-            <div className="storyImageWrapper">
-              <Image src="/images/about/about_1.webp" alt="Zar team at work" fill className="storyImage" />
-            </div>
-            <div className="storyTextBlock">
-              <h2 className="fs_54">A Culture Built on Craft & Collaboration</h2>
-              <p>
-                At ZAR, craftsmanship is not just a process—it’s a shared philosophy. Every piece of jewellery is the result of seamless collaboration between designers, artisans, technicians, and business teams, all working towards a single standard of excellence.
-              </p>
-              <p>
-               We foster a culture where ideas are valued, creativity is encouraged, and precision is non-negotiable. From concept sketches to final finishing, every stage is driven by teamwork, attention to detail, and a passion for perfection.
-              </p>
-              <p>
-                We believe in empowering our people—through continuous learning, skill development, and real growth opportunities—so they can build not just jewellery, but meaningful careers.
-              </p>              
-            </div>
+          <h2 className={`fs_54 txt_center ${styles.pastExhibitionsTitle}`}>Past Exhibitions</h2>
+          <div className={styles.pastGrid}>
+            {pastExhibitionsData.map((exhibition) => (
+              <div key={exhibition.id} className={styles.pastCard}>
+                <div className={styles.cardImageWrapper}>
+                  <Image 
+                    src={exhibition.thumbnail} 
+                    alt={exhibition.title} 
+                    fill 
+                    style={{ objectFit: 'cover' }} 
+                  />
+                </div>
+                <div className={styles.cardContent}>
+                  <div className={styles.cardMetaItem}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
+                      <path d="M1.5 15C1.0875 15 0.734375 14.8531 0.440625 14.5594C0.146875 14.2656 0 13.9125 0 13.5V3C0 2.5875 0.146875 2.23438 0.440625 1.94062C0.734375 1.64687 1.0875 1.5 1.5 1.5H2.25V0H3.75V1.5H9.75V0H11.25V1.5H12C12.4125 1.5 12.7656 1.64687 13.0594 1.94062C13.3531 2.23438 13.5 2.5875 13.5 3V13.5C13.5 13.9125 13.3531 14.2656 13.0594 14.5594C12.7656 14.8531 12.4125 15 12 15H1.5ZM1.5 13.5H12V6H1.5V13.5ZM1.5 4.5H12V3H1.5V4.5ZM1.5 4.5V3V4.5Z" fill="#D0B480"/>
+                    </svg>
+                    <span className={styles.cardDate}>{exhibition.date}</span>
+                  </div>
+                  <h3 className={styles.cardTitle}>{exhibition.title}</h3>
+                  <div className={styles.cardMetaItem}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="25" viewBox="0 0 19 25" fill="none">
+                      <path fillRule="evenodd" clipRule="evenodd" d="M3.00112 2.97887C4.70732 1.32628 6.76248 0.5 9.16667 0.5C11.5709 0.5 13.6163 1.31689 15.3031 2.9507C16.9899 4.58451 17.8333 6.56572 17.8333 8.89437C17.8333 10.0587 17.5328 11.392 16.9318 12.8944C16.3307 14.3967 15.6037 15.8052 14.7506 17.1197C13.8975 18.4343 13.0541 19.6643 12.2204 20.8099C11.3866 21.9554 10.679 22.8662 10.0973 23.5423L9.16667 24.5C8.934 24.2371 8.62379 23.8897 8.23602 23.4577C7.84825 23.0258 7.15027 22.162 6.14206 20.8662C5.13385 19.5704 4.25168 18.3122 3.49553 17.0915C2.73937 15.8709 2.05108 14.4906 1.43065 12.9507C0.810213 11.4108 0.5 10.0587 0.5 8.89437C0.5 6.56572 1.3337 4.5939 3.00112 2.97887Z" stroke="#D0B480" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M10.5 9.16667C10.5 9.90305 9.90305 10.5 9.16667 10.5C8.43029 10.5 7.83333 9.90305 7.83333 9.16667C7.83333 8.43029 8.43029 7.83333 9.16667 7.83333C9.90305 7.83333 10.5 8.43029 10.5 9.16667Z" stroke="#D0B480" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    <span className={styles.cardLocation}>{exhibition.location}</span>
+                  </div>
+                  <p className={styles.cardDescription}>{exhibition.description}</p>
+                  <div className={styles.cardActions}>
+                    <Button 
+                      onClick={() => handleOpenGallery(exhibition.images)} 
+                      variant="primary" 
+                    >
+                      View Gallery
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
       {/* Our Values Section */}
-      <section className="valuesSection">
+      <section className={styles.valuesSection}>
         <div className="container">
           <h2 className="fs_54 txt_center">WHY WORK WITH ZAR</h2>
-          <p className="valuesSectionSubtitle">We offer an environment where creativity meets precision and careers are built with purpose.</p>
-          <div className="valuesGrid">
-            <div className="valueCard">
-              <div className="valueIcon">
+          <p className={styles.valuesSectionSubtitle}>We offer an environment where creativity meets precision and careers are built with purpose.</p>
+          <div className={styles.valuesGrid}>
+            <div className={styles.valueCard}>
+              <div className={styles.valueIcon}>
                 <svg width="130" height="130" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect x="0.5" y="0.5" width="129" height="129" rx="64.5" stroke="#D0B480" />
                   <g clipPath="url(#clip0_1_1376)">
@@ -128,8 +168,8 @@ export default function CareersPage() {
               <h4>Legacy and Stability</h4>
               <p>Backed by decades of expertise in jewellery manufacturing and retail.</p>
             </div>
-            <div className="valueCard">
-              <div className="valueIcon">
+            <div className={styles.valueCard}>
+              <div className={styles.valueIcon}>
                 <svg width="130" height="130" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect x="0.5" y="0.5" width="129" height="129" rx="64.5" stroke="#D0B480" />
                   <path d="M98.8325 64.2725H96.1001V65.7278H98.8325C99.2343 65.7278 99.5601 65.402 99.5601 65.0001C99.5601 64.5983 99.2343 64.2725 98.8325 64.2725Z" fill="#D0B480" />
@@ -152,8 +192,8 @@ export default function CareersPage() {
               <h4>Creative Environment</h4>
               <p>Collaborate with designers, artisans, and innovators in a dynamic workspace.</p>
             </div>
-            <div className="valueCard">
-              <div className="valueIcon">
+            <div className={styles.valueCard}>
+              <div className={styles.valueIcon}>
                 <svg width="130" height="130" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect x="0.5" y="0.5" width="129" height="129" rx="64.5" stroke="#D0B480" />
                   <path fillRule="evenodd" clipRule="evenodd" d="M55.7751 40.9412L36.8532 46.0112C36.754 46.0378 36.7104 46.1257 36.7432 46.2221C37.3801 48.0859 38.0409 48.8903 38.7596 49.1368C39.3865 49.3518 40.2224 49.1912 41.1685 48.9479C41.4168 48.3457 41.7229 47.7843 42.1013 47.2537C42.4505 46.7629 43.1315 46.6481 43.6223 46.9973C44.113 47.3465 44.2279 48.0275 43.8787 48.5182C43.3276 49.2909 42.9679 50.1904 42.7962 51.122L40.9746 60.9985C40.957 61.0942 41.0205 61.1829 41.1184 61.1923C41.659 61.244 42.2152 61.2615 42.599 61.1246C42.7806 61.06 42.9212 60.9203 42.9721 60.6514L43.6318 52.97C43.7805 51.237 44.5727 49.7675 45.939 48.691L55.7751 40.9412ZM57.2349 76.6534C57.2349 76.0493 57.7246 75.5596 58.3287 75.5596C58.9327 75.5596 59.4224 76.0493 59.4224 76.6534V80.2035C59.4224 80.8076 58.9327 81.2973 58.3287 81.2973C57.7246 81.2973 57.2349 80.8076 57.2349 80.2035V76.6534ZM47.6952 77.6759C47.3932 77.1545 47.5712 76.4868 48.0926 76.1848C48.614 75.8828 49.2816 76.0607 49.5837 76.5821L51.3587 79.6567C51.6607 80.1781 51.4827 80.8457 50.9613 81.1478C50.4399 81.4498 49.7723 81.2718 49.4702 80.7504L47.6952 77.6759ZM67.0738 76.5864C67.3735 76.0649 68.0391 75.8851 68.5607 76.1848C69.0821 76.4845 69.262 77.1501 68.9623 77.6717L67.1873 80.7462C66.8876 81.2676 66.222 81.4474 65.7004 81.1478C65.179 80.8481 64.9991 80.1824 65.2988 79.6609L67.0738 76.5864ZM61.0056 87.7345L58.3287 84.8329L55.6518 87.7345H61.0056ZM53.5009 86.8464L52.3932 84.2337H55.911L53.5009 86.8464ZM60.7465 84.2339H64.2643L63.1566 86.8465L60.7465 84.2339ZM47.9049 87.7345H51.5105L50.394 85.101L47.9049 87.7345ZM65.1468 87.7345H68.7526L66.2634 85.1009L65.1468 87.7345ZM68.9962 89.922H64.2899L61.0818 99.7046L68.9962 89.922ZM61.9921 89.922L58.3287 101.093L54.6654 89.922H61.9921ZM52.3676 89.922H47.6613L55.5757 99.7046L52.3676 89.922ZM82.526 29.9145L85.9823 28.9884C87.249 28.649 88.5588 29.4053 88.8982 30.6718L93.1866 46.6767C93.526 47.9432 92.7698 49.2532 91.5031 49.5926L88.0468 50.5187C86.7801 50.8581 85.4702 50.1018 85.1309 48.8353L80.8426 32.8304C80.5032 31.5639 81.2595 30.2539 82.526 29.9145ZM51.8077 49.2206L48.3496 55.2103C47.5179 56.649 47.3076 58.2393 47.7376 59.8443L49.0729 64.8281C48.9113 65.2345 48.6415 65.5648 48.2955 65.8196C47.7916 66.191 47.1215 66.4204 46.3701 66.5092C45.462 66.6167 44.7168 65.8901 44.7949 64.9795L45.8109 53.1492C45.908 52.0178 46.3973 51.1109 47.2891 50.4082L60.6191 39.9054C60.9682 39.6304 61.3151 39.4565 61.7443 39.3415L79.0777 34.697L82.1685 46.2318L81.6776 46.3523C80.2734 46.6968 79.2049 47.729 78.9174 49.1603L77.124 58.0885C76.8041 59.6803 75.8912 60.8999 74.4532 61.6537L64.1545 67.0539C63.8677 67.1831 63.296 67.5837 62.9893 67.3429C62.6768 67.0974 62.4382 66.4787 62.2288 65.697C61.712 63.7678 63.4398 62.5478 64.8982 61.7056L68.3029 59.7139C69.7174 58.8864 70.5051 57.3964 70.3843 55.7609L70.2373 53.7721C70.0721 51.5343 67.9195 49.9662 65.7163 50.5565L60.2449 52.0226C58.9845 52.3603 57.9818 53.127 57.3198 54.2507L55.2379 57.7848C54.7365 58.636 54.6051 59.5848 54.8609 60.5395L56.7096 67.439C57.0504 68.7109 57.0188 69.5789 56.6941 70.1835C56.3731 70.7815 55.7107 71.2165 54.804 71.5928C54.0026 71.9253 53.1195 71.4906 52.8949 70.6521L49.8479 59.2803C49.5646 58.2229 49.6891 57.2518 50.2377 56.3039L53.6959 50.3142C53.9979 49.7928 53.8199 49.1251 53.2985 48.8231C52.7774 48.5212 52.1098 48.699 51.8077 49.2206Z" fill="#D0B480" />
@@ -162,8 +202,8 @@ export default function CareersPage() {
               <h4>Growth Opportunities</h4>
               <p>Continuous learning, skill development, and career advancement.</p>
             </div>
-            <div className="valueCard">
-              <div className="valueIcon">
+            <div className={styles.valueCard}>
+              <div className={styles.valueIcon}>
                 <svg width="130" height="130" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect x="0.5" y="0.5" width="129" height="129" rx="64.5" stroke="#D0B480" />
                   <path fillRule="evenodd" clipRule="evenodd" d="M65.8037 38.5585C71.8611 41.3243 78.2511 44.184 85.0708 43.7727L87.1227 43.6489V66.1041C87.1227 78.8237 77.8557 89.8242 65.3322 92.0074L64.9998 92.0653L64.6674 92.0074C52.1439 89.8242 42.877 78.8237 42.877 66.1041V43.6489L44.9289 43.7727C51.7486 44.184 58.1385 41.3241 64.1959 38.5584L64.9998 38.1914L65.8037 38.5585ZM63.1086 68.1254L57.4457 62.4625C56.4276 61.4443 54.7763 61.4443 53.7582 62.4625C52.74 63.4808 52.74 65.1318 53.7582 66.1501L61.2694 73.6613C62.2877 74.6796 63.9387 74.6796 64.957 73.6613C69.4836 69.1347 73.9588 64.5571 78.4646 60.0098C79.4751 58.9899 79.4728 57.3448 78.454 56.3318C77.4359 55.3193 75.7865 55.321 74.7753 56.3423L63.1086 68.1254ZM64.9998 40.319C58.4814 43.2954 52.0041 46.1384 44.8123 45.7046V66.1041C44.8123 77.92 53.4384 88.0851 64.9998 90.1007C76.5613 88.0852 85.1874 77.9202 85.1874 66.1041V45.7046C77.9956 46.1383 71.5183 43.2954 64.9998 40.319ZM42.8252 40.5999C42.0946 40.4671 41.4125 40.647 40.8425 41.1228C40.2726 41.5987 39.9736 42.2376 39.9736 42.98V66.104C39.9736 80.7471 50.8987 92.9601 64.9998 95C79.101 92.9602 90.0261 80.7472 90.0261 66.1041V42.9801C90.0261 42.2377 89.7271 41.5987 89.1572 41.1229C88.5872 40.6471 87.905 40.4674 87.1744 40.6C79.7225 41.9529 73.2797 38.7638 64.9998 35C56.7201 38.7638 50.2772 41.9529 42.8252 40.5999Z" fill="#D0B480" />
@@ -175,175 +215,12 @@ export default function CareersPage() {
           </div>
         </div>
       </section>
-      <CareerSlider />
-      
-      {/* Current Openings Section */}
-      <section className={styles.openingsSection}>
-        <div className="container">
-          <h2 className="fs_54 txt_center" style={{ marginBottom: '12px' }}>CURRENT OPENINGS</h2>
-          <p style={{ textAlign: 'center', color: '#666', marginBottom: '60px', fontSize: '14px' }}>
-            Explore opportunities across our organization and find a role that matches your expertise and career aspirations.
-          </p>
-          
-          <div className={styles.openingsGrid}>
-            {positions.map((position, index) => (
-              <div key={index} className={styles.openingCard}>
-                {/* Part 1: Counter + Title */}
-                <div className={styles.openingPart1}>
-                  <span className={styles.positionNumber}>{String(index + 1).padStart(2, '0')}</span>
-                  <h3 className="fs_30">{position.title}</h3>
-                </div>
-                {/* Part 2: Experience | Location | Description */}
-                <div className={styles.openingPart2}>
-                  <div className={styles.openingMeta}>
-                    <span className={styles.metaLabel}>Experience:</span>
-                    <span className={styles.metaValue}>{position.experience}</span>
-                  </div>
-                  <div className={styles.openingMeta}>
-                    <span className={styles.metaLabel}>Location:</span>
-                    <span className={styles.metaValue}>{position.location}</span>
-                  </div>
-                  <div className={styles.openingDesc}>
-                    <p>{position.description}</p>
-                  </div>
-                </div>
-                {/* Part 3: Button */}
-                <div className={styles.positionAction}>
-                  <Button
-                    variant="secondary"
-                    showArrow
-                    onClick={() => handleApplyNow(position.title)}
-                  >
-                    Apply Now
-                  </Button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      {/* cta section */}
-      <section className={styles.ctaSection}>
-        <div className={styles.ctaImageWrapper}>
-          <Image
-            src="/images/career/career-bg.webp"
-            alt="ZAR careers"
-            fill
-            style={{ objectFit: 'cover' }}
-            sizes="100vw"
-          />
-        </div>
-        <div className={`container ${styles.ctaContainer}`}>
-          <h2 className={styles.ctaTitle}>LET&apos;S BUILD SOMETHING TOGETHER</h2>
-          <p className={styles.ctaDescription}>
-            Didn&apos;t find a suitable role?<br />
-            Share your profile with us and we&apos;ll connect when an opportunity matches your expertise.
-          </p>
-          <Button href="mailto:info@zarjewels.com" variant="secondary" showArrow>
-            Email Your Resume
-          </Button>
-        </div>
-      </section>
-      {/* form section */}
-      <section ref={formRef} className='mt-100 mb-100'>
-        <div className="container">
-          <div className={styles.grid}>
-            <div className={styles.formSection}>
-              <h2 className="formHeading">Start Your Application</h2>
-              <form className="form">
-                <div className="formRow">
-                  <InputField
-                    id="name"
-                    name="name"
-                    label="Full Name"
-                    placeholder="Type full name here"
-                    wrapperClassName={styles.inputGroup}
-                    required
-                  />
-                  <InputField
-                    id="company"
-                    name="company"
-                    label="Company Name"
-                    placeholder="Type your company name here"
-                    wrapperClassName={styles.inputGroup}
-                    required
-                  />
-                </div>
-                <div className="formRow">
-                  <SelectField
-                    id="role"
-                    name="role"
-                    label="Role"
-                    placeholder="Select your role"
-                    value={selectedPosition}
-                    onChange={(e) => setSelectedPosition(e.target.value)}
-                    options={[
-                      { label: 'Select a position', value: '' },
-                      ...positions.map((pos) => ({
-                        label: pos.title,
-                        value: pos.title,
-                      })),
-                    ]}
-                    wrapperClassName={styles.inputGroup}
-                    required
-                  />
-                  <InputField
-                    id="work"
-                    name="work"
-                    label="Work Experience"
-                    placeholder="Type year of experience"
-                    wrapperClassName={styles.inputGroup}
-                    required
-                  />
-                </div>
-                <div className="formRow">
-                  <InputField
-                    id="email"
-                    name="email"
-                    type="email"
-                    label="Email ID"
-                    placeholder="Enter your email ID"
-                    wrapperClassName={styles.inputGroup}
-                    required
-                  />
-                  <PhoneField
-                    id="phone"
-                    name="phone"
-                    label="Contact No."
-                    placeholder="Enter your contact number"
-                    wrapperClassName={styles.inputGroup}
-                    required
-                  />
-                </div>
-                <div className="formRow">
-                  <div className="inputfile">
-                    <label htmlFor="uploadResume" className="custom-file-upload">
-                      <input
-                        type="file"
-                        id="uploadResume"
-                        name="resume"
-                        accept=".pdf,.doc,.docx"
-                        required
-                      />
-                      <p>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="#666666" strokeLinecap="round" strokeLinejoin="round" />
-                          <path d="M17 8L12 3L7 8" stroke="#666666" strokeLinecap="round" strokeLinejoin="round" />
-                          <path d="M12 3V15" stroke="#666666" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                        Attach Your Resume In PDF, Word Format</p>
-                      <p><small>Max Size: 5 Mb</small></p>
-                    </label>
-                  </div>
-                </div>
-                <Button variant="primary" showArrow>
-                  Submit
-                </Button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+
+      <GalleryModal 
+        open={modalOpen} 
+        onClose={() => setModalOpen(false)} 
+        images={currentGallery} 
+      />
+    </main>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "@/styles/index.css";
+import 'swiper/css';
 import ReduxProvider from "@/store/ReduxProvider";
 import Header from "@/components/ui/organisms/Header/Header";
 import Footer from "@/components/ui/organisms/Footer/Footer";

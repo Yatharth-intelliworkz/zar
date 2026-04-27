@@ -75,6 +75,9 @@ ol {
 .mt-100 {
   margin-top: 100px;
 }
+.mb-100 {
+  margin-bottom: 100px;
+}
 
 .txt_center {
   text-align: center;
@@ -241,7 +244,7 @@ ol {
 /* form css */
 /* about page  */
 .storySection {
-  padding: 80px 0;
+  padding: 80px 0 0;
 }
 
 .storyGrid {
@@ -317,142 +320,6 @@ ol {
 }
 
 /* about page  */
-/* Current Openings Section */
-.openingsSection {
-  padding: 80px 0;
-  background: #fafafa;
-}
-
-.openingsGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-}
-
-.openingCard {
-  display: grid;
-  grid-template-columns: 80px 1fr auto;
-  gap: 30px;
-  align-items: center;
-  padding: 30px;
-  background: #fff;
-  border: 1px solid #e8e8e8;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-
-.openingCard:hover {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  border-color: #d0b480;
-}
-
-.positionNumber {
-  font-size: 24px;
-  font-weight: 600;
-  color: #d0b480;
-  text-align: center;
-  line-height: 1;
-}
-
-.positionContent {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.positionTitle {
-  font-size: 16px;
-  font-weight: 600;
-  color: #1f1f1f;
-  margin: 0;
-}
-
-.positionMeta {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.metaItem {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.metaLabel {
-  font-size: 11px;
-  font-weight: 500;
-  color: #999;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.metaValue {
-  font-size: 13px;
-  font-weight: 500;
-  color: #1f1f1f;
-}
-
-.positionDescription {
-  font-size: 13px;
-  line-height: 1.5;
-  color: #666;
-  margin: 0;
-}
-
-.positionAction {
-  display: flex;
-  justify-content: flex-end;
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-  .openingCard {
-    grid-template-columns: 60px 1fr;
-    gap: 20px;
-  }
-  
-  .positionMeta {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-  
-  .positionAction {
-    grid-column: 1 / -1;
-    justify-content: flex-start;
-    padding-top: 16px;
-    border-top: 1px solid #eee;
-  }
-}
-
-@media (max-width: 768px) {
-  .openingsSection {
-    padding: 60px 0;
-  }
-  
-  .openingCard {
-    grid-template-columns: 50px 1fr;
-    padding: 20px;
-    gap: 16px;
-  }
-  
-  .positionNumber {
-    font-size: 18px;
-  }
-  
-  .positionTitle {
-    font-size: 14px;
-  }
-  
-  .positionMeta {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-  
-  .positionDescription {
-    display: none;
-  }
-}
 
 /* resposnive css starts  */
 @media (max-width: 1600px) {

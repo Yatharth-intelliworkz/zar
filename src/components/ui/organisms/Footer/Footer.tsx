@@ -7,6 +7,7 @@ const linkCol1 = [
   { label: 'Story of Zar', href: '/about' },
   { label: 'Collections', href: '/collections' },
   { label: 'Our Clientele', href: '/clientele' },
+  { label: 'Event', href: '/event' },
 ];
 
 const linkCol2 = [

@@ -1,6 +1,5 @@
 /* ── Base Footer ── */
-.footer {
-  margin-top:120px;
+.footer {  
   position: relative;
   color: var(--color-white);
 }
