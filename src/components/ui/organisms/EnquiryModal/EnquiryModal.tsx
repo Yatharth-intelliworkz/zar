@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils';
 interface EnquiryModalProps {
   open: boolean;
   onClose: () => void;
+  productName?: string;
 }
 
 const enquiryTypes = [
@@ -17,7 +18,7 @@ const enquiryTypes = [
   'Other',
 ];
 
-export default function EnquiryModal({ open, onClose }: EnquiryModalProps) {
+export default function EnquiryModal({ open, onClose, productName }: EnquiryModalProps) {
   const [formData, setFormData] = useState({
     fullName: '',
     companyName: '',
@@ -91,6 +92,7 @@ export default function EnquiryModal({ open, onClose }: EnquiryModalProps) {
         </button>
 
         <h2 className={styles.title}>Enquire Now</h2>
+        {productName && <p className={styles.productTag}>{productName}</p>}
         <p className={styles.subtitle}>Fill in the details below and our team will get back to you shortly.</p>
 
         <form className={styles.form} onSubmit={handleSubmit}>

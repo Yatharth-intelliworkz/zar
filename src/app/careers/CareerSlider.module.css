@@ -1,12 +1,10 @@
 .careerSliderSection {
-  padding: 40px 0 80px 0;
   width: 100%;
   overflow: hidden;
 }
 
 .careerSwiper {
   width: 100%;
-  /* To ensure the overflow doesn't cut off shadows if any */
   padding: 20px 0;
 }
 

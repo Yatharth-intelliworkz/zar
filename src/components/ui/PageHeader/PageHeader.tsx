@@ -10,7 +10,7 @@ interface BreadcrumbItem {
 
 interface PageHeaderProps {
   breadcrumbs: BreadcrumbItem[];
-  heading: string;
+  heading?: string;
   description?: string;
 }
 
@@ -33,8 +33,8 @@ export default function PageHeader({ breadcrumbs, heading, description }: PageHe
           </React.Fragment>
         ))}
       </div>
-      <h1 className={styles.heading}>{heading}</h1>
-      {description && <p>{description}</p>}
+      {heading && <h1 className={styles.heading}>{heading}</h1>}
+      {description && <p dangerouslySetInnerHTML={{ __html: description }} />}
     </div>
   );
 }

@@ -9,18 +9,21 @@ export const metadata = {
 };
 
 const clients = [
-    { name: 'Senco Gold', logo: '/images/homepage/brand-senco.svg' },
-  { name: 'BC Jeweller', logo: '/images/homepage/brand-bcj.svg' },
-  { name: 'Tanishq', logo: '/images/homepage/brand-bcj.svg' },
-  { name: 'Joyalukkas', logo: '/images/homepage/brand-bcj.svg' },
-  { name: 'CaratLane', logo: '/images/homepage/brand-bcj.svg' },
-  { name: 'Malabar Gold', logo: '/images/homepage/brand-bcj.svg' },
-  { name: 'Kalyan Jewellers', logo: '/images/homepage/brand-bcj.svg' },
-  { name: 'GRT Jewellers', logo: '/images/homepage/brand-bcj.svg' },
-  { name: 'Anjali Jewellers', logo: '/images/homepage/brand-bcj.svg' },
-  { name: 'Joyalukkas 2', logo: '/images/homepage/brand-bcj.svg' },
-  { name: 'pcj', logo: '/images/homepage/brand-senco.svg' },
-  { name: 'giva', logo: '/images/homepage/brand-senco.svg' },
+    { name: 'anjali', logo: '/images/clients/anjali.webp' },
+  { name: 'b.c.sen', logo: '/images/clients/b.c.sen.webp' },
+  { name: 'bhima', logo: '/images/clients/bhima.webp' },
+  { name: 'goldplus', logo: '/images/clients/goldplus.webp' },
+  { name: 'josco', logo: '/images/clients/josco.webp' },
+  { name: 'joyalukkas', logo: '/images/clients/joyalukkas.webp' },
+  { name: 'Kalyan Jewellers', logo: '/images/clients/kalyan.webp' },
+  { name: 'khazana', logo: '/images/clients/khazana.webp' },
+  { name: 'malabar', logo: '/images/clients/malabar.webp' },
+  { name: 'nac', logo: '/images/clients/nac.webp' },
+  { name: 'p.c.chandra', logo: '/images/clients/p.c.chandra.webp' },
+  { name: 'prince', logo: '/images/clients/prince.webp' },
+  { name: 'sawansukha', logo: '/images/clients/sawansukha.webp' },
+  { name: 'senco', logo: '/images/clients/senco.webp' },
+  { name: 'tanishq', logo: '/images/clients/tanishq.webp' },
 ];
 
 export default function ClientelePage() {
@@ -34,7 +37,7 @@ export default function ClientelePage() {
         heading="Our Clientele"
         description="The unquestionable dedication of Zar's team is the reason why the brand has tied up with some of the best jewelers in the industry."
       />
-      <div style={{ width: '100%', position: 'relative', height: 400, margin: '40px 0' }}>
+      <div className='banner'>
               <Image
                 src="/images/about/about_banner.webp"
                 alt="Crafting gold bangle"

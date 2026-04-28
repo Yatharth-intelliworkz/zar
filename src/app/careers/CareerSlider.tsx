@@ -6,10 +6,15 @@ import { Autoplay } from 'swiper/modules';
 import styles from './CareerSlider.module.css';
 
 export default function CareerSlider() {
-  const slides = Array.from({ length: 8 });
+  const slides = [
+    '/images/career/career3.webp',
+    '/images/career/career4.webp',
+    '/images/career/career5.webp',
+    '/images/career/career2.webp',
+  ];
 
   return (
-    <section className={styles.careerSliderSection}>
+    <section className={`mt-100 ${styles.careerSliderSection}`}>
       <Swiper
         modules={[Autoplay]}
         spaceBetween={30}
@@ -37,12 +42,12 @@ export default function CareerSlider() {
         }}
         className={styles.careerSwiper}
       >
-        {slides.map((_, index) => (
+        {slides.map((src, index) => (
           <SwiperSlide key={index} className={styles.careerSlide}>
             <div className={styles.imageWrapper}>
               <Image 
-                src="/images/career/career-1.png" 
-                alt="Career at Zar Jewels" 
+                src={src} 
+                alt={`Career at Zar Jewels ${index + 1}`} 
                 fill 
                 style={{ objectFit: 'cover' }} 
               />

@@ -60,7 +60,7 @@ export default function CareersPage() {
       />
       <div style={{ width: '100%', position: 'relative', height: 400, margin: '40px 0' }}>
         <Image
-          src="/images/about/about_banner.webp"
+          src="/images/career/career-banner.webp"
           alt="Crafting gold bangle"
           fill
           style={{ objectFit: 'contain' }}
@@ -84,7 +84,7 @@ export default function CareersPage() {
         </div>
       </section>
       {/* Our Story Section */}
-      <section className="storySection">
+      <section className="storySection mt-100">
         <div className="container">
           <div className="storyGrid">
             <div className="storyImageWrapper">
@@ -106,7 +106,7 @@ export default function CareersPage() {
         </div>
       </section>
       {/* Our Values Section */}
-      <section className="valuesSection">
+      <section className="valuesSection mt-100">
         <div className="container">
           <h2 className="fs_54 txt_center">WHY WORK WITH ZAR</h2>
           <p className="valuesSectionSubtitle">We offer an environment where creativity meets precision and careers are built with purpose.</p>
@@ -178,7 +178,7 @@ export default function CareersPage() {
       <CareerSlider />
       
       {/* Current Openings Section */}
-      <section className={styles.openingsSection}>
+      <section className={`mt-100 ${styles.openingsSection}`}>
         <div className="container">
           <h2 className="fs_54 txt_center" style={{ marginBottom: '12px' }}>CURRENT OPENINGS</h2>
           <p style={{ textAlign: 'center', color: '#666', marginBottom: '60px', fontSize: '14px' }}>
@@ -223,7 +223,7 @@ export default function CareersPage() {
         </div>
       </section>
       {/* cta section */}
-      <section className={styles.ctaSection}>
+      <section className={`mt-100 $ {styles.ctaSection}`}>
         <div className={styles.ctaImageWrapper}>
           <Image
             src="/images/career/career-bg.webp"

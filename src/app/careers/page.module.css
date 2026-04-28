@@ -52,10 +52,10 @@
 }
 
 /* Current Openings Section */
-  .openingsSection {
+  /* .openingsSection {
     padding: 80px 0;
     background: #fafafa;
-  }
+  } */
 
   .openingsGrid {
     display: grid;

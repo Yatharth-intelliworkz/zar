@@ -6,6 +6,8 @@ const linkCol1 = [
   { label: 'Home', href: '/' },
   { label: 'Story of Zar', href: '/about' },
   { label: 'Collections', href: '/collections' },
+  { label: '18K Gold', href: '/collections/18k' },
+  { label: '22K Gold', href: '/collections/22k' },
   { label: 'Our Clientele', href: '/clientele' },
   { label: 'Event', href: '/event' },
 ];

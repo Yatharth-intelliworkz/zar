@@ -20,21 +20,21 @@ interface Category {
 
 const categoriesByKt: Record<string, Category[]> = {
   '22kt': [
-    { label: 'Bangles & Bracelet', href: '/collections/bangles-bracelet', image: '/images/menu-kids-jewellery.webp' },
-    { label: 'Mangalsutra & Necklace', href: '/collections/mangalsutra-necklace', image: '/images/menu-kids-jewellery.webp' },
-    { label: 'Mens Jewellery', href: '/collections/mens-jewellery', image: '/images/menu-kids-jewellery.webp' },
-    { label: 'Earrings', href: '/collections/earrings', image: '/images/menu-kids-jewellery.webp' },
-    { label: 'Kids Jewellery', href: '/collections/kids-jewellery', image: '/images/menu-kids-jewellery.webp' },
-    { label: 'Lightweight Jewellery', href: '/collections/lightweight-jewellery', image: '/images/menu-kids-jewellery.webp' },
-    { label: 'Rings', href: '/collections/rings', image: '/images/menu-kids-jewellery.webp' },
+    { label: 'Bangles & Bracelet', href: '/collections/22k/bangles-bracelet', image: '/images/menu-kids-jewellery.webp' },
+    { label: 'Mangalsutra & Necklace', href: '/collections/22k/mangalsutra-necklace', image: '/images/menu-kids-jewellery.webp' },
+    { label: 'Mens Jewellery', href: '/collections/22k/mens-jewellery', image: '/images/menu-kids-jewellery.webp' },
+    { label: 'Earrings', href: '/collections/22k/earrings', image: '/images/menu-kids-jewellery.webp' },
+    { label: 'Kids Jewellery', href: '/collections/22k/kids-jewellery', image: '/images/menu-kids-jewellery.webp' },
+    { label: 'Lightweight Jewellery', href: '/collections/22k/lightweight-jewellery', image: '/images/menu-kids-jewellery.webp' },
+    { label: 'Rings', href: '/collections/22k/rings', image: '/images/menu-kids-jewellery.webp' },
   ],
   '18kt': [
-    { label: 'Bangles & Bracelet', href: '/collections/bangles-bracelet-18kt', image: '/images/menu-kids-jewellery.webp' },
-    { label: 'Mangalsutra & Necklace', href: '/collections/mangalsutra-necklace-18kt', image: '/images/menu-kids-jewellery.webp' },
-    { label: 'Lightweight Jewellery', href: '/collections/lightweight-jewellery-18kt', image: '/images/menu-kids-jewellery.webp' },
-    { label: 'Earrings', href: '/collections/earrings-18kt', image: '/images/menu-kids-jewellery.webp' },
-    { label: 'Rings', href: '/collections/rings-18kt', image: '/images/menu-kids-jewellery.webp' },
-    { label: 'Kids Jewellery', href: '/collections/kids-jewellery-18kt', image: '/images/menu-kids-jewellery.webp' },
+    { label: 'Bangles & Bracelet', href: '/collections/18k/bangles-bracelet', image: '/images/menu-kids-jewellery.webp' },
+    { label: 'Mangalsutra & Necklace', href: '/collections/18k/mangalsutra-necklace', image: '/images/menu-kids-jewellery.webp' },
+    { label: 'Lightweight Jewellery', href: '/collections/18k/lightweight-jewellery', image: '/images/menu-kids-jewellery.webp' },
+    { label: 'Earrings', href: '/collections/18k/earrings', image: '/images/menu-kids-jewellery.webp' },
+    { label: 'Rings', href: '/collections/18k/rings', image: '/images/menu-kids-jewellery.webp' },
+    { label: 'Kids Jewellery', href: '/collections/18k/kids-jewellery', image: '/images/menu-kids-jewellery.webp' },
   ],
 };
 
@@ -106,7 +106,7 @@ export default function MegaMenu({ open, onClose }: MegaMenuProps) {
               </svg>
             </span>
           </Link> */}
-          <Button href="/collections/dazzling"  variant="primary" showArrow>
+          <Button href={`/collections/${activeKt === '18kt' ? '18k' : '22k'}`}  variant="primary" showArrow>
             Explore Collections
           </Button>
         </div>

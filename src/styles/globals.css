@@ -123,7 +123,14 @@ ol {
   font-weight: 400;
   line-height: 36px;
 }
-
+/*----------------------------- banner img css -----------------------------*/
+.banner {
+  width: 100%;
+  position: relative;
+  height: 400px;
+  margin: 40px 0;
+}
+/*----------------------------- banner img css -----------------------------*/
 /* form css */
 .fieldGroup {
   position: relative;
@@ -243,9 +250,9 @@ ol {
 
 /* form css */
 /* about page  */
-.storySection {
+/* .storySection {
   padding: 80px 0 0;
-}
+} */
 
 .storyGrid {
   display: grid;
@@ -278,9 +285,9 @@ ol {
 }
 
 /* ----------------------------------- */
-.valuesSection {
-  padding: 80px 0;
-}
+  /* .valuesSection {
+    padding: 80px 0;
+  } */
 
 .valuesSectionSubtitle {
   font-size: var(--fs-base);

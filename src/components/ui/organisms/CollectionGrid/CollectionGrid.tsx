@@ -7,6 +7,7 @@ interface CollectionItem {
   name: string;
   image: string;
   category?: string;
+  href?: string;
 }
 
 interface CollectionGridProps {
@@ -44,7 +45,7 @@ export default function CollectionGrid({
       {collections.map((collection) => (
         <Link
           key={collection.id}
-          href={`/collections/${collection.id}`}
+          href={collection.href || `/collections/${collection.id}`}
           className={styles.card}
         >
           <div className={styles.cardImage}>

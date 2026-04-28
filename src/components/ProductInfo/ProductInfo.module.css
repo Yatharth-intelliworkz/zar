@@ -1,13 +1,12 @@
 .infoContainer {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
   color: var(--text-color, #333);
 }
 
 .title {
   font-size: 2.5rem;
-  font-family: var(--font-heading, 'Playfair Display', serif);
   font-weight: 500;
   margin: 0;
   color: var(--primary-color, #a8813a);
@@ -19,54 +18,206 @@
   margin-top: -10px;
 }
 
-.description {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: var(--text-color, #444);
+
+/* ── Meta row: purity badge, weight badge, finish line ── */
+.metaRow {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  column-gap: 20px;
+  row-gap: 8px;
+  padding: 10px 0 12px;
 }
 
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 18px;
+  border-right: 1px solid #e0d9c8;
+}
+
+.metaIcon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.metaText {
+  font-size: 18px;
+  color: #666666;
+  letter-spacing: -0.5px;
+  font-family: var(--font-body, 'Helvetica Neue', sans-serif);
+}
+
+.metaFinishItem {
+  min-width: 0;
+}
+
+.finishLine {
+  font-size: 18px;
+  color: #666666;
+  margin: 0;
+  line-height: 1;
+  font-family: var(--font-body, 'Helvetica Neue', sans-serif);
+}
+
+.finishLabel {
+  font-weight: 400;
+  color: #666666;
+}
+
+/* ── Weight breakdown grid ── */
 .specificationsContainer {
-  margin-top: 20px;
-  border-top: 1px solid var(--border-light, #e0e0e0);
+  border-top: 1px solid #e8e0d0;
   padding-top: 20px;
 }
 
 .specificationsTitle {
-  font-size: 1.5rem;
-  font-family: var(--font-heading, 'Playfair Display', serif);
-  margin-bottom: 15px;
-  font-weight: 500;
+  font-size: 33px;
+  font-family: var(--font-body, 'Helvetica Neue', sans-serif);
+  font-weight: 400;
+  margin: 0 0 14px;
+  color: #000;
 }
 
-.specTable {
-  width: 100%;
-  border-collapse: collapse;
+.weightGrid {
+  display: block;
+  border: 1px solid #d0b480;
 }
 
-.specTable tr {
-  border-bottom: 1px solid var(--border-light, #eaeaea);
+.weightItem {
+  display: grid;
+  grid-template-columns: 1fr 1.45fr;
+  gap: 0;
+  border-bottom: 1px solid #d0b480;
 }
 
-.specTable tr:last-child {
+.weightItem:last-child {
   border-bottom: none;
 }
 
-.specKey {
-  text-align: left;
-  padding: 12px 0;
-  font-weight: 600;
-  color: var(--text-color, #333);
-  width: 40%;
+.weightLabel {
+  font-size: 18px;
+  color: #666666;
+  padding: 8px 15px;
+  border-right: 1px solid #d0b480;
+  text-transform: none;
+  font-family: var(--font-body, 'Helvetica Neue', sans-serif);
 }
 
-.specValue {
-  text-align: left;
-  padding: 12px 0;
-  color: var(--text-color, #555);
+.weightValue {
+  font-size: 18px;
+  font-weight: 400;
+  color: #666666;
+  letter-spacing: -0.6px;
+  padding: 8px 15px;
+  font-family: var(--font-body, 'Helvetica Neue', sans-serif);
 }
 
+/* ── Technical Specifications table ── */
+.techSpecsContainer {
+  border-top: none;
+  padding-top: 20px;
+}
+
+.techSpecTable {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #d0b480;
+  font-size: 18px;
+}
+
+.techSpecHeader {
+  text-align: left;
+  padding: 9px 15px;
+  background: #000;
+  font-weight: 400;
+  color: #fff;
+  border: 1px solid #d0b480;
+  font-family: var(--font-body, 'Helvetica Neue', sans-serif);
+  line-height: 1;
+}
+
+.techSpecFeature {
+  padding: 8px 15px;
+  border: 1px solid #d0b480;
+  font-weight: 400;
+  color: #666666;
+  width: 31%;
+  vertical-align: top;
+  line-height: 1.2;
+  font-family: var(--font-body, 'Helvetica Neue', sans-serif);
+}
+
+.techSpecDetails {
+  padding: 8px 15px;
+  border: 1px solid #d0b480;
+  color: #666666;
+  line-height: 1.2;
+  vertical-align: top;
+  font-family: var(--font-body, 'Helvetica Neue', sans-serif);
+}
+
+/* ── Manufacturing & Customization Support ── */
+.manufacturingContainer {
+  border-top: none;
+  padding-top: 20px;
+}
+
+.manufacturingHeading {
+  font-size: 18px;
+  font-family: var(--font-body, 'Helvetica Neue', sans-serif);
+  font-weight: 400;
+  margin: 0 0 8px;
+  color: #000;
+}
+
+.manufacturingSubtitle {
+  font-size: 18px;
+  color: #666666;
+  margin: 0 0 14px;
+  letter-spacing: -0.6px;
+  font-family: var(--font-body, 'Helvetica Neue', sans-serif);
+}
+
+.manufacturingList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.manufacturingItem {
+  font-size: 18px;
+  color: #666666;
+  padding-left: 22px;
+  position: relative;
+  letter-spacing: -0.6px;
+  font-family: var(--font-body, 'Helvetica Neue', sans-serif);
+}
+
+.manufacturingItem::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 15px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d0b480;
+}
+
+.manufacturingLabel {
+  font-weight: 400;
+  color: #666666;
+}
+
+/* ── Enquire button ── */
 .actions {
-  margin-top: 30px;
+  margin-top: 6px;
 }
 
 .inquireBtn {
@@ -89,3 +240,36 @@
   background-color: #8c6a2c;
   transform: translateY(-2px);
 }
+
+@media (max-width: 600px) {
+  .metaRow {
+    grid-template-columns: 1fr;
+  }
+
+  .metaItem {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  .metaText,
+  .finishLine,
+  .specificationsTitle,
+  .weightLabel,
+  .weightValue,
+  .techSpecTable,
+  .manufacturingHeading,
+  .manufacturingSubtitle,
+  .manufacturingItem {
+    font-size: 18px;
+  }
+
+  .weightItem {
+    grid-template-columns: 1fr;
+  }
+
+  .weightLabel {
+    border-right: none;
+    border-bottom: 1px solid #d0b480;
+  }
+}
+

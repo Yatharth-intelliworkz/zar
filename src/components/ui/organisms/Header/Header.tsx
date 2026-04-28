@@ -71,7 +71,7 @@ export default function Header() {
                   onMouseEnter={openMegaMenu}
                   onMouseLeave={closeMegaMenu}
                 >
-                  <a href="/collections">
+                  <a href="#" onClick={(e) => e.preventDefault()}>
                     Collections
                     <span className={styles.chevron}>
                       <svg viewBox="0 0 11 6" fill="none" xmlns="http://www.w3.org/2000/svg">
