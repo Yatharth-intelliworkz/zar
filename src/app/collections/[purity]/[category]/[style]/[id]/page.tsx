@@ -234,22 +234,23 @@ export default async function ProductDetailPage({ params }: Props) {
           { label: product.title, isActive: true }
         ]}
       />
+      <section>
+        <div className="container nb-100">
+          <div className={styles.grid}>
+            {/* Left Column: Image Gallery (Sticky) */}
+            <div className={styles.galleryColumn}>
+              <div className={styles.stickyGallery}>
+                <ProductGallery images={product.images} />
+              </div>
+            </div>
 
-      <div className={styles.container}>
-        <div className={styles.grid}>
-          {/* Left Column: Image Gallery (Sticky) */}
-          <div className={styles.galleryColumn}>
-            <div className={styles.stickyGallery}>
-              <ProductGallery images={product.images} />
+            {/* Right Column: Product Info */}
+            <div className={styles.infoColumn}>
+              <ProductInfo product={product} />
             </div>
           </div>
-
-          {/* Right Column: Product Info */}
-          <div className={styles.infoColumn}>
-            <ProductInfo product={product} />
-          </div>
         </div>
-      </div>
+      </section>
 
       <section className={styles.tradeHighlights} aria-label="Trade highlights">
         <div className="container">

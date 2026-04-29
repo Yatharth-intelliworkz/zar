@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 const clients = [
-    { name: 'anjali', logo: '/images/clients/anjali.webp' },
+  { name: 'anjali', logo: '/images/clients/anjali.webp' },
   { name: 'b.c.sen', logo: '/images/clients/b.c.sen.webp' },
   { name: 'bhima', logo: '/images/clients/bhima.webp' },
   { name: 'goldplus', logo: '/images/clients/goldplus.webp' },
@@ -57,19 +57,31 @@ export default function ClientelePage() {
         </div>
         <p className={styles.staticText}>
           Zar has rapidly expanded since its inception almost 65 years ago. The production and distribution of fine gold bangles has been our aim and we believe in providing the best services to our clients. These clients further serve the customers who recognize Zar to be a trustworthy brand. With 30 distribution centres that supply to more than 1,000 retail outlets across India, the company is getting bigger and better in terms of production and service. We not only focus on our direct clients but we also aim to reach the customers who use our products. This gives us an opportunity to connect with them and helps us improve our services.        
-        <br/>
+        <br/><br/>
         We aim to strengthen the bond we have with our clients and serve them with exquisite, quality products. Zar further expanded when it started exporting its products to UAE, Singapore, London, New York and Canada. We look forward to expand our business over the years on the twin foundations of trust and quality.
         </p>
       </section>
 
-      <section className={`container mt-100 ${styles.imageSection}`}>
+      <section className='mt-100'>
+        <div className="container">
+          <Image 
+            src="/images/Distributor-Testimonials.png" 
+            alt="Distributor Testimonials" 
+            width={1200} 
+            height={600} 
+            className={styles.fullImage}
+          />
+        </div>
+      </section>
+
+      <section className="mt-100">
         <Image 
-          src="/images/Distributor-Testimonials.png" 
-          alt="Distributor Testimonials" 
-          width={1200} 
-          height={600} 
-          className={styles.fullImage}
-        />
+            src="/images/career/map.webp" 
+            alt="map" 
+            width={1920} 
+            height={900} 
+            className={styles.mapImage}
+          />
       </section>
 
       <RetailerSlider />

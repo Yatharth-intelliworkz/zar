@@ -1,11 +1,7 @@
-import Button from '@/components/ui/atoms/Button/Button';
-import InputField from '@/components/ui/atoms/InputField/InputField';
-import PhoneField from '@/components/ui/atoms/PhoneField/PhoneField';
 import PageHeader from '@/components/ui/PageHeader/PageHeader';
-import SelectField from '@/components/ui/atoms/SelectField/SelectField';
-import TextareaField from '@/components/ui/atoms/TextareaField/TextareaField';
 import styles from './page.module.css';
 import Image from 'next/image';
+import ContactForm from './ContactForm';
 
 export const metadata = {
   title: 'Contact — Zar Jewels',
@@ -34,74 +30,7 @@ export default function ContactPage() {
       </div>
       <div className={styles.content}>
         <div className={styles.grid}>
-          <div className={styles.formSection}>
-            <h2 className="formHeading">Send us a Message</h2>
-            <form className={styles.form}>
-              <div className={styles.formRow}>
-                <InputField
-                  id="name"
-                  name="name"
-                  label="Full Name"
-                  placeholder="Your full name"
-                  wrapperClassName={styles.inputGroup}
-                  required
-                />
-                <InputField
-                  id="company"
-                  name="company"
-                  label="Company Name"
-                  placeholder="Your company name"
-                  wrapperClassName={styles.inputGroup}
-                />
-              </div>
-              <div className={styles.formRow}>
-                <InputField
-                  id="email"
-                  name="email"
-                  type="email"
-                  label="Email ID"
-                  placeholder="you@email.com"
-                  wrapperClassName={styles.inputGroup}
-                  required
-                />
-                <PhoneField
-                  id="phone"
-                  name="phone"
-                  label="Contact No."
-                  placeholder="Enter number"
-                  wrapperClassName={styles.inputGroup}
-                  required
-                />
-              </div>
-              <div className={styles.formRow}>
-                <SelectField
-                  id="subject"
-                  name="subject"
-                  label="Enquiry Type"
-                  placeholder="Select enquiry type"
-                  options={[
-                    { label: 'Product Enquiry', value: 'product' },
-                    { label: 'Bulk Order', value: 'bulk' },
-                    { label: 'Partnership', value: 'partnership' },
-                    { label: 'General Enquiry', value: 'general' },
-                  ]}
-                  wrapperClassName={styles.inputGroup}
-                  required
-                />
-                <TextareaField
-                  id="message"
-                  name="message"
-                  label="Message"
-                  placeholder="Your message..."
-                  wrapperClassName={styles.inputGroup}
-                  required
-                />
-              </div>
-              <Button variant="primary" showArrow>
-                Send Message
-              </Button>
-            </form>
-          </div>
+          <ContactForm />
         </div>
 
         <section className={styles.contactMapSection}>

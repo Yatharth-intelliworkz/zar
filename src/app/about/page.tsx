@@ -33,7 +33,7 @@ export default function AboutPage() {
       </div>
 
       {/* Section 2: Static Description */}
-      <section className={styles.descriptionSection}>
+      <section className="mb-100">
         <div className="container">
           <p>
             The story of ZAR is rooted in a legacy built on trust, craftsmanship, and enduring relationships.<br/><br/>
@@ -71,7 +71,7 @@ export default function AboutPage() {
       </section>
 
       {/* Legacy Section */}
-      <section className={styles.legacySection}>
+      <section className="mt-100 mb-100">
         <div className="container">
           <div className={styles.legacyGrid}>
             <div className={styles.legacyTextBlock}>
@@ -153,7 +153,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Values Section */}
-      <section className="valuesSection">
+      <section className="valuesSection mt-100 mb-100">
         <div className="container">
           <h2 className="fs_54 txt_center">OUR VALUES</h2>
           <p className="valuesSectionSubtitle">Timeless craftsmanship, uncompromising quality, and trust carried through generations.</p>
@@ -222,12 +222,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* Timeline Section */}
-      <Timeline />
-
       {/* Our Philosophy Section */}
-      <section className={styles.legacySection}>
+      <section className="mb-100">
         <div className="container">
           <div className={styles.legacyGrid}>
             <div className={styles.legacyTextBlock}>
@@ -243,8 +239,12 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Timeline Section */}
+      <Timeline />
+
       {/* {design & finish section} */}
-      <section className={styles.abt_design}>
+      <section className="mt-100">
         <div className="container">
           <div className={styles.abt_des_wrapper}>
             <div>

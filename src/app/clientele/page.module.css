@@ -1,7 +1,4 @@
-.page {
-  padding-top: 150px;
-  padding-bottom: 100px;
-}
+
 
 .section2 {
   display: flex;
@@ -34,7 +31,7 @@
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
-.logoItem:hover .logoItem img {
+.logoItem:hover img {
   transform: scale(1.1);
 }
 
@@ -47,19 +44,16 @@
   transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
-.imageSection {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
 .fullImage {
   width: 100%;
   height: auto;
   border-radius: 16px;
   object-fit: cover;
 }
-
+.mapImage{
+  width:100%;
+  height:auto;
+}
 @media (max-width: 768px) {
   .page {
     padding-top: 100px;

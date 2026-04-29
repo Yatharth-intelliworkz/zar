@@ -9,6 +9,8 @@ interface ButtonProps {
   showArrow?: boolean;
   onClick?: () => void;
   className?: string;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
 }
 
 function ArrowIcon() {
@@ -34,6 +36,8 @@ export default function Button({
   showArrow = true,
   onClick,
   className,
+  type = 'button',
+  disabled = false,
 }: ButtonProps) {
   const classes = cn(styles.button, styles[variant], className);
 
@@ -47,7 +51,7 @@ export default function Button({
   }
 
   return (
-    <button className={classes} onClick={onClick} type="button">
+    <button className={classes} onClick={onClick} type={type} disabled={disabled}>
       {children}
       {showArrow && <ArrowIcon />}
     </button>

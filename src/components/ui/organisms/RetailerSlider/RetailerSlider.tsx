@@ -1,11 +1,10 @@
 'use client';
 
-// @ts-ignore
+// @ts-expect-error Swiper CSS import is handled by Next bundling, not TypeScript.
 import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Image from 'next/image';
 import styles from './RetailerSlider.module.css';
 
@@ -55,6 +54,21 @@ export default function RetailerSlider() {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const wrapRefs  = useRef<(HTMLDivElement | null)[]>([]);
   const swiperRef = useRef<SwiperType | null>(null);
+  const [loadedVideos, setLoadedVideos] = useState<boolean[]>(() =>
+    testimonials.map(() => false)
+  );
+
+  function markVideoLoaded(idx: number) {
+    setLoadedVideos((current) => {
+      if (current[idx]) {
+        return current;
+      }
+
+      const next = [...current];
+      next[idx] = true;
+      return next;
+    });
+  }
 
   function stopAll() {
     videoRefs.current.forEach((v, i) => {
@@ -93,22 +107,34 @@ export default function RetailerSlider() {
   }
 
   return (
-    <section className={styles.section}>
+    <section className="mt-100 mb-100">
       <div className={styles.hd}>
-        <h2>What Our Retailers / End Customers Say</h2>
+        <h2 className="fs_54">What Our Retailers / End Customers Say</h2>
         <p>Hear from our partners about their journey through our exclusive showcases.</p>
       </div>
 
       <div className={styles.outer}>
         <Swiper
-          modules={[Autoplay]}
           loop={true}
           centeredSlides={true}
           slidesPerView={3}
           spaceBetween={50}
           speed={600}
           grabCursor
-          autoplay={{ delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true }}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 24,
+            },
+            1200: {
+              slidesPerView: 3,
+              spaceBetween: 32,
+            },
+          }}
           onSwiper={(s) => { swiperRef.current = s; }}
           onSlideChange={stopAll}
           className={styles.swiper}
@@ -124,6 +150,12 @@ export default function RetailerSlider() {
                 className={styles.vwrap}
                 ref={(el) => { wrapRefs.current[idx] = el; }}
               >
+                {!loadedVideos[idx] && (
+                  <div className={styles.mediaSkeleton} aria-hidden="true">
+                    <div className={styles.skeletonShimmer} />
+                    <div className={styles.skeletonPlay} />
+                  </div>
+                )}
                 <video
                   ref={(el) => { videoRefs.current[idx] = el; }}
                   src={t.video}
@@ -131,6 +163,8 @@ export default function RetailerSlider() {
                   loop
                   playsInline
                   preload="metadata"
+                  onLoadedMetadata={() => markVideoLoaded(idx)}
+                  onCanPlay={() => markVideoLoaded(idx)}
                   onPause={(e) => {
                     if (!e.currentTarget.ended) wrapRefs.current[idx]?.classList.remove(styles.playing);
                   }}
@@ -155,8 +189,8 @@ export default function RetailerSlider() {
                   <Image
                     src="/images/quote_2.svg"
                     alt="quote"
-                    width={60}
-                    height={45}
+                    width={54}
+                    height={40}
                     className={styles.quoteImg}
                   />
                   <p className={styles.message}>{t.quote}</p>

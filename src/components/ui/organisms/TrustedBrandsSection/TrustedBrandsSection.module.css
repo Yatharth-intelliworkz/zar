@@ -18,14 +18,6 @@
   text-align: center;
 }
 
-.heading {
-  font-family: var(--font-heading);
-  font-size: var(--fs-3xl);
-  font-weight: var(--fw-semibold);
-  line-height: 66px;
-  color: var(--color-brown);
-}
-
 .marquee {
   margin-top: 50px;
   width: 100dvw;
@@ -44,8 +36,5 @@
 }
 
 @media (max-width: 768px) {
-  .heading {
-    font-size: 36px;
-    line-height: 44px;
-  }
+
 }

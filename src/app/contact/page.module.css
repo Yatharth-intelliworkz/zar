@@ -39,6 +39,22 @@
   flex: 1;
 }
 
+.submitStatusSuccess,
+.submitStatusError {
+  margin: 10px 0 0;
+  font-size: 14px;
+  line-height: 1.4;
+  font-family: var(--font-body);
+}
+
+.submitStatusSuccess {
+  color: #1f7a3f;
+}
+
+.submitStatusError {
+  color: #d13b3b;
+}
+
 .contactMapSection {
   display: grid;
   grid-template-columns: 35% 50%;

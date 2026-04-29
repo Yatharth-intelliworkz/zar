@@ -1,5 +1,5 @@
 /* ── Base Footer ── */
-.footer {  
+.footer {
   position: relative;
   color: var(--color-white);
 }
@@ -14,7 +14,7 @@
 
 /* ── Quote Section ── */
 .quoteSection {
-  padding: 80px 20px;
+  padding: 80px 60px;
   position: relative;
 }
 
@@ -48,10 +48,12 @@
   line-height: 80px;
   color: var(--color-gold-accent);
 }
-.quoteMarkRight{
-   -webkit-transform: scaleX(-1);
+
+.quoteMarkRight {
+  -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
 }
+
 .quoteText {
   font-family: var(--font-heading);
   font-size: var(--fs-3xl);
@@ -74,8 +76,8 @@
   max-width: var(--max-width);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 50px;
+  grid-template-columns: 1fr 1.2fr 1.2fr;
+  gap: 80px;
 }
 
 /* Brand column */
@@ -96,7 +98,7 @@
   font-size: 18px;
   line-height: 26px;
   color: var(--color-white);
-  max-width: 430px;
+  max-width: 370px;
 }
 
 .socials {
@@ -127,7 +129,7 @@
 /* Links grid (2 columns) */
 .linksGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 30px;
 }
 
@@ -143,7 +145,8 @@
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
-  line-height: 30px; /* 125% */
+  line-height: 30px;
+  /* 125% */
 }
 
 .linksList {
@@ -161,7 +164,8 @@
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
-  line-height: 36px; /* 200% */
+  line-height: 36px;
+  /* 200% */
   transition: color var(--transition-fast);
 }
 
@@ -216,7 +220,8 @@
   max-width: var(--max-width);
   margin: 0 auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   gap: 12px;
 }
@@ -224,6 +229,7 @@
 .copyright {
   font-family: var(--font-body);
   color: var(--color-brown);
+  font-size:16px;
 }
 
 .legalLinks {
@@ -236,6 +242,7 @@
   font-family: var(--font-body);
   color: var(--color-brown);
   transition: color var(--transition-fast);
+  font-size:16px; 
 }
 
 .legalLinks a:hover {
@@ -247,43 +254,7 @@
 }
 
 /* ── Desktop ── */
-@media (min-width: 1024px) {
-  .topInner {
-    grid-template-columns: 1.2fr 1fr 1.2fr;
-    gap: 80px;
-  }
 
-  .bottomInner {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .quoteSection {
-    padding: 80px 60px;
-  }
-
-  .footerTop {
-    padding: 80px 60px 60px;
-  }
-
-  .footerBottom {
-    padding: 22px 60px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .quoteSection {
-    padding: 80px 0;
-  }
-
-  .footerTop {
-    padding: 80px 0 60px;
-  }
-
-  .footerBottom {
-    padding: 22px 0;
-  }
-}
 
 /* ── Mobile ── */
 @media (max-width: 767px) {

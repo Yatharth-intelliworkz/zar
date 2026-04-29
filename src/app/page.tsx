@@ -5,7 +5,7 @@ import ManufacturingSection from '@/components/ui/organisms/ManufacturingSection
 import CraftsmanshipSection from '@/components/ui/organisms/CraftsmanshipSection/CraftsmanshipSection';
 import ModernWomanSection from '@/components/ui/organisms/ModernWomanSection/ModernWomanSection';
 import ExhibitionsSection from '@/components/ui/organisms/ExhibitionsSection/ExhibitionsSection';
-import TestimonialsSection from '@/components/ui/organisms/TestimonialsSection/TestimonialsSection';
+import RetailerSlider from '@/components/ui/organisms/RetailerSlider/RetailerSlider';
 import TrustedBrandsSection from '@/components/ui/organisms/TrustedBrandsSection/TrustedBrandsSection';
 import InstagramSection from '@/components/ui/organisms/InstagramSection/InstagramSection';
 
@@ -19,7 +19,7 @@ export default function Home() {
       <CraftsmanshipSection />
       <ModernWomanSection />
       <ExhibitionsSection />
-      <TestimonialsSection />
+      <RetailerSlider />
       <InstagramSection />
       <TrustedBrandsSection />
     </>

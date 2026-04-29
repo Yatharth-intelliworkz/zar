@@ -6,25 +6,9 @@
 /* ── Header ── */
 .hd {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 50px;
 }
 
-.hd h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.5rem, 3vw, 2.4rem);
-  font-weight: 400;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #1a1410;
-  margin-bottom: 10px;
-}
-
-.hd p {
-  font-size: 12.5px;
-  font-weight: 300;
-  letter-spacing: 0.05em;
-  color: #9a8a7a;
-}
 
 /* ── Outer container ── */
 .outer {
@@ -42,38 +26,50 @@
   align-items: flex-start !important;
 }
 
+.swiper :global(.swiper-slide) {
+  height: auto;
+}
+
 /* ── Slide base (inactive) ── */
 .slide {
-  width: 500px !important;
+  width: 100%;
   border-radius: 4px;
   overflow: hidden;
   opacity: 0.65;
   cursor: pointer;
   transition:
-    width   0.55s cubic-bezier(.4,0,.2,1),
+    transform 0.55s cubic-bezier(.4,0,.2,1),
     opacity 0.50s ease,
     box-shadow 0.50s ease;
-  box-shadow: 0 3px 14px rgba(0,0,0,.10);
+  /* box-shadow: 0 3px 14px rgba(0,0,0,.10); */
   flex-shrink: 0;
   position: relative;
   background: #fff;
+  transform: scale(0.88);
+  transform-origin: center center;
 }
 
 /* ── Active slide ──
    .slide:global() ensures this only targets slides in THIS component  */
 .slide:global(.swiper-slide-active) {
-  width: 800px !important;
   opacity: 1;
   box-shadow: 0 10px 40px rgba(0,0,0,.18);
   z-index: 2;
   cursor: default;
+  transform: scale(1);
+}
+
+.slide:global(.swiper-slide-prev),
+.slide:global(.swiper-slide-next) {
+  opacity: 0.82;
+  transform: scale(0.92);
 }
 
 /* ── Video wrapper ── */
 .vwrap {
   position: relative;
   width: 100%;
-  height: 281px;       /* 500 × 9/16 */
+  height: 281px;
   background: #1c1510;
   overflow: hidden;
   transition: height 0.55s cubic-bezier(.4,0,.2,1);
@@ -81,7 +77,57 @@
 
 /* Expand video on active slide */
 .slide:global(.swiper-slide-active) .vwrap {
-  height: 450px;       /* 800 × ~9/16 */
+  height: 360px;
+}
+
+.mediaSkeleton {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(39, 29, 23, 0.95) 0%, rgba(28, 21, 16, 0.98) 100%);
+}
+
+.skeletonShimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.06) 35%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0.06) 65%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translateX(-100%);
+  animation: retailerSkeletonShimmer 1.6s ease-in-out infinite;
+}
+
+.skeletonPlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 76px;
+  height: 76px;
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+}
+
+.skeletonPlay::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+  border-left: 18px solid rgba(255, 255, 255, 0.78);
+  transform: translate(-35%, -50%);
 }
 
 .vwrap video {
@@ -144,7 +190,7 @@
 
 /* ── Slide body — collapsed on inactive ── */
 .slideBody {
-  max-height: 0;
+  /* max-l̥height: 0; */
   overflow: hidden;
   opacity: 0;
   transition:
@@ -154,7 +200,7 @@
 }
 
 .slide:global(.swiper-slide-active) .slideBody {
-  max-height: 380px;
+  /* max-height: 380px; */
   opacity: 1;
   transition:
     max-height 0.55s cubic-bezier(.4,0,.2,1) 0.05s,
@@ -163,12 +209,11 @@
 
 /* ── Slide body inner ── */
 .slideBodyInner {
-  padding: 0 32px 32px;
+  padding: 0 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  border-top: 1px solid rgba(184,145,74,.15);
 }
 
 /* ── Quote image ── */
@@ -183,10 +228,8 @@
   color: #666;
   text-align: center;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.6;
+  font-size: 24px;
+  line-height: 1.5;
 }
 
 /* ── Name ── */
@@ -194,12 +237,10 @@
   color: #A38274;
   text-align: center;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
+  font-size: 24px;
   line-height: 24px;
+  margin-bottom: 8px;
   display: block;
-  margin-bottom: 4px;
 }
 
 /* ── Designation ── */
@@ -207,9 +248,79 @@
   color: #666;
   text-align: center;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
+  font-size: 18px;
   line-height: 20px;
   display: block;
+}
+
+@media (max-width: 1199px) {
+  .slide {
+    transform: scale(0.94);
+  }
+
+  .slide:global(.swiper-slide-active) {
+    transform: scale(1);
+  }
+
+  .vwrap {
+    height: 260px;
+  }
+
+  .slide:global(.swiper-slide-active) .vwrap {
+    height: 320px;
+  }
+
+  .message {
+    font-size: 21px;
+  }
+}
+
+@media (max-width: 767px) {
+  .outer {
+    padding: 0 16px;
+  }
+
+  .slide,
+  .slide:global(.swiper-slide-prev),
+  .slide:global(.swiper-slide-next),
+  .slide:global(.swiper-slide-active) {
+    opacity: 1;
+    transform: none;
+  }
+
+  .vwrap,
+  .slide:global(.swiper-slide-active) .vwrap {
+    height: 240px;
+  }
+
+  .slideBody {
+    opacity: 1;
+  }
+
+  .slideBodyInner {
+    padding: 0 20px 24px;
+  }
+
+  .message {
+    margin: 24px 0;
+    font-size: 18px;
+  }
+
+  .name {
+    font-size: 20px;
+  }
+
+  .designation {
+    font-size: 16px;
+  }
+}
+
+@keyframes retailerSkeletonShimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
 }

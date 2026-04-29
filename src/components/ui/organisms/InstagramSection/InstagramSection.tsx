@@ -55,7 +55,7 @@ export default function InstagramSection() {
   const progress = maxIndex > 0 ? currentIndex / maxIndex : 0;
 
   return (
-    <section className="mt-100">
+    <section>
       <div className={styles.inner}>
         <motion.div 
           className={styles.header}
@@ -73,7 +73,7 @@ export default function InstagramSection() {
           />
           <div className={styles.titleBlock}>
             <h2 className="fs_54">Join Our Instagram Community</h2>
-            <p className={styles.subtitle}>
+            <p className="">
               Discover new designs, upcoming exhibitions, and real moments from our jewellery journey.
             </p>
           </div>

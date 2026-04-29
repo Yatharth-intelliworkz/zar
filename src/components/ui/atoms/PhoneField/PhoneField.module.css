@@ -15,6 +15,18 @@
     transition: border-color 0.2s;
 }
 
+.inputError {
+    border-color: #d13b3b;
+}
+
+.errorText {
+    margin: 6px 0 0;
+    font-size: 13px;
+    line-height: 1.35;
+    color: #d13b3b;
+    font-family: var(--font-body);
+}
+
 
 /* Flag button container */
 .fieldGroup :global(.iti__flag-container) {

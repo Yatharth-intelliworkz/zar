@@ -4,26 +4,28 @@ import ClientLogo from '@/components/ui/molecules/ClientLogo/ClientLogo';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { motion } from 'framer-motion';
 import { Autoplay } from 'swiper/modules';
-import 'swiper/css';
 import styles from './TrustedBrandsSection.module.css';
 const brands = [
-  { name: 'Senco Gold', logo: '/images/homepage/brand-senco.svg' },
-  { name: 'BC Jeweller', logo: '/images/homepage/brand-bcj.svg' },
-  { name: 'Tanishq', logo: '/images/homepage/brand-bcj.svg' },
-  { name: 'Joyalukkas', logo: '/images/homepage/brand-bcj.svg' },
-  { name: 'CaratLane', logo: '/images/homepage/brand-bcj.svg' },
-  { name: 'Malabar Gold', logo: '/images/homepage/brand-bcj.svg' },
-  { name: 'Kalyan Jewellers', logo: '/images/homepage/brand-bcj.svg' },
-  { name: 'GRT Jewellers', logo: '/images/homepage/brand-bcj.svg' },
-  { name: 'Anjali Jewellers', logo: '/images/homepage/brand-bcj.svg' },
-  { name: 'Joyalukkas 2', logo: '/images/homepage/brand-bcj.svg' },
-  { name: 'pcj', logo: '/images/homepage/brand-senco.svg' },
-  { name: 'giva', logo: '/images/homepage/brand-senco.svg' },
+  { name: 'anjali', logo: '/images/clients/anjali.webp' },
+  { name: 'b.c.sen', logo: '/images/clients/b.c.sen.webp' },
+  { name: 'bhima', logo: '/images/clients/bhima.webp' },
+  { name: 'goldplus', logo: '/images/clients/goldplus.webp' },
+  { name: 'josco', logo: '/images/clients/josco.webp' },
+  { name: 'joyalukkas', logo: '/images/clients/joyalukkas.webp' },
+  { name: 'Kalyan Jewellers', logo: '/images/clients/kalyan.webp' },
+  { name: 'khazana', logo: '/images/clients/khazana.webp' },
+  { name: 'malabar', logo: '/images/clients/malabar.webp' },
+  { name: 'nac', logo: '/images/clients/nac.webp' },
+  { name: 'p.c.chandra', logo: '/images/clients/p.c.chandra.webp' },
+  { name: 'prince', logo: '/images/clients/prince.webp' },
+  { name: 'sawansukha', logo: '/images/clients/sawansukha.webp' },
+  { name: 'senco', logo: '/images/clients/senco.webp' },
+  { name: 'tanishq', logo: '/images/clients/tanishq.webp' },
 ];
 
 export default function TrustedBrandsSection() {
   return (
-    <section className="mt-100">
+    <section className="mt-100 mb-100">
       <div className={styles.inner}>
         <motion.div 
           className={styles.header}

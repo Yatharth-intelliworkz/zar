@@ -1,4 +1,4 @@
-import { SelectHTMLAttributes } from 'react';
+import { forwardRef, SelectHTMLAttributes } from 'react';
 import { cn } from '@/lib/utils';
 import styles from './SelectField.module.css';
 
@@ -15,30 +15,35 @@ interface SelectFieldProps extends SelectHTMLAttributes<HTMLSelectElement> {
   wrapperClassName?: string;
   labelClassName?: string;
   selectClassName?: string;
+  errorMessage?: string;
 }
 
-export default function SelectField({
-  label,
-  id,
-  options,
-  placeholder,
-  wrapperClassName,
-  labelClassName,
-  selectClassName,
-  required,
-  ...props
-}: SelectFieldProps) {
+const SelectField = forwardRef<HTMLSelectElement, SelectFieldProps>(function SelectField(
+  {
+    label,
+    id,
+    options,
+    placeholder,
+    wrapperClassName,
+    labelClassName,
+    selectClassName,
+    required,
+    errorMessage,
+    ...props
+  },
+  ref
+) {
   return (
-    <div className={cn("fieldGroup", wrapperClassName)}>
-      <label htmlFor={id} className={cn("label", labelClassName)}>
+    <div className={cn('fieldGroup', wrapperClassName)}>
+      <label htmlFor={id} className={cn('label', labelClassName)}>
         {label}
         {required && <span className="required"> *</span>}
       </label>
       <select
+        ref={ref}
         id={id}
         required={required}
-        // defaultValue={props.defaultValue ?? ''}
-        className={cn(styles.select, selectClassName)}
+        className={cn(styles.select, selectClassName, errorMessage && styles.selectError)}
         {...props}
       >
         {placeholder && (
@@ -52,6 +57,9 @@ export default function SelectField({
           </option>
         ))}
       </select>
+      {errorMessage && <p className={styles.errorText}>{errorMessage}</p>}
     </div>
   );
-}
+});
+
+export default SelectField;
