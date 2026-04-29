@@ -2,6 +2,7 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import type { Swiper as SwiperType } from 'swiper';
+import { Autoplay } from 'swiper/modules';
 import { useRef, useState } from 'react';
 import Image from 'next/image';
 import styles from './RetailerSlider.module.css';
@@ -100,7 +101,7 @@ export default function RetailerSlider() {
     const el = (e.currentTarget as HTMLElement);
     if (!el.classList.contains('swiper-slide-active')) {
       stopAll();
-      sw.slideToLoop(idx % 4);
+      sw.slideToLoop(idx % testimonials.length);
     }
   }
 
@@ -113,7 +114,15 @@ export default function RetailerSlider() {
 
       <div className={styles.outer}>
         <Swiper
+          modules={[Autoplay]}
+          dir="rtl"
           loop={true}
+          loopAdditionalSlides={testimonials.length}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
           centeredSlides={true}
           slidesPerView={3}
           spaceBetween={50}
