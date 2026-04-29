@@ -1,7 +1,5 @@
 'use client';
 
-// @ts-expect-error Swiper CSS import is handled by Next bundling, not TypeScript.
-import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import type { Swiper as SwiperType } from 'swiper';
 import { useRef, useState } from 'react';

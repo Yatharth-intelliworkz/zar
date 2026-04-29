@@ -1,7 +1,5 @@
 "use client";
 // @ts-ignore
-import 'swiper/css';
-// @ts-ignore
 import 'swiper/css/navigation';
 // @ts-ignore
 import 'swiper/css/pagination';
