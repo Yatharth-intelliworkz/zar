@@ -15,8 +15,8 @@ export default function Home() {
     <>
       <HeroSection />
       <LegacySection />
-      <CollectionShowcase />
-      {/* <ModelShowcaseSection /> */}
+      {/* <CollectionShowcase /> */}
+      <ModelShowcaseSection />
       <ManufacturingSection />
       <CraftsmanshipSection />
       <ModernWomanSection />

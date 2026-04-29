@@ -33,3 +33,5 @@ declare module 'react/jsx-dev-runtime' {
     }
   }
 }
+
+declare module '@google/model-viewer';
