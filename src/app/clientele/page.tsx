@@ -62,18 +62,6 @@ export default function ClientelePage() {
         </p>
       </section>
 
-      <section className='mt-100'>
-        <div className="container">
-          <Image 
-            src="/images/Distributor-Testimonials.png" 
-            alt="Distributor Testimonials" 
-            width={1200} 
-            height={600} 
-            className={styles.fullImage}
-          />
-        </div>
-      </section>
-
       <section className="mt-100">
         <Image 
             src="/images/career/map.webp" 

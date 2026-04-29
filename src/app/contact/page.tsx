@@ -33,7 +33,7 @@ export default function ContactPage() {
           <ContactForm />
         </div>
 
-        <section className={styles.contactMapSection}>
+        <section className={`mb-100 ${styles.contactMapSection}`}>
           <div>
             <h3 className="formHeading">Contact Us</h3>
             <div className={styles.contactMapInfo}>

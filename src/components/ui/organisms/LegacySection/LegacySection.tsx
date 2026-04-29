@@ -35,7 +35,7 @@ export default function LegacySection() {
             <div className={styles.imageBlock}>
               <motion.div className={styles.mainImage} variants={imageVariants}>
                 <Image
-                  src="/images/homepage/about_home.webp"
+                  src="/images/homepage/about_home.png"
                   alt="Gold bangle craftsmanship"
                   fill
                   sizes="(max-width: 1024px) 100vw, 800px"

@@ -235,7 +235,7 @@ export default async function ProductDetailPage({ params }: Props) {
         ]}
       />
       <section>
-        <div className="container nb-100">
+        <div className="container mb-100">
           <div className={styles.grid}>
             {/* Left Column: Image Gallery (Sticky) */}
             <div className={styles.galleryColumn}>

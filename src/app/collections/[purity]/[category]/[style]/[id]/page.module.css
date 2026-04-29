@@ -30,7 +30,7 @@
 }
 
 .tradeHighlights {
-  background: linear-gradient(90deg, rgba(234, 225, 217, 0.00) 0%, #FDFAF8 49.04%, rgba(234, 225, 217, 0.00) 100%);
+  background: linear-gradient(90deg, rgba(234, 225, 217, 0), #f9f4f0 49.04%, rgba(234, 225, 217, 0));
 }
 
 .tradeHighlightsInner {

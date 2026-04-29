@@ -88,7 +88,7 @@ export default function CareersPage() {
         <div className="container">
           <div className="storyGrid">
             <div className="storyImageWrapper">
-              <Image src="/images/about/about_1.webp" alt="Zar team at work" fill className="storyImage" />
+              <Image src="/images/about/about_1.png" alt="Zar team at work" fill className="storyImage" />
             </div>
             <div className="storyTextBlock">
               <h2 className="fs_54">A Culture Built on Craft & Collaboration</h2>
@@ -223,7 +223,7 @@ export default function CareersPage() {
         </div>
       </section>
       {/* cta section */}
-      <section className={`mt-100 $ {styles.ctaSection}`}>
+      <section className={`mt-100 ${styles.ctaSection}`}>
         <div className={styles.ctaImageWrapper}>
           <Image
             src="/images/career/career-bg.webp"

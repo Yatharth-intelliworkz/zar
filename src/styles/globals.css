@@ -169,7 +169,7 @@ ol {
   padding: 0 6px;
   font-size: 14px;
   font-weight: 400;
-  color: #c0392b;
+  color: var(--color-gray-600);
   z-index: 1;
   white-space: nowrap;
   font-family: var(--font-body);

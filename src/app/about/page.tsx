@@ -49,7 +49,7 @@ export default function AboutPage() {
         <div className="container">
           <div className="storyGrid">
             <div className="storyImageWrapper">
-              <Image src="/images/about/about_1.webp" alt="Zar team at work" fill className="storyImage" />
+              <Image src="/images/about/about_1.png" alt="Zar team at work" fill className="storyImage" />
             </div>
             <div className="storyTextBlock">
               <h2 className="fs_54">OUR STORY</h2>
