@@ -63,7 +63,7 @@ export default function ModelShowcaseSection() {
             centeredSlides={true}
             loop={true}
             allowTouchMove={false}
-            autoplay={{ delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+            // autoplay={{ delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true }}
             onSwiper={(swiper) => { swiperRef.current = swiper; }}
             breakpoints={{
               768: {
@@ -78,21 +78,24 @@ export default function ModelShowcaseSection() {
             {models.map((model, index) => (
               <SwiperSlide key={`${model.src}-${index}`}>
                 <article className={styles.card}>
-                  <model-viewer
-                    src={model.src}
-                    alt={model.alt}
-                    poster={model.poster}
-                    camera-controls
-                    max-camera-orbit="auto auto 100%"
-                    auto-rotate
-                    touch-action="pan-y"
-                    interaction-prompt="auto"
-                    shadow-intensity="1"
-                    exposure="1"
-                    loading="lazy"
-                    reveal="auto"
-                    className={styles.viewer}
-                  />
+                  <div className={styles.modelWrapper}>
+                    <div className={styles.circleBg} aria-hidden="true" />
+                    <model-viewer
+                      src={model.src}
+                      alt={model.alt}
+                      poster={model.poster}
+                      camera-controls
+                      max-camera-orbit="auto auto 100%"
+                      auto-rotate
+                      touch-action="pan-y"
+                      interaction-prompt="auto"
+                      shadow-intensity="1"
+                      exposure="1"
+                      loading="lazy"
+                      reveal="auto"
+                      className={styles.viewer}
+                    />
+                  </div>
                   <span className={styles.cardLabel}>{model.name}</span>
                 </article>
               </SwiperSlide>

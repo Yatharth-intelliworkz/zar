@@ -12,9 +12,79 @@
 
 /* ── Outer container ── */
 .outer {
+  position: relative;
   margin: 0 auto;
   padding: 0  0 24px;
   overflow: hidden;
+}
+
+.skeletonOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+}
+
+.skeletonGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.skeletonCard {
+  overflow: hidden;
+  background: #fff;
+}
+
+.skeletonCardMedia {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(39, 29, 23, 0.95) 0%, rgba(28, 21, 16, 0.98) 100%);
+}
+
+.skeletonCardContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 30px 32px 28px;
+  background: #fff;
+}
+
+.skeletonCardQuote,
+.skeletonCardLine,
+.skeletonCardMeta {
+  position: relative;
+  z-index: 1;
+  border-radius: 999px;
+  background: rgba(163, 130, 116, 0.14);
+}
+
+.skeletonCardQuote {
+  width: 54px;
+  height: 40px;
+  border-radius: 18px;
+}
+
+.skeletonCardLine {
+  width: 100%;
+  height: 14px;
+  max-width: 290px;
+}
+
+.skeletonCardLineWide {
+  max-width: 320px;
+}
+
+.skeletonCardLineShort {
+  max-width: 220px;
+}
+
+.skeletonCardMeta {
+  width: 180px;
+  height: 12px;
+  margin-top: 4px;
 }
 
 /* ── Swiper ── */
@@ -39,9 +109,7 @@
   cursor: pointer;
   transition:
     transform 0.55s cubic-bezier(.4,0,.2,1),
-    opacity 0.50s ease,
-    box-shadow 0.50s ease;
-  /* box-shadow: 0 3px 14px rgba(0,0,0,.10); */
+    opacity 0.50s ease;
   flex-shrink: 0;
   position: relative;
   background: #fff;
@@ -53,7 +121,6 @@
    .slide:global() ensures this only targets slides in THIS component  */
 .slide:global(.swiper-slide-active) {
   opacity: 1;
-  box-shadow: 0 -10px 20px rgba(0,0,0,.18);
   z-index: 2;
   cursor: default;
   transform: scale(1);
@@ -62,7 +129,7 @@
 .slide:global(.swiper-slide-prev),
 .slide:global(.swiper-slide-next) {
   opacity: 0.82;
-  transform: scale(0.92);
+  /* transform: scale(0.92); */
 }
 
 /* ── Video wrapper ── */
@@ -78,15 +145,6 @@
 /* Expand video on active slide */
 .slide:global(.swiper-slide-active) .vwrap {
   height: 360px;
-}
-
-.mediaSkeleton {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  overflow: hidden;
-  background:
-    linear-gradient(180deg, rgba(39, 29, 23, 0.95) 0%, rgba(28, 21, 16, 0.98) 100%);
 }
 
 .skeletonShimmer {
@@ -259,6 +317,14 @@
     transform: scale(0.94);
   }
 
+  .skeletonGrid {
+    gap: 24px;
+  }
+
+  .skeletonCardMedia {
+    height: 280px;
+  }
+
   .slide:global(.swiper-slide-active) {
     transform: scale(1);
   }
@@ -279,6 +345,32 @@
 @media (max-width: 767px) {
   .outer {
     padding: 0 16px;
+  }
+
+  .skeletonGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .skeletonCardMedia {
+    height: 240px;
+  }
+
+  .skeletonCardContent {
+    padding: 24px 20px;
+    gap: 16px;
+  }
+
+  .skeletonCardLine {
+    max-width: 100%;
+  }
+
+  .skeletonCardLineWide {
+    max-width: 100%;
+  }
+
+  .skeletonCardLineShort {
+    max-width: 72%;
   }
 
   .slide,

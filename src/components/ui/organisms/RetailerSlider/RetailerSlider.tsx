@@ -73,6 +73,7 @@ const baseTestimonials: Testimonial[] = [
 ];
 
 const testimonials: Testimonial[] = [...baseTestimonials];
+const skeletonCards = Array.from({ length: 3 });
 
 export default function RetailerSlider() {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
@@ -81,6 +82,7 @@ export default function RetailerSlider() {
   const [loadedVideos, setLoadedVideos] = useState<boolean[]>(() =>
     testimonials.map(() => false)
   );
+  const showSkeleton = loadedVideos.some((loaded) => !loaded);
 
   function markVideoLoaded(idx: number) {
     setLoadedVideos((current) => {
@@ -142,6 +144,27 @@ export default function RetailerSlider() {
         onMouseEnter={() => swiperRef.current?.autoplay?.pause()}
         onMouseLeave={() => swiperRef.current?.autoplay?.resume()}
       >
+        {showSkeleton && (
+          <div className={styles.skeletonOverlay} aria-hidden="true">
+            <div className={styles.skeletonGrid}>
+            {skeletonCards.map((_, idx) => (
+              <article key={idx} className={styles.skeletonCard}>
+                <div className={styles.skeletonCardMedia}>
+                  <div className={styles.skeletonPlay} />
+                  <div className={styles.skeletonShimmer} />
+                </div>
+                <div className={styles.skeletonCardContent}>
+                  <div className={styles.skeletonCardQuote} />
+                  <div className={styles.skeletonCardLine} />
+                  <div className={`${styles.skeletonCardLine} ${styles.skeletonCardLineWide}`} />
+                  <div className={`${styles.skeletonCardLine} ${styles.skeletonCardLineShort}`} />
+                  <div className={styles.skeletonCardMeta} />
+                </div>
+              </article>
+            ))}
+          </div>
+          </div>
+        )}
         <Swiper
           modules={[Autoplay]}
           loop={true}
@@ -167,7 +190,7 @@ export default function RetailerSlider() {
             },
             1200: {
               slidesPerView: 3,
-              spaceBetween: 32,
+              spaceBetween: 50,
             },
           }}
           onSwiper={(s) => { swiperRef.current = s; }}
@@ -185,12 +208,6 @@ export default function RetailerSlider() {
                 className={styles.vwrap}
                 ref={(el) => { wrapRefs.current[idx] = el; }}
               >
-                {!loadedVideos[idx] && (
-                  <div className={styles.mediaSkeleton} aria-hidden="true">
-                    <div className={styles.skeletonShimmer} />
-                    <div className={styles.skeletonPlay} />
-                  </div>
-                )}
                 <video
                   ref={(el) => { videoRefs.current[idx] = el; }}
                   src={t.video}
