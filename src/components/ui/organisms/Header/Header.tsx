@@ -64,7 +64,7 @@ export default function Header() {
             <nav className={styles.navLinks}>
               <ul className={styles.menuList}>
                 <li>
-                  <a href="/about">Story of Zar</a>
+                  <Link href="/about">Story of Zar</Link>
                 </li>
                 <li
                   className={styles.collectionsItem}
@@ -89,16 +89,16 @@ export default function Header() {
                   </div>
                 </li>
                 <li>
-                  <a href="/clientele">Our Clientele</a>
+                  <Link href="/clientele">Our Clientele</Link>
                 </li>
                 <li>
-                  <a href="/partner">Become a Partner</a>
+                  <Link href="/partner">Become a Partner</Link>
                 </li>
                 <li>
-                  <a href="/careers">Careers</a>
+                  <Link href="/careers">Careers</Link>
                 </li>
                 <li>
-                  <a href="/contact">Contact</a>
+                  <Link href="/contact">Contact</Link>
                 </li>
               </ul>
             </nav>

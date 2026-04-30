@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
 import Button from '@/components/ui/atoms/Button/Button';
 import styles from './page.module.css';
 import Image from 'next/image';
@@ -11,6 +12,21 @@ import InputField from '@/components/ui/atoms/InputField/InputField';
 import PhoneField from '@/components/ui/atoms/PhoneField/PhoneField';
 import { fetchCareerPositions } from '@/lib/api/careers';
 import type { CareerPosition } from '@/types/domain';
+
+type CareerFormValues = {
+  name: string;
+  company: string;
+  role: string;
+  work: string;
+  email: string;
+  phone: string;
+  resume: FileList | undefined;
+};
+
+const NAME_REGEX = /^[A-Za-z][A-Za-z\s'.-]{1,79}$/;
+const COMPANY_REGEX = /^[A-Za-z0-9][A-Za-z0-9\s'&.,()-]{1,99}$/;
+const EMAIL_REGEX = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+const WORK_REGEX = /^[A-Za-z0-9\s+\-\/]{1,30}$/;
 
 const fallbackPositions: CareerPosition[] = [
   {
@@ -34,10 +50,23 @@ const fallbackPositions: CareerPosition[] = [
 ];
 
 export default function CareersPage() {
-  const [selectedPosition, setSelectedPosition] = useState<string>('');
   const [positions, setPositions] = useState<CareerPosition[]>(fallbackPositions);
+  const [submitMessage, setSubmitMessage] = useState('');
+  const [submitError, setSubmitError] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
   const openingsRef = useRef<HTMLElement>(null);
+
+  const {
+    register,
+    control,
+    handleSubmit,
+    reset,
+    setValue,
+    formState: { errors, isSubmitting },
+  } = useForm<CareerFormValues>({
+    defaultValues: { name: '', company: '', role: '', work: '', email: '', phone: '', resume: undefined },
+    mode: 'onBlur',
+  });
 
   useEffect(() => {
     let cancelled = false;
@@ -62,11 +91,41 @@ export default function CareersPage() {
   };
 
   const handleApplyNow = (positionTitle: string) => {
-    setSelectedPosition(positionTitle);
+    setValue('role', positionTitle);
     setTimeout(() => {
       formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 0);
   };
+
+  const onCareerSubmit = handleSubmit(async (values) => {
+    setSubmitMessage('');
+    setSubmitError(false);
+    try {
+      const response = await fetch('/api/careers', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          positionId: positions.find((p) => p.title === values.role)?.id ?? values.role,
+          applicantName: values.name,
+          email: values.email,
+          phone: values.phone,
+          coverLetter: values.work,
+        }),
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        setSubmitError(true);
+        setSubmitMessage(result?.error || 'Unable to submit your application. Please try again.');
+        return;
+      }
+      reset();
+      setSubmitError(false);
+      setSubmitMessage('Your application has been submitted successfully. We will be in touch!');
+    } catch {
+      setSubmitError(true);
+      setSubmitMessage('Network error. Please try again in a moment.');
+    }
+  });
 
   return (
     <div className={styles.page}>
@@ -270,69 +329,110 @@ export default function CareersPage() {
           <div className={styles.grid}>
             <div className={styles.formSection}>
               <h2 className="formHeading">Start Your Application</h2>
-              <form className="form">
+              <form className="form" onSubmit={onCareerSubmit} noValidate>
                 <div className="formRow">
                   <InputField
                     id="name"
-                    name="name"
                     label="Full Name"
                     placeholder="Type full name here"
                     wrapperClassName={styles.inputGroup}
                     required
+                    errorMessage={errors.name?.message}
+                    {...register('name', {
+                      required: 'Full name is required.',
+                      pattern: { value: NAME_REGEX, message: 'Enter a valid full name.' },
+                      minLength: { value: 2, message: 'Full name must be at least 2 characters.' },
+                      maxLength: { value: 80, message: 'Full name cannot exceed 80 characters.' },
+                    })}
                   />
                   <InputField
                     id="company"
-                    name="company"
                     label="Company Name"
                     placeholder="Type your company name here"
                     wrapperClassName={styles.inputGroup}
-                    required
+                    errorMessage={errors.company?.message}
+                    {...register('company', {
+                      validate: (value) =>
+                        !value || COMPANY_REGEX.test(value) || 'Enter a valid company name.',
+                      maxLength: { value: 100, message: 'Company name cannot exceed 100 characters.' },
+                    })}
                   />
                 </div>
                 <div className="formRow">
-                  <SelectField
-                    id="role"
+                  <Controller
                     name="role"
-                    label="Role"
-                    placeholder="Select your role"
-                    value={selectedPosition}
-                    onChange={(e) => setSelectedPosition(e.target.value)}
-                    options={[
-                      { label: 'Select a position', value: '' },
-                      ...positions.map((pos) => ({
-                        label: pos.title,
-                        value: pos.title,
-                      })),
-                    ]}
-                    wrapperClassName={styles.inputGroup}
-                    required
+                    control={control}
+                    rules={{ required: 'Please select a role.' }}
+                    render={({ field }) => (
+                      <SelectField
+                        id="role"
+                        label="Role"
+                        placeholder="Select your role"
+                        value={field.value}
+                        onChange={field.onChange}
+                        onBlur={field.onBlur}
+                        options={positions.map((pos) => ({ label: pos.title, value: pos.title }))}
+                        wrapperClassName={styles.inputGroup}
+                        required
+                        errorMessage={errors.role?.message}
+                      />
+                    )}
                   />
                   <InputField
                     id="work"
-                    name="work"
                     label="Work Experience"
-                    placeholder="Type year of experience"
+                    placeholder="e.g. 3 years"
                     wrapperClassName={styles.inputGroup}
                     required
+                    errorMessage={errors.work?.message}
+                    {...register('work', {
+                      required: 'Work experience is required.',
+                      pattern: { value: WORK_REGEX, message: 'Enter a valid work experience (e.g. 3 years).' },
+                      maxLength: { value: 30, message: 'Work experience cannot exceed 30 characters.' },
+                    })}
                   />
                 </div>
                 <div className="formRow">
                   <InputField
                     id="email"
-                    name="email"
                     type="email"
                     label="Email ID"
                     placeholder="Enter your email ID"
                     wrapperClassName={styles.inputGroup}
                     required
+                    errorMessage={errors.email?.message}
+                    {...register('email', {
+                      required: 'Email is required.',
+                      pattern: { value: EMAIL_REGEX, message: 'Enter a valid email address.' },
+                    })}
                   />
-                  <PhoneField
-                    id="phone"
+                  <Controller
                     name="phone"
-                    label="Contact No."
-                    placeholder="Enter your contact number"
-                    wrapperClassName={styles.inputGroup}
-                    required
+                    control={control}
+                    rules={{
+                      required: 'Contact number is required.',
+                      validate: (value) => {
+                        const digits = value.replace(/\D/g, '');
+                        return (
+                          (digits.length >= 7 && digits.length <= 15) ||
+                          'Enter a valid contact number.'
+                        );
+                      },
+                    }}
+                    render={({ field }) => (
+                      <PhoneField
+                        id="phone"
+                        name={field.name}
+                        label="Contact No."
+                        placeholder="Enter your contact number"
+                        wrapperClassName={styles.inputGroup}
+                        required
+                        value={field.value}
+                        onChange={field.onChange}
+                        onBlur={field.onBlur}
+                        errorMessage={errors.phone?.message}
+                      />
+                    )}
                   />
                 </div>
                 <div className="formRow">
@@ -341,9 +441,25 @@ export default function CareersPage() {
                       <input
                         type="file"
                         id="uploadResume"
-                        name="resume"
                         accept=".pdf,.doc,.docx"
-                        required
+                        {...register('resume', {
+                          required: 'Please attach your resume.',
+                          validate: {
+                            acceptedFormats: (files) => {
+                              if (!files?.[0]) return true;
+                              const allowed = [
+                                'application/pdf',
+                                'application/msword',
+                                'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                              ];
+                              return allowed.includes(files[0].type) || 'Only PDF, DOC, DOCX files are accepted.';
+                            },
+                            fileSize: (files) => {
+                              if (!files?.[0]) return true;
+                              return files[0].size <= 5 * 1024 * 1024 || 'File size must not exceed 5 MB.';
+                            },
+                          },
+                        })}
                       />
                       <p>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -354,11 +470,23 @@ export default function CareersPage() {
                         Attach Your Resume In PDF, Word Format</p>
                       <p><small>Max Size: 5 Mb</small></p>
                     </label>
+                    {errors.resume && (
+                      <p style={{ color: '#c00', fontSize: '12px', marginTop: '4px' }}>{errors.resume.message}</p>
+                    )}
                   </div>
                 </div>
-                <Button variant="primary" showArrow>
-                  Submit
+                <Button variant="primary" showArrow type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? 'Submitting...' : 'Submit'}
                 </Button>
+                {submitMessage && (
+                  <p
+                    style={{ marginTop: '12px', color: submitError ? '#c00' : '#2a7a2a', fontSize: '14px' }}
+                    role="status"
+                    aria-live="polite"
+                  >
+                    {submitMessage}
+                  </p>
+                )}
               </form>
             </div>
           </div>

@@ -1,9 +1,10 @@
+import type { CSSProperties, ReactNode } from 'react';
 import Link from 'next/link';
 import styles from './Button.module.css';
 import { cn } from '@/lib/utils';
 
 interface ButtonProps {
-  children: React.ReactNode;
+  children: ReactNode;
   href?: string;
   variant?: 'primary' | 'secondary' | 'outline';
   showArrow?: boolean;
@@ -11,6 +12,37 @@ interface ButtonProps {
   className?: string;
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
+}
+
+function AnimatedLabel({ text }: { text: string }) {
+  const letters = Array.from(text);
+
+  return (
+    <span className={styles.labelWrap} aria-hidden="true">
+      <span className={styles.spanMother}>
+        {letters.map((char, index) => (
+          <span
+            key={`top-${index}-${char}`}
+            className={styles.char}
+            style={{ '--char-index': index } as CSSProperties}
+          >
+            {char === ' ' ? '\u00A0' : char}
+          </span>
+        ))}
+      </span>
+      <span className={styles.spanMother2}>
+        {letters.map((char, index) => (
+          <span
+            key={`bottom-${index}-${char}`}
+            className={styles.char}
+            style={{ '--char-index': index } as CSSProperties}
+          >
+            {char === ' ' ? '\u00A0' : char}
+          </span>
+        ))}
+      </span>
+    </span>
+  );
 }
 
 function ArrowIcon() {
@@ -40,11 +72,21 @@ export default function Button({
   disabled = false,
 }: ButtonProps) {
   const classes = cn(styles.button, styles[variant], className);
+  const shouldAnimateLabel = (variant === 'primary' || variant === 'secondary') && typeof children === 'string';
+
+  const label = shouldAnimateLabel ? (
+    <>
+      <span className={styles.srOnly}>{children}</span>
+      <AnimatedLabel text={children} />
+    </>
+  ) : (
+    children
+  );
 
   if (href) {
     return (
       <Link href={href} className={classes}>
-        {children}
+        {label}
         {showArrow && <ArrowIcon />}
       </Link>
     );
@@ -52,7 +94,7 @@ export default function Button({
 
   return (
     <button className={classes} onClick={onClick} type={type} disabled={disabled}>
-      {children}
+      {label}
       {showArrow && <ArrowIcon />}
     </button>
   );

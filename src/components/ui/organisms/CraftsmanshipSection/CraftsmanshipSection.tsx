@@ -1,8 +1,30 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import FeatureCard from '@/components/ui/molecules/FeatureCard/FeatureCard';
 import styles from './CraftsmanshipSection.module.css';
+
+const headerVariants: Variants = {
+  hidden: { opacity: 0, y: -40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.65, ease: 'easeOut' as const },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      ease: 'easeOut' as const,
+      delay: index * 0.18,
+    },
+  }),
+};
 
 const features = [
   {
@@ -29,26 +51,35 @@ const features = [
 
 export default function CraftsmanshipSection() {
   return (
-    <section className="mt-100">
-      <motion.div 
-        className={styles.inner}
-        initial={{ opacity: 0, scale: 0.95, rotate: -1 }}
-        whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        <div className={styles.header}>
+    <section className="mt-100 mb-100">
+      <div className={styles.inner}>
+        <motion.div
+          className={styles.header}
+          variants={headerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <h2 className="fs_54">Where Art Meets Precision</h2>
           <p className={styles.subtitle}>
             From concept to creation, every Zar bangle is crafted using state-of-the-art technology and meticulously inspected by skilled artisans.
           </p>
-        </div>
+        </motion.div>
         <div className={styles.grid}>
-          {features.map((feature) => (
-            <FeatureCard key={feature.title} {...feature} />
+          {features.map((feature, index) => (
+            <motion.div
+              key={feature.title}
+              custom={index}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.25 }}
+            >
+              <FeatureCard {...feature} />
+            </motion.div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

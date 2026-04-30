@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import "@/styles/index.css";
 import 'swiper/css';
 import ReduxProvider from "@/store/ReduxProvider";
 import Header from "@/components/ui/organisms/Header/Header";
 import Footer from "@/components/ui/organisms/Footer/Footer";
+import PageTransitionProvider from "@/components/ui/organisms/PageTransitionProvider/PageTransitionProvider";
 
 export const metadata: Metadata = {
   title: "Zar Jewels — India's Trusted Gold Bangle Manufacturer",
@@ -21,7 +23,11 @@ export default function RootLayout({
       <body suppressHydrationWarning={true}>
         <ReduxProvider>
           <Header />
-          <main>{children}</main>
+          <main>
+            <Suspense fallback={null}>
+              <PageTransitionProvider>{children}</PageTransitionProvider>
+            </Suspense>
+          </main>
           <Footer />
         </ReduxProvider>
       </body>

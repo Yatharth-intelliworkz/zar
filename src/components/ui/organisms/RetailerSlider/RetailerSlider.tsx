@@ -15,6 +15,7 @@ const PlayIcon = () => (
 );
 
 interface Testimonial {
+  poster:string;
   video: string;
   quote: string;
   name: string;
@@ -23,48 +24,56 @@ interface Testimonial {
 
 const baseTestimonials: Testimonial[] = [
   {
+    poster: './images/homepage/video_1.webp',
     video: 'https://www.w3schools.com/html/mov_bbb.mp4',
     quote: "The bangles I found at the expo were exactly what I'd been searching for. The craftsmanship is truly world-class.",
     name: 'Priya Sharma',
     designation: 'Bridal Client, Mumbai',
   },
   {
+    poster: './images/homepage/video_2.webp',
     video: 'https://www.w3schools.com/html/movie.mp4',
     quote: "Every piece feels curated with intention. Our customers keep coming back for the exclusivity this platform provides.",
     name: 'Ananya Mehta',
     designation: 'Boutique Director, Delhi',
   },
   {
+    poster: './images/homepage/video_3.webp',
     video: 'https://www.w3schools.com/html/mov_bbb.mp4',
     quote: "Partnering with them transformed our store. The quality of their jewellery collection is simply unmatched in the market.",
     name: 'Rekha Nair',
     designation: 'Jewellery Store Owner, Kochi',
   },
   {
+    poster: './images/homepage/video_1.webp',
     video: 'https://www.w3schools.com/html/movie.mp4',
     quote: "The designs speak to our heritage beautifully. I have never seen my clients so excited about a new collection.",
     name: 'Sunita Joshi',
     designation: 'Heritage Curator, Jaipur',
   },
   {
+    poster: './images/homepage/video_2.webp',
     video: 'https://www.w3schools.com/html/mov_bbb.mp4',
     quote: "The bangles I found at the expo were exactly what I'd been searching for. The craftsmanship is truly world-class.",
     name: 'Priya Sharma',
     designation: 'Bridal Client, Mumbai',
   },
   {
+    poster: './images/homepage/video_3.webp',
     video: 'https://www.w3schools.com/html/movie.mp4',
     quote: "Every piece feels curated with intention. Our customers keep coming back for the exclusivity this platform provides.",
     name: 'Ananya Mehta',
     designation: 'Boutique Director, Delhi',
   },
   {
+    poster: './images/homepage/video_1.webp',
     video: 'https://www.w3schools.com/html/mov_bbb.mp4',
     quote: "Partnering with them transformed our store. The quality of their jewellery collection is simply unmatched in the market.",
     name: 'Rekha Nair',
     designation: 'Jewellery Store Owner, Kochi',
   },
   {
+    poster: './images/homepage/video_2.webp',
     video: 'https://www.w3schools.com/html/movie.mp4',
     quote: "The designs speak to our heritage beautifully. I have never seen my clients so excited about a new collection.",
     name: 'Sunita Joshi',
@@ -235,7 +244,7 @@ export default function RetailerSlider() {
                 <video
                   ref={(el) => { videoRefs.current[idx] = el; }}
                   // src={t.video}
-                  poster="/images/Distributor-Testimonials.png"
+                  poster={t.poster}
                   loop
                   playsInline
                   preload="metadata"

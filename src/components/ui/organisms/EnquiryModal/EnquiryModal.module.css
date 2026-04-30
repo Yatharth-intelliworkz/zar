@@ -2,7 +2,7 @@
 .backdrop {
   position: fixed;
   inset: 0;
-  z-index: 200;
+  z-index: 10000;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
@@ -26,6 +26,7 @@
   overflow-y: auto;
   padding: 40px;
   position: relative;
+  z-index: 10001;
   transform: translateY(20px);
   transition: transform var(--transition-base);
 }
@@ -133,6 +134,17 @@
 .select:focus,
 .textarea:focus {
   border-color: var(--color-gold-primary);
+}
+
+.inputError {
+  border-color: #c00 !important;
+}
+
+.errorMsg {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: #c00;
+  margin-top: 2px;
 }
 
 .input::placeholder,

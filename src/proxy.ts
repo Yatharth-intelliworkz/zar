@@ -35,6 +35,6 @@ export function proxy(request: NextRequest) {
 // and ignored for static files, APIs, and Next.js internal calls.
 export const config = {
   matcher: [
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+    '/((?!api|_next/static|_next/image|favicon.png).*)',
   ],
 };
