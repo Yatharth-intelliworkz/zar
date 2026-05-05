@@ -11,6 +11,7 @@ interface AppLoaderProps {
   label?: string;
   delayMs?: number;
   showLabel?: boolean;
+  src?: string;
 }
 
 export default function AppLoader({
@@ -19,9 +20,10 @@ export default function AppLoader({
   label = 'Loading...',
   delayMs = 200,
   showLabel = true,
+  src: initialSrc = '/animations/loader.lottie',
 }: AppLoaderProps) {
   const [isVisible, setIsVisible] = useState(delayMs === 0);
-  const [src, setSrc] = useState('/animations/loader.lottie');
+  const [src, setSrc] = useState(initialSrc);
   const playerRef = useRef<{ isLoaded?: boolean } | null>(null);
 
   useEffect(() => {
@@ -50,6 +52,10 @@ export default function AppLoader({
       window.clearTimeout(fallbackTimer);
     };
   }, [src]);
+
+  useEffect(() => {
+    setSrc(initialSrc);
+  }, [initialSrc]);
 
   if (!isVisible) {
     return null;

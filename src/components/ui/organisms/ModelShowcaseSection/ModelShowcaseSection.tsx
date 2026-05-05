@@ -4,20 +4,13 @@ import { useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import Button from '@/components/ui/atoms/Button/Button';
+import { showcaseModels } from '@/lib/model-showcase';
+
+// Duplicate list so Swiper loop mode has enough slides (needs >= slidesPerView * 2 = 6).
+const displayModels = [...showcaseModels, ...showcaseModels];
 import type { Swiper as SwiperType } from 'swiper';
 import 'swiper/css';
 import styles from './ModelShowcaseSection.module.css';
-
-const models = [
-  { name: 'Dazzling-1', src: '/images/models/ZAR-1.glb', alt: 'Interactive 3D jewellery model 1', poster: '/images/homepage/product_1.webp' },
-  { name: 'Dazzling-2', src: '/images/models/ZAR-2.glb', alt: 'Interactive 3D jewellery model 2', poster: '/images/homepage/product_2.webp' },
-  { name: 'Dazzling-3', src: '/images/models/ZAR-3.glb', alt: 'Interactive 3D jewellery model 3', poster: '/images/homepage/product_3.webp' },
-  { name: 'Dazzling-4', src: '/images/models/ZAR-4.glb', alt: 'Interactive 3D jewellery model 4', poster: '/images/homepage/product_4.webp' },
-  { name: 'Dazzling-1', src: '/images/models/ZAR-1.glb', alt: 'Interactive 3D jewellery model 1', poster: '/images/homepage/product_1.webp' },
-  { name: 'Dazzling-2', src: '/images/models/ZAR-2.glb', alt: 'Interactive 3D jewellery model 2', poster: '/images/homepage/product_2.webp' },
-  { name: 'Dazzling-3', src: '/images/models/ZAR-3.glb', alt: 'Interactive 3D jewellery model 3', poster: '/images/homepage/product_3.webp' },
-  { name: 'Dazzling-4', src: '/images/models/ZAR-4.glb', alt: 'Interactive 3D jewellery model 4', poster: '/images/homepage/product_4.webp' },
-];
 
 const ArrowIcon = () => (
   <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -31,7 +24,7 @@ export default function ModelShowcaseSection() {
   const swiperRef = useRef<SwiperType | null>(null);
 
   useEffect(() => {
-    import('@google/model-viewer');
+    void import('@google/model-viewer');
   }, []);
 
   return (
@@ -40,7 +33,7 @@ export default function ModelShowcaseSection() {
         <header className={styles.header}>
           <h2 id="model-showcase-title" className="fs_54">Signature Gold Bangles</h2>
           <p className="">
-            Discover a range of thoughtfully curated designs that balance tradition and modernity.
+            Discover a curated range of lightweight gold bangles that balance tradition and modern design, crafted with precision and consistency at scale.
           </p>
           <Button href="javascript:void(0)" variant="primary" showArrow>
             Explore Collections
@@ -64,7 +57,9 @@ export default function ModelShowcaseSection() {
             loop={true}
             allowTouchMove={false}
             // autoplay={{ delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true }}
-            onSwiper={(swiper) => { swiperRef.current = swiper; }}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
             breakpoints={{
               768: {
                 slidesPerView: 2,
@@ -75,7 +70,7 @@ export default function ModelShowcaseSection() {
             }}
             className={styles.slider}
           >
-            {models.map((model, index) => (
+            {displayModels.map((model, index) => (
               <SwiperSlide key={`${model.src}-${index}`}>
                 <article className={styles.card}>
                   <div className={styles.modelWrapper}>

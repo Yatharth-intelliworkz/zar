@@ -106,7 +106,7 @@ export default function EventPage() {
 
       <ExhibitionsSection id="upcoming-events" title="Upcoming Exhibitions" />
 
-      <section className={'mt-100 ${styles.pastExhibitions}'}>
+      <section className={"mt-100 " + styles.pastExhibitions}>
         <div className="container">
           <h2 className={`fs_54 txt_center ${styles.pastExhibitionsTitle}`}>Past Exhibitions</h2>
           <div className={styles.pastGrid}>
@@ -247,3 +247,4 @@ export default function EventPage() {
     </main>
   );
 }
+

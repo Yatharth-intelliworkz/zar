@@ -17,7 +17,7 @@ export default function ContactPage() {
           { label: 'Contact', isActive: true },
         ]}
         heading="Contact"
-        description="We are here to assist you with inquiries, partnerships, and product details."
+        description="Connect with ZAR for enquiries, partnerships, and product details, we’re here to assist with clarity and care."
       />
       <div style={{ width: '100%', position: 'relative', height: 400, margin: '40px 0' }}>
         <Image

@@ -35,7 +35,7 @@ export default function ClientelePage() {
           { label: 'Our Clientele', isActive: true }
         ]}
         heading="Our Clientele"
-        description="The unquestionable dedication of Zar's team is the reason why the brand has tied up with some of the best jewelers in the industry."
+        description="ZAR partners with leading jewellers and retail brands, built on consistency, precision, and long-standing trust."
       />
       <div className='banner'>
         <Image
@@ -56,9 +56,9 @@ export default function ClientelePage() {
           ))}
         </div>
         <p className={styles.staticText}>
-          Zar has rapidly expanded since its inception almost 65 years ago. The production and distribution of fine gold bangles has been our aim and we believe in providing the best services to our clients. These clients further serve the customers who recognize Zar to be a trustworthy brand. With 30 distribution centres that supply to more than 1,000 retail outlets across India, the company is getting bigger and better in terms of production and service. We not only focus on our direct clients but we also aim to reach the customers who use our products. This gives us an opportunity to connect with them and helps us improve our services.
+          ZAR has grown steadily over decades, building a strong network across India through consistent quality and reliable manufacturing. With over 30 distribution centres and a presence in more than 1,000 retail outlets, the brand continues to strengthen its reach and partnerships.
           <br /><br />
-          We aim to strengthen the bond we have with our clients and serve them with exquisite, quality products. Zar further expanded when it started exporting its products to UAE, Singapore, London, New York and Canada. We look forward to expand our business over the years on the twin foundations of trust and quality.
+          Our clients serve customers who trust ZAR for its craftsmanship and precision, creating a connection that extends beyond business. As we expand into global markets including the UAE, Singapore, London, New York, and Canada, we remain focused on building lasting relationships grounded in trust and quality.
         </p>
       </section>
 

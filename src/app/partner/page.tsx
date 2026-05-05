@@ -21,7 +21,7 @@ export default function PartnerPage() {
           { label: 'Partner', isActive: true },
         ]}
         heading="Become a Partner"
-        description="Join India's most trusted gold bangle manufacturer. Zar offers competitive pricing, consistent quality, and a wide range of designs tailored for your market."
+        description="Collaborate with ZAR to grow your retail business with precision-crafted gold jewellery, supported by consistent quality, scalable manufacturing, and trusted supply."
       />
 
       <div style={{ width: '100%', position: 'relative', height: 400, margin: '40px 0' }}>

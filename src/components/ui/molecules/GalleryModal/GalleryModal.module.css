@@ -1,7 +1,7 @@
 .backdrop {
   position: fixed;
   inset: 0;
-  z-index: 1000;
+  z-index: 12000;
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(4px);
   display: flex;
@@ -68,9 +68,9 @@
 .swiper {
   width: 100%;
   height: 100%;
-  --swiper-theme-color: #D0B480;
-  --swiper-navigation-color: #D0B480;
-  --swiper-pagination-color: #D0B480;
+  --swiper-theme-color: #d0b480;
+  --swiper-navigation-color: #d0b480;
+  --swiper-pagination-color: #d0b480;
 }
 
 .slide {
@@ -85,6 +85,14 @@
   position: relative;
   width: 100%;
   height: 100%;
+}
+
+.emptyState {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: #666;
+  font-size: 16px;
 }
 
 @media (max-width: 768px) {

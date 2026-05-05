@@ -49,10 +49,10 @@ export default function LegacySection() {
               <motion.h2 className="fs_54" variants={textVariants}>A Legacy Forged in Gold</motion.h2>
               <motion.div className={styles.paragraphs} variants={textVariants}>
                 <p>
-                  For over 60 years, Zar has been one of India&apos;s leading gold bangle manufacturers. Known for refined design, advanced manufacturing, and uncompromising quality.
+                  For over seven decades, ZAR has carried forward a legacy rooted in craftsmanship, trust, and precision. As a leading <strong className="txt_black">gold bangle manufacturer</strong>, the brand brings together generations of expertise with advanced manufacturing and refined design.
                 </p>
                 <p>
-                  Every Zar bangle reflects a legacy of trust built across generations—a testament to our unwavering commitment to excellence and the art of goldsmithing.
+                  Each creation reflects a deep understanding of gold craftsmanship, where tradition meets innovation, and every detail is shaped with purpose. It is this commitment to quality and consistency that continues to define ZAR across markets and generations.
                 </p>
               </motion.div>
             </div>

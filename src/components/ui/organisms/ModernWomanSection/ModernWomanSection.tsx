@@ -37,13 +37,19 @@ export default function ModernWomanSection() {
             Designed for the{'\n'}Modern Woman
           </motion.h2>
           <motion.div variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } } }}>
-            <p className={styles.description}>
-              Zar bangles are thoughtfully created for today&apos;s woman—confident, graceful, and contemporary. Lightweight yet luxurious, each design blends elegance with comfort.
+            <p>
+              Designed for the Modern Woman
+            </p>
+            <p>
+              ZAR gold bangles are thoughtfully created for today’s woman…confident, graceful, and contemporary.
+            </p>
+            <p>
+              Lightweight in form and refined in detail, each piece is designed to move with her, blending elegance and comfort effortlessly.
             </p>
             <div className={styles.bullets}>
-              <BulletPoint text="Confidence in Every Curve" />
-              <BulletPoint text="Grace in Every Detail" />
-              <BulletPoint text="Comfort in Every Wear" />
+              <BulletPoint text=" Designed for Everyday Elegance" />
+              <BulletPoint text="Refined Detail, Lightweight Form" />
+              <BulletPoint text="Comfort That Moves with You" />
             </div>
           </motion.div>
         </motion.div>

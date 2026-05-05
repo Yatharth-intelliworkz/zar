@@ -36,10 +36,10 @@ export default function AboutPage() {
       <section className="mb-100">
         <div className="container">
           <p>
-            The story of ZAR is rooted in a legacy built on trust, craftsmanship, and enduring relationships.<br/><br/>
+            The story of ZAR is rooted in a legacy built on trust, craftsmanship, and enduring relationships. It’s a name long associated with purity and integrity. ZAR represents the evolution of that tradition into a modern expression of gold jewellery.<br/><br/>
           </p>
           <p>
-            Inspired by the heritage of <strong className="txt_black">Bhima Jewellery</strong>, a name long associated with purity and integrity, ZAR represents the evolution of that tradition into a modern expression of gold jewellery. Today, ZAR carries this legacy forward by creating gold bangles that blend <strong className="txt_black">timeless artistry with modern precision</strong>.
+            Today, ZAR carries this legacy forward by creating gold bangles that blend <strong className="txt_black">timeless artistry with modern precision.</strong>.
           </p>
         </div>
       </section>
@@ -54,16 +54,19 @@ export default function AboutPage() {
             <div className="storyTextBlock">
               <h2 className="fs_54">OUR STORY</h2>
               <p>
-                The journey of ZAR draws inspiration from the vision of Bhima Bhattar, a pioneering jeweller whose commitment to honesty and craftsmanship shaped one of India&apos;s most respected jewellery traditions.
+                From Girdharlal & Bros to ZAR
+              </p>
+              <p>
+                The journey of ZAR draws inspiration from the vision of <strong className="txt_black">Gurmukhdas Takhtani</strong>, a pioneering jeweller whose commitment to honesty and craftsmanship shaped one of India’s most respected jewellery traditions.
               </p>
               <p>
                 His philosophy was simple: jewellery should be crafted with integrity and offered with complete transparency.
               </p>
               <p>
-                Over time, this legacy evolved into Girdharlal &amp; Bros, where specialised gold bangle manufacturing became the focus of the business.
+                Over time, this legacy evolved into <strong className="txt_black">Girdharlal & Bros</strong>, where specialised gold bangle manufacturing became the focus of the business.
               </p>
               <p>
-                Generations of expertise and craftsmanship eventually led to the creation of ZAR, a modern brand built on heritage and driven by innovation.
+                Generations of expertise and craftsmanship eventually led to the creation of <strong className="txt_black"> </strong>ZAR, a modern brand built on heritage and driven by innovation.
               </p>
             </div>
           </div>
@@ -77,7 +80,16 @@ export default function AboutPage() {
             <div className={styles.legacyTextBlock}>
               <h2 className={`fs_54 ${styles.margin_fs_54}`}>LEGACY THAT BUILT THE FOUNDATION</h2>
               <p>
-                Our legacy is built on decades of dedication, expert craftsmanship, and a relentless pursuit of perfection. Every piece we create is a testament to the values and vision that have guided us since the beginning.
+                Gurmukhdas Takhtani was more than a successful jeweller; he was a pioneer who helped establish trust and transparency in the jewellery trade.
+              </p>
+              <p>
+                From fair pricing to accurate gold measurement, his practices introduced transparency and helped establish higher standards for the jewellery trade.
+              </p>
+              <p>
+                He also recognised the importance of strong identity and reputation, building a brand that customers could rely on.
+              </p>
+              <p>
+                The generations that followed carried this vision forward, strengthening the legacy through enduring relationships with customers, partners, and communities.
               </p>
             </div>
             <div className={styles.legacyImageWrapper}>
@@ -145,7 +157,7 @@ export default function AboutPage() {
               </svg>
               <h3>MISSION</h3>
               <h4>Preserving Craft. Elevating Design.</h4>
-              <p>Our mission is to honour traditional jewellery craftsmanship while refining it through modern technique and design.</p>
+              <p>Our mission is to honour traditional jewellery craftsmanship while refining it through modern techniques and design.</p>
               <p>Every piece reflects our commitment to quality, precision, and trust.</p>
             </div>
           </div>
@@ -173,7 +185,7 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h4>Craftsmanship First</h4>
-              <p>We believe true luxury lies in precision and patience. Every ZAR bangle is shaped, engraved, and finished with attention to the smallest detail, reflecting the mastery of skilled artisans.</p>
+              <p>Every creation reflects meticulous attention to detail.</p>
             </div>
             <div className="valueCard">
               <div className="valueIcon">
@@ -197,7 +209,7 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h4>Built on Legacy</h4>
-              <p>Our journey began with handcrafted gold bangles, and we carry forward this legacy with respect. Each generation adds innovation while preserving the soul of the craft.</p>
+              <p>Our heritage continues to guide our journey.</p>
             </div>
             <div className="valueCard">
               <div className="valueIcon">
@@ -207,7 +219,7 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h4>Design Evolution</h4>
-              <p>We embrace bold ideas and fresh perspectives, creating designs that resonate with modern tastes while remaining timeless in form.</p>
+              <p>Innovation allows us to reinterpret tradition through modern aesthetics.</p>
             </div>
             <div className="valueCard">
               <div className="valueIcon">
@@ -216,8 +228,8 @@ export default function AboutPage() {
                   <path fillRule="evenodd" clipRule="evenodd" d="M65.8037 38.5585C71.8611 41.3243 78.2511 44.184 85.0708 43.7727L87.1227 43.6489V66.1041C87.1227 78.8237 77.8557 89.8242 65.3322 92.0074L64.9998 92.0653L64.6674 92.0074C52.1439 89.8242 42.877 78.8237 42.877 66.1041V43.6489L44.9289 43.7727C51.7486 44.184 58.1385 41.3241 64.1959 38.5584L64.9998 38.1914L65.8037 38.5585ZM63.1086 68.1254L57.4457 62.4625C56.4276 61.4443 54.7763 61.4443 53.7582 62.4625C52.74 63.4808 52.74 65.1318 53.7582 66.1501L61.2694 73.6613C62.2877 74.6796 63.9387 74.6796 64.957 73.6613C69.4836 69.1347 73.9588 64.5571 78.4646 60.0098C79.4751 58.9899 79.4728 57.3448 78.454 56.3318C77.4359 55.3193 75.7865 55.321 74.7753 56.3423L63.1086 68.1254ZM64.9998 40.319C58.4814 43.2954 52.0041 46.1384 44.8123 45.7046V66.1041C44.8123 77.92 53.4384 88.0851 64.9998 90.1007C76.5613 88.0852 85.1874 77.9202 85.1874 66.1041V45.7046C77.9956 46.1383 71.5183 43.2954 64.9998 40.319ZM42.8252 40.5999C42.0946 40.4671 41.4125 40.647 40.8425 41.1228C40.2726 41.5987 39.9736 42.2376 39.9736 42.98V66.104C39.9736 80.7471 50.8987 92.9601 64.9998 95C79.101 92.9602 90.0261 80.7472 90.0261 66.1041V42.9801C90.0261 42.2377 89.7271 41.5987 89.1572 41.1229C88.5872 40.6471 87.905 40.4674 87.1744 40.6C79.7225 41.9529 73.2797 38.7638 64.9998 35C56.7201 38.7638 50.2772 41.9529 42.8252 40.5999Z" fill="#D0B480" />
                 </svg>
               </div>
-              <h4>Trust &amp; Transparency</h4>
-              <p>Built over decades, our relationships with partners and clients are rooted in honesty, consistency, and ethical business practices.</p>
+              <h4>Trust & Transparency</h4>
+              <p>Integrity remains central to every relationship we build.</p>
             </div>
           </div>
         </div>

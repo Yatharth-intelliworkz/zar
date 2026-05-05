@@ -30,22 +30,22 @@ const features = [
   {
     icon: '/images/icon-manufacturing.svg',
     title: 'Advanced Manufacturing',
-    description: 'State-of-the-art technology for precision and consistency',
+    description: 'Modern technology ensures consistent quality and precision across every gold bangle.',
   },
   {
     icon: '/images/icon-precision.svg',
     title: 'Precision Engineering',
-    description: 'Every curve and contour calculated to perfection',
+    description: 'Every curve and contour is carefully defined for balance, accuracy, and design integrity.',
   },
   {
     icon: '/images/icon-finishing.svg',
     title: 'Detailed Hand Finishing',
-    description: 'Skilled artisans add the final touches of excellence',
+    description: 'Skilled artisans refine each piece, enhancing detail, texture, and overall finish.',
   },
   {
     icon: '/images/icon-quality.svg',
     title: 'Rigorous Quality Checks',
-    description: 'Multiple inspections ensure flawless delivery',
+    description: 'Multiple inspections ensure uniformity, durability, and flawless delivery.',
   },
 ];
 
@@ -60,9 +60,9 @@ export default function CraftsmanshipSection() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <h2 className="fs_54">Where Art Meets Precision</h2>
+          <h2 className="fs_54">Precision in Every Process</h2>
           <p className={styles.subtitle}>
-            From concept to creation, every Zar bangle is crafted using state-of-the-art technology and meticulously inspected by skilled artisans.
+            From concept to creation, every <strong className="txt_black">gold bangle</strong> is shaped through precision manufacturing processes and refined by skilled artisans to ensure consistency and exceptional finish.
           </p>
         </motion.div>
         <div className={styles.grid}>

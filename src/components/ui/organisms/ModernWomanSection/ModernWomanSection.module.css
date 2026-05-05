@@ -39,14 +39,12 @@
   color: var(--color-brown);
 }
 
-.description {
-  margin-bottom: 40px;
-}
 
 .bullets {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  margin-top:40px
 }
 
 @media (max-width: 768px) {

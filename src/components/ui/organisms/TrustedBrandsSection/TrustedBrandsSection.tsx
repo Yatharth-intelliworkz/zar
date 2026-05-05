@@ -36,7 +36,7 @@ export default function TrustedBrandsSection() {
         >
           <h2 className="fs_54">Trusted Across Generations</h2>
           <p className="">
-            Zar&apos;s commitment to quality and design has earned the trust of partners and patrons alike. We don&apos;t just sell bangles; we build relationships that last as long as our gold.
+            Built on decades of craftsmanship and consistency, ZAR continues to earn the trust of retail partners across generations through precision, reliability, and lasting relationships.
           </p>
         </motion.div>
       </div>

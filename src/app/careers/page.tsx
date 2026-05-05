@@ -135,7 +135,7 @@ export default function CareersPage() {
           { label: 'Careers', isActive: true }
         ]}
         heading="Build Your Career with ZAR"
-        description="Join a team driven by craftsmanship, innovation, and excellence. At ZAR, we combine traditional artistry with modern techniques to create jewellery that stands out."
+        description="Be part of a team where craftsmanship meets innovation. At ZAR, we combine traditional artistry with modern precision to create jewellery defined by quality and design."
       />
       <div style={{ width: '100%', position: 'relative', height: 400, margin: '40px 0' }}>
         <Image
@@ -150,7 +150,7 @@ export default function CareersPage() {
       <section className={styles.descriptionSection}>
         <div className="container">
           <p>
-            At ZAR, craftsmanship is not just a process—it’s a shared philosophy. Every piece of jewellery is the result of seamless collaboration between designers, artisans, technicians, and business teams, all working towards a single standard of excellence.
+            Be part of a team where craftsmanship meets innovation. At ZAR, we combine traditional artistry with modern precision to create jewellery defined by quality and design.
           </p>
           <div className={styles.btn_wrapper}>
             <Button variant="primary" showArrow onClick={scrollToOpenings}>
@@ -172,13 +172,13 @@ export default function CareersPage() {
             <div className="storyTextBlock">
               <h2 className="fs_54">A Culture Built on Craft & Collaboration</h2>
               <p>
-                At ZAR, craftsmanship is not just a process—it’s a shared philosophy. Every piece of jewellery is the result of seamless collaboration between designers, artisans, technicians, and business teams, all working towards a single standard of excellence.
+                At ZAR, craftsmanship is driven by collaboration. Designers, artisans, and technicians work together seamlessly, ensuring every piece reflects precision, consistency, and attention to detail.
               </p>
               <p>
-               We foster a culture where ideas are valued, creativity is encouraged, and precision is non-negotiable. From concept sketches to final finishing, every stage is driven by teamwork, attention to detail, and a passion for perfection.
+              We foster a culture where ideas are valued and skill is continuously refined. From concept to final finishing, each stage is guided by teamwork, discipline, and a shared commitment to quality.
               </p>
               <p>
-                We believe in empowering our people—through continuous learning, skill development, and real growth opportunities—so they can build not just jewellery, but meaningful careers.
+                We believe in enabling growth through learning and real opportunities, so our people don’t just create jewellery, but build meaningful and lasting careers.
               </p>              
             </div>
           </div>
@@ -188,7 +188,7 @@ export default function CareersPage() {
       <section className="valuesSection mt-100">
         <div className="container">
           <h2 className="fs_54 txt_center">WHY WORK WITH ZAR</h2>
-          <p className="valuesSectionSubtitle">We offer an environment where creativity meets precision and careers are built with purpose.</p>
+          <p className="valuesSectionSubtitle">An environment where craftsmanship meets precision, and careers are built with purpose.</p>
           <div className="valuesGrid">
             <div className="valueCard">
               <div className="valueIcon">
@@ -205,7 +205,7 @@ export default function CareersPage() {
                 </svg>
               </div>
               <h4>Legacy and Stability</h4>
-              <p>Backed by decades of expertise in jewellery manufacturing and retail.</p>
+              <p>Built on decades of expertise in gold jewellery manufacturing and trusted industry partnerships.</p>
             </div>
             <div className="valueCard">
               <div className="valueIcon">
@@ -229,7 +229,7 @@ export default function CareersPage() {
                 </svg>
               </div>
               <h4>Creative Environment</h4>
-              <p>Collaborate with designers, artisans, and innovators in a dynamic workspace.</p>
+              <p>Work alongside designers, artisans, and innovators in a space shaped by collaboration and detail.</p>
             </div>
             <div className="valueCard">
               <div className="valueIcon">
@@ -239,7 +239,7 @@ export default function CareersPage() {
                 </svg>
               </div>
               <h4>Growth Opportunities</h4>
-              <p>Continuous learning, skill development, and career advancement.</p>
+              <p> Continuous learning, skill development, and clear pathways for long-term career growth.</p>
             </div>
             <div className="valueCard">
               <div className="valueIcon">
@@ -249,7 +249,7 @@ export default function CareersPage() {
                 </svg>
               </div>
               <h4>Modern Infrastructure</h4>
-              <p>Work with advanced tools, systems, and a structured workflow.</p>
+              <p>Advanced tools, efficient systems, and structured processes that support quality and precision.</p>
             </div>
           </div>
         </div>
@@ -261,7 +261,7 @@ export default function CareersPage() {
         <div className="container">
           <h2 className="fs_54 txt_center" style={{ marginBottom: '12px' }}>CURRENT OPENINGS</h2>
           <p style={{ textAlign: 'center', color: '#666', marginBottom: '60px', fontSize: '14px' }}>
-            Explore opportunities across our organization and find a role that matches your expertise and career aspirations.
+            Explore opportunities across teams and find a role aligned with your skills, experience, and growth.
           </p>
           
           <div className={styles.openingsGrid}>
@@ -313,10 +313,9 @@ export default function CareersPage() {
           />
         </div>
         <div className={`container ${styles.ctaContainer}`}>
-          <h2 className={styles.ctaTitle}>LET&apos;S BUILD SOMETHING TOGETHER</h2>
+          <h2 className={styles.ctaTitle}>Let’s Build Something Together</h2>
           <p className={styles.ctaDescription}>
-            Didn&apos;t find a suitable role?<br />
-            Share your profile with us and we&apos;ll connect when an opportunity matches your expertise.
+            If you don’t see a suitable role, share your profile with us—we’ll reach out when an opportunity aligns with your expertise.
           </p>
           <Button href="mailto:info@zarjewels.com" variant="secondary" showArrow>
             Email Your Resume

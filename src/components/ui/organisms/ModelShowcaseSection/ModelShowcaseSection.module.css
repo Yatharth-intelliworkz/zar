@@ -64,12 +64,30 @@
   justify-content: center;
   overflow: hidden;
 }
-
-.viewer {
+#default-poster {
+  width:90%;
+  height:90%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.viewer,
+.posterFrame {
   width: 50%;
   height: 340px;
   display: block;
+}
+
+.viewer {
   object-fit: cover;
+}
+
+.posterFrame {
+  position: relative;
+}
+
+.poster {
+  object-fit: contain;
 }
 
 .cardLabel {
@@ -154,7 +172,8 @@
 }
 
 @media (max-width: 1199px) {
-  .viewer {
+  .viewer,
+  .posterFrame {
     height: 300px;
   }
 
@@ -180,7 +199,8 @@
     font-size: 18px;
   }
 
-  .viewer {
+  .viewer,
+  .posterFrame {
     height: 280px;
   }
 
