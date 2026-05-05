@@ -14,7 +14,7 @@
 
 /* ── Quote Section ── */
 .quoteSection {
-  padding: 80px 60px;
+  padding: 80px 00px;
   position: relative;
 }
 
@@ -56,16 +56,16 @@
 
 .quoteText {
   font-family: var(--font-heading);
-  font-size: 60px;
+  font-size: 48px;
   font-weight: 600;
-  line-height: 66px;
+  line-height: 50px;
   color: var(--color-gold-accent);
 }
 
 /* ── Footer Top ── */
 .footerTop {
   position: relative;
-  padding: 80px 20px 60px;
+  padding: 80px 00px 60px;
   /* border-top: 1px solid rgba(255, 255, 255, 0.1); */
 }
 
@@ -128,7 +128,7 @@
 /* Links grid (2 columns) */
 .linksGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr 1.5fr 1fr;
   gap: 30px;
 }
 
@@ -161,10 +161,9 @@
   color: var(--color-white);
   font-family: var(--font-body);
   font-size: 18px;
-  font-style: normal;
+  letter-spacing: 0.01em;
   font-weight: 400;
-  line-height: 36px;
-  /* 200% */
+  line-height: normal;
   transition: color var(--transition-fast);
 }
 
@@ -228,7 +227,7 @@
 .copyright {
   font-family: var(--font-body);
   color: var(--color-brown);
-  font-size:16px;
+  font-size: 16px;
 }
 
 .legalLinks {
@@ -241,7 +240,7 @@
   font-family: var(--font-body);
   color: var(--color-brown);
   transition: color var(--transition-fast);
-  font-size:16px; 
+  font-size: 16px;
 }
 
 .legalLinks a:hover {
@@ -256,6 +255,16 @@
 
 
 /* ── Mobile ── */
+@media (max-width: 1441px) {
+  .quoteText {
+    font-size: 40px;
+    line-height: 56px;
+  }
+  .quoteSection {
+    padding: 60px 00px;
+  }
+}
+
 @media (max-width: 767px) {
   .quoteText {
     font-size: 28px;

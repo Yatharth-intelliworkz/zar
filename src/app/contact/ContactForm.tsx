@@ -224,7 +224,7 @@ export default function ContactForm() {
           {isSubmitting ? (
             <span className={styles.submitLoadingInline}>
               <AppLoader size={28} delayMs={0} label="Submitting form" showLabel={false} />
-              <span>Sending...</span>
+              <span>Submitting...</span>
             </span>
           ) : (
             'Send Message'

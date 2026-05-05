@@ -21,6 +21,12 @@
   gap: 50px;
 }
 
+@media (min-width: 1024px) {
+
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 @media (min-width: 768px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
@@ -30,16 +36,6 @@
     font-size: 44px;
     line-height: 54px;
   }
-}
-
-@media (min-width: 1024px) {
-
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (min-width: 1440px) {
 }
 
 @media (max-width: 767px) {
