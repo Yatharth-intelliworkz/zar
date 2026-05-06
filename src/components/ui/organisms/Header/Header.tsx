@@ -13,6 +13,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileCollectionsOpen, setMobileCollectionsOpen] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [enquiryOpen, setEnquiryOpen] = useState(false);
   const megaMenuTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -54,6 +55,12 @@ export default function Header() {
   useEffect(() => {
     // console.log('megaMenuOpen state:', megaMenuOpen);
   }, [megaMenuOpen]);
+
+  useEffect(() => {
+    if (!menuOpen) {
+      setMobileCollectionsOpen(false);
+    }
+  }, [menuOpen]);
 
   return (
     <>
@@ -108,9 +115,10 @@ export default function Header() {
               </Button>
             </div>
             <button
-              className={styles.hamburger}
+              className={cn(styles.hamburger, menuOpen && styles.hamburgerOpen)}
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
+              aria-expanded={menuOpen}
             >
               <span />
               <span />
@@ -118,21 +126,40 @@ export default function Header() {
             </button>
           </div>
         </div>
-      </header>
 
-      <div className={cn(styles.mobileMenu, menuOpen && styles.mobileMenuOpen)}>
-        <ul className={styles.mobileMenuList}>
-          <li><Link href="/about">Story of Zar</Link></li>
-          <li><Link href="/collections">Collections</Link></li>
-          <li><Link href="/clientele">Our Clientele</Link></li>
-          <li><Link href="/partner">Become a Partner</Link></li>
-          <li><Link href="/careers">Careers</Link></li>
-          <li><Link href="/contact">Contact</Link></li>
-        </ul>
-        <Button variant="primary" showArrow onClick={() => { setMenuOpen(false); setEnquiryOpen(true); }}>
-          Enquire Now
-        </Button>
-      </div>
+        {/* Mobile slide-down menu — lives inside <header> so it tracks fixed position */}
+        <div className={cn(styles.mobileMenu, menuOpen && styles.mobileMenuOpen)}>
+          <ul className={styles.mobileMenuList}>
+            <li><Link href="/about" onClick={() => setMenuOpen(false)}>Story of Zar</Link></li>
+            <li className={styles.mobileCollectionsItem}>
+              <button
+                type="button"
+                className={styles.mobileCollectionsToggle}
+                onClick={() => setMobileCollectionsOpen((prev) => !prev)}
+                aria-expanded={mobileCollectionsOpen}
+              >
+                Collections
+                <span className={cn(styles.mobileChevron, mobileCollectionsOpen && styles.mobileChevronOpen)}>
+                  <svg viewBox="0 0 11 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L5.5 5L10 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </button>
+              <ul className={cn(styles.mobileCollectionsDropdown, mobileCollectionsOpen && styles.mobileCollectionsDropdownOpen)}>
+                <li><Link href="/collections/18k" onClick={() => setMenuOpen(false)}>18K Jewellery</Link></li>
+                <li><Link href="/collections/22k" onClick={() => setMenuOpen(false)}>22K Jewellery</Link></li>
+              </ul>
+            </li>
+            <li><Link href="/clientele" onClick={() => setMenuOpen(false)}>Our Clientele</Link></li>
+            <li><Link href="/partner" onClick={() => setMenuOpen(false)}>Become a Partner</Link></li>
+            <li><Link href="/careers" onClick={() => setMenuOpen(false)}>Careers</Link></li>
+            <li><Link href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link></li>
+          </ul>
+          <Button variant="primary" showArrow onClick={() => { setMenuOpen(false); setEnquiryOpen(true); }}>
+            Enquire Now
+          </Button>
+        </div>
+      </header>
 
       <EnquiryModal open={enquiryOpen} onClose={() => setEnquiryOpen(false)} />
     </>

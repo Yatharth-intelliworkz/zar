@@ -32,7 +32,6 @@
 .quoteInner {
   position: relative;
   z-index: 1;
-  max-width: var(--max-width);
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -72,7 +71,6 @@
 .topInner {
   position: relative;
   z-index: 1;
-  max-width: var(--max-width);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1.5fr 1fr;
@@ -94,10 +92,8 @@
 
 .brandText {
   font-family: var(--font-body);
-  font-size: 18px;
   line-height: 26px;
   color: var(--color-white);
-  max-width: 370px;
 }
 
 .socials {
@@ -160,7 +156,6 @@
 .linkItem {
   color: var(--color-white);
   font-family: var(--font-body);
-  font-size: 18px;
   letter-spacing: 0.01em;
   font-weight: 400;
   line-height: normal;
@@ -192,8 +187,6 @@
   align-items: flex-start;
   gap: 10px;
   font-family: var(--font-body);
-  font-size: 18px;
-  line-height: 26px;
   color: var(--color-white);
 }
 
@@ -260,8 +253,37 @@
     font-size: 40px;
     line-height: 56px;
   }
+
   .quoteSection {
     padding: 60px 00px;
+  }
+
+  .topInner {
+    gap: 50px;
+  }
+}
+
+@media (max-width: 1281px) {
+  .topInner {
+    gap: 30px;
+    font-size: 16px;
+  }
+
+  .linksGrid {
+    gap: 10px;
+  }
+
+  .quoteText {
+    font-size: 36px;
+    line-height: 46px;
+  }
+
+  .quoteSection {
+    padding: 40px 00px;
+  }
+
+  .footerTop {
+    padding: 50px 00px;
   }
 }
 
@@ -279,5 +301,42 @@
 
   .quoteSection {
     padding: 50px 20px;
+  }
+
+  /* Target the 1st child specifically */
+  .topInner>*:nth-child(1) {
+    grid-column: 1 / -1;
+    /* Spans across all available columns */
+  }
+
+  .topInner {
+    /* Switch to a 2-column layout */
+    grid-template-columns: 1.5fr 1fr;
+  }
+
+}
+
+@media (max-width: 576px) {
+  .quoteText {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .quoteMarkLeft,
+  .quoteMarkRight {
+    font-size: 40px;
+    line-height: 30px;
+  }
+
+  .quoteSection {
+    padding: 40px 16px;
+  }
+
+  .topInner {
+    grid-template-columns: 1fr;
+  }
+
+  .bottomInner {
+    flex-direction: column-reverse;
   }
 }

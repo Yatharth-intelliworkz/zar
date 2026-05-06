@@ -24,7 +24,7 @@ export default function RootLayout({
         <ReduxProvider>
           <FirstVisitLoader />
           <Header />
-          <main>
+          <main style={{ paddingTop: '90px' }}>
             <PageTransitionProvider>{children}</PageTransitionProvider>
           </main>
           <Footer />

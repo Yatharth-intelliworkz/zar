@@ -19,7 +19,8 @@ export default function ContactPage() {
         heading="Contact"
         description="Connect with ZAR for enquiries, partnerships, and product details, we’re here to assist with clarity and care."
       />
-      <div style={{ width: '100%', position: 'relative', height: 400, margin: '40px 0' }}>
+      {/* <div style={{ width: '100%', position: 'relative', height: 400, margin: '40px 0' }} className='bannerImage'> */}
+      <div className='bannerImage'>
         <Image
           src="/images/about/about_banner.webp"
           alt="Crafting gold bangle"

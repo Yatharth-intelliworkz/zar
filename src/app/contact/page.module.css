@@ -147,10 +147,20 @@
   }
 }
 
-@media (max-width: 768px) {
-  .content {
-    padding: 24px 16px 64px;
+@media (max-width: 1281px) {
+  .grid {
+    margin: 60px 0;
   }
+}
+
+@media (max-width: 992px) {
+  .grid {
+    margin: 40px 0;
+  }
+
+  /* .content {
+    padding: 24px 16px 64px;
+  } */
 
   .headerInfo {
     gap: 12px;
@@ -160,4 +170,17 @@
   .contactMapSection {
     padding: 20px;
   }
+}
+
+@media (max-width: 576px) {
+  .formRow {
+    flex-direction: column;
+  }
+  .contactMapSection {
+    grid-template-columns: 1fr;
+  }
+  .contactMapFrameWrap iframe{
+    height: 400px;
+  }
+  
 }

@@ -1,12 +1,13 @@
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  width: 100%;
   z-index: 100;
   background-color: var(--color-white);
   transition: box-shadow var(--transition-base), transform 0.35s ease;
-  padding:15px 0;
+  padding: 15px 0;
 }
 
 .headerScrolled {
@@ -108,6 +109,9 @@
   padding: 8px;
   background: none;
   border: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
 
 .hamburger span {
@@ -116,6 +120,19 @@
   height: 2px;
   background-color: var(--color-black);
   transition: transform var(--transition-fast), opacity var(--transition-fast);
+  transform-origin: center;
+}
+
+.hamburgerOpen span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburgerOpen span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburgerOpen span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 .headerScrolled .hamburger span {
@@ -123,21 +140,35 @@
 }
 
 .mobileMenu {
-  display: none;
-  position: fixed;
-  top: 60px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--color-white);
-  z-index: 99;
-  padding: 40px 20px;
-}
-
-.mobileMenuOpen {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--color-white);
+  z-index: 99;
+  padding: 0 20px;
+  height: fit-content;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition:
+    max-height 0.4s ease,
+    opacity 0.3s ease,
+    transform 0.35s ease,
+    padding 0.35s ease;
+}
+
+.mobileMenuOpen {
+  max-height: 85vh;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  padding: 32px 20px 40px;
 }
 
 .mobileMenuList {
@@ -153,6 +184,65 @@
   border-bottom: 1px solid var(--color-gray-200);
 }
 
+.mobileCollectionsItem {
+  padding: 8px 0;
+}
+
+.mobileCollectionsToggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  background: transparent;
+  padding: 2px 0;
+  font-family: var(--font-body);
+  font-size: 24px;
+  font-weight: var(--fw-regular);
+  color: var(--color-gray-600);
+  cursor: pointer;
+  text-align: left;
+}
+
+.mobileChevron {
+  display: inline-flex;
+  transition: transform var(--transition-fast);
+}
+
+.mobileChevron svg {
+  width: 11px;
+  height: 6px;
+}
+
+.mobileChevronOpen {
+  transform: rotate(180deg);
+}
+
+.mobileCollectionsDropdown {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.2s ease;
+}
+
+.mobileCollectionsDropdownOpen {
+  max-height: 120px;
+  opacity: 1;
+}
+
+.mobileCollectionsDropdown li {
+  border-bottom: none;
+}
+
+.mobileCollectionsDropdown a {
+  font-size: 18px;
+  padding: 8px 0 6px 14px;
+  color: var(--color-gray-500);
+}
+
 .mobileMenuList a {
   display: block;
   font-family: var(--font-body);
@@ -166,6 +256,12 @@
 
 .mobileMenuList a:hover {
   color: var(--color-black);
+}
+
+@media (max-width: 1281px) {
+  .menuList li a {
+    padding: 10px;
+  }
 }
 
 @media (min-width: 1024px) {

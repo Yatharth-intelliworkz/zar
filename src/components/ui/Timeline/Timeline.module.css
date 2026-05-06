@@ -40,7 +40,7 @@
 .yearList {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 25px;
   align-items: center;
 }
 

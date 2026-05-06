@@ -37,10 +37,22 @@
 @media (max-width: 1601px) {
   .heading {
     font-size: 52px;
+    line-height: 60px;
   }
 }
 @media (max-width: 1441px) {
   .breadcrumbs {
     margin-top: 20px;
+  }
+}
+@media (max-width: 1281px) {
+  .breadcrumbs {
+    margin-bottom: 00px;
+  }
+}
+@media (max-width: 576px) {
+  .heading {
+    font-size: 36px;
+    line-height: 46px;
   }
 }

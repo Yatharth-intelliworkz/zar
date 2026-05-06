@@ -13,6 +13,7 @@
   height: 60px;
   resize: none;
   outline: none;
+  color: #999;
   transition: border-color 0.2s;
 }
 
@@ -21,7 +22,7 @@
 }
 
 .textarea::placeholder {
-  color: #000;
+  color: #999;
 }
 
 .textareaError {
