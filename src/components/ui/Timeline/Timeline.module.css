@@ -31,96 +31,253 @@
 
 .timelineWrapper {
   display: grid;
-  grid-template-columns: 120px 1fr 1fr;
-  gap: 150px;
+  grid-template-columns: 152px 1fr 1fr;
+  gap: 60px;
   align-items: center;
 }
 
-/* Year list */
-.yearList {
+/* ═══════════════════════════════════════
+   DRUM COLUMN
+═══════════════════════════════════════ */
+.drumCol {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  cursor: ns-resize;
+  user-select: none;
+}
+
+/* Gold bracket lines locked at center — each 28px (= SLOT/2) away */
+/* .drumCol::before,
+.drumCol::after {
+  content: '';
+  position: absolute;
+  left: 22px;
+  right: 8px;
+  height: 1px;
+  background: linear-gradient(90deg, #c9a84c 0%, rgba(201, 168, 76, 0.15) 100%);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 4;
+}
+.drumCol::before { top: calc(50% - 28px); }
+.drumCol::after  { top: calc(50% + 28px); } */
+
+/* Vertical gold accent bar on left edge */
+/* .drumAccent {
+  position: absolute;
+  left: 18px;
+  top: calc(50% - 28px);
+  width: 3px;
+  height: 56px;
+  background: linear-gradient(to bottom, rgba(201, 168, 76, 0.4), #c9a84c, rgba(201, 168, 76, 0.4));
+  border-radius: 2px;
+  z-index: 5;
+  pointer-events: none;
+} */
+
+/* Fade masks */
+/* .drumFadeTop,
+.drumFadeBot {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 35%;
+  pointer-events: none;
+  z-index: 3;
+}
+.drumFadeTop {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.92) 0%, transparent 100%);
+}
+.drumFadeBot {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.92) 0%, transparent 100%);
+} */
+
+/* ─── Track: physical belt that slides via JS top ─── */
+.drumTrack {
+  position: absolute;
+  left: 0;
+  right: 0;
+  /* top is set and animated by JS */
+  z-index: 2;
+  will-change: top;
   display: flex;
-  flex-direction: column;
-  gap: 25px;
   align-items: center;
+  flex-direction: column;
+  gap: 50px;
+    height: 100%;
 }
 
-.yearButton {
-  background: none;
-  border: none;
+/* ─── Each year slot — fixed 56px height, MUST match JS SLOT constant ─── */
+.yearSlot {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding-left: 34px;
   cursor: pointer;
-  font-family: var(--font-body);
-  font-size: 20px;
-  font-weight: var(--fw-regular);
-  color: rgba(255, 255, 255, 0.35);
-  text-align: left;
-  padding: 4px 0;
-  white-space: nowrap;
-  transition: all 0.3s ease;
 }
 
-.yearButton:hover {
-  color: rgba(255, 255, 255, 0.7);
+.yearLabel {
+  font-family: var(--font-heading);
+  letter-spacing: 2px;
+  display: inline-block;
+  pointer-events: none;
+  transition: color 0.28s ease;
 }
 
-.yearButtonActive {
+/* dist 3 — outermost buffer slots (barely visible) */
+.yearSlot[data-dist="3"] {
+  cursor: default;
+}
+.yearSlot[data-dist="3"] .yearLabel {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.08);
+}
+
+/* dist 2 */
+.yearSlot[data-dist="2"] .yearLabel {
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.22);
+}
+
+/* dist 1 */
+.yearSlot[data-dist="1"] .yearLabel {
+  font-size: 36px;
+  color: rgba(255, 255, 255, 0.42);
+}
+
+/* dist 0 — selected */
+.yearSlot[data-dist="0"] {
+  cursor: default;
+}
+.yearSlot[data-dist="0"] .yearLabel {
   font-size: 48px;
-  line-height: 36px;
-  font-weight: var(--fw-bold);
-  color: #fff;
+  font-weight: 700;
+  color: #f0ede6;
+  letter-spacing: 3px;
 }
 
-/* Image */
+.yearSlot:not([data-dist="0"]):hover .yearLabel {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ═══════════════════════════════════════
+   IMAGE
+═══════════════════════════════════════ */
 .imageWrapper {
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  border: 1px solid #CFB480;
+  border: 1px solid #cfb480;
 }
 
 .timelineImage {
   object-fit: cover;
+  transition: opacity 0.55s ease, transform 0.65s ease;
 }
 
-/* Content */
+.timelineImageOut {
+  opacity: 0;
+  transform: scale(1.035);
+}
+
+/* ═══════════════════════════════════════
+   CONTENT
+═══════════════════════════════════════ */
 .contentBlock {
   padding: 20px 0;
+  transition: opacity 0.38s ease, transform 0.38s ease;
 }
 
-.contentYear {
-  font-family: var(--font-body);
-  font-size: 48px;
-  line-height: 36px;
-  font-weight: var(--fw-regular);
+.contentBlockOut {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.cYear {
+  font-family: var(--font-heading);
+  font-size: clamp(48px, 5vw, 72px);
+  font-weight: 300;
   color: #fff;
-  margin-bottom: 20px;
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-bottom: 14px;
 }
 
-.contentDescription {
-  color: #fff;
+.cLine {
+  width: 44px;
+  height: 1px;
+  background: #c9a84c;
+  opacity: 0.6;
+  margin-bottom: 16px;
 }
 
+.cTitle {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: #c9a84c;
+  opacity: 0.8;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.cDesc {
+  font-size: 15px;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 340px;
+  margin-bottom: 24px;
+}
+
+.cTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 20px;
+  color: #c9a84c;
+  background: rgba(201, 168, 76, 0.05);
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
 @media (max-width: 768px) {
   .timelineWrapper {
     grid-template-columns: 1fr;
     gap: 30px;
   }
 
-  .drumWrapper {
-    height: 80px;
-    mask-image: linear-gradient(
-      to right,
-      transparent 0%,
-      black 20%,
-      black 80%,
-      transparent 100%
-    );
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent 0%,
-      black 20%,
-      black 80%,
-      transparent 100%
-    );
+  .drumCol {
+    height: 300px;
+  }
+
+  .yearSlot {
+    padding-left: 0;
+    justify-content: center;
+  }
+
+  .drumCol::before,
+  .drumCol::after {
+    left: calc(50% - 60px);
+    right: calc(50% - 60px);
+  }
+
+  .drumAccent {
+    display: none;
   }
 }
+
+
