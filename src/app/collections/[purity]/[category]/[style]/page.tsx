@@ -54,12 +54,12 @@ export default async function ProductListingPage({ params }: Props) {
           { label: styleName, isActive: true },
         ]}
       />
-      <div className="banner">
+      <div className="bannerImage">
         <Image
           src="/images/about/about_banner.webp"
           alt="Crafting gold bangle"
           fill
-          style={{ objectFit: 'contain' }}
+          style={{ objectFit: 'cover' }}
           priority
         />
       </div>

@@ -1,5 +1,11 @@
 import type { Category, ProductCard, ProductDetail, Style } from '@/types/domain';
-import { apiGet } from './client';
+import {
+  getCategoriesByPurity,
+  getProductDetail,
+  getProductsByStyle,
+  getRelatedProducts,
+  getStylesByCategory,
+} from '@/lib/data/catalog';
 
 type ProductDetailResponse = {
   product: ProductDetail;
@@ -7,13 +13,11 @@ type ProductDetailResponse = {
 };
 
 export async function fetchCategories(purity: string): Promise<Category[]> {
-  const params = new URLSearchParams({ purity });
-  return apiGet<Category[]>(`/api/categories?${params.toString()}`);
+  return getCategoriesByPurity(purity);
 }
 
 export async function fetchStyles(purity: string, category: string): Promise<Style[]> {
-  const params = new URLSearchParams({ purity, category });
-  return apiGet<Style[]>(`/api/categories?${params.toString()}`);
+  return getStylesByCategory(purity, category);
 }
 
 export async function fetchProducts(
@@ -21,8 +25,7 @@ export async function fetchProducts(
   category: string,
   style: string
 ): Promise<ProductCard[]> {
-  const params = new URLSearchParams({ purity, category, style });
-  return apiGet<ProductCard[]>(`/api/products?${params.toString()}`);
+  return getProductsByStyle(purity, category, style);
 }
 
 export async function fetchProductDetail(
@@ -31,6 +34,14 @@ export async function fetchProductDetail(
   style: string,
   id: string
 ): Promise<ProductDetailResponse> {
-  const params = new URLSearchParams({ purity, category, style });
-  return apiGet<ProductDetailResponse>(`/api/products/${id}?${params.toString()}`);
+  const product = getProductDetail(purity, category, style, id);
+
+  if (!product) {
+    throw new Error('Product not found');
+  }
+
+  return {
+    product,
+    related: getRelatedProducts(purity, category, style, id),
+  };
 }
