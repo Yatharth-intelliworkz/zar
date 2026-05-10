@@ -1,10 +1,17 @@
 import PageHeader from '@/components/ui/PageHeader/PageHeader';
 import CollectionGrid from '@/components/ui/organisms/CollectionGrid/CollectionGrid';
 import { fetchCategories } from '@/lib/api/catalog';
+import catalogData from '@/lib/data/catalog.json';
 import styles from './page.module.css';
 
 interface Props {
   params: Promise<{ purity: string }>;
+}
+
+export function generateStaticParams() {
+  return (catalogData as { purities: { purity: string }[] }).purities.map((p) => ({
+    purity: p.purity,
+  }));
 }
 
 export async function generateMetadata({ params }: Props) {

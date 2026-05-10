@@ -22,7 +22,7 @@ export default function AboutPage() {
         heading="THE STORY OF ZAR"
         description="Crafting timeless gold bangles through generations of heritage, precision, and design."
       />
-      <div className='banner'>
+      <div className='bannerImage'>
         <Image
           src="/images/about/about_banner.webp"
           alt="Crafting gold bangle"

@@ -155,9 +155,9 @@
 
 .featuredButton {
   display: inline-flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   background-color: var(--color-black);
   color: var(--color-white);
   font-family: var(--font-body);

@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
-    "build:out": "node --max-old-space-size=8192 scripts/build-out.mjs",
+    "export": "next export",
     "start": "next start",
     "lint": "eslint"
   },

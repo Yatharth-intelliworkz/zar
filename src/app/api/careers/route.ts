@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { CAREER_POSITIONS } from '@/lib/data/careers';
 
+export const dynamic = 'force-static';
+
 type CareerPayload = {
   name?: string;
   company?: string;

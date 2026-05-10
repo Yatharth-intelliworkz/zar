@@ -17,27 +17,19 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: 50px;
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
 
   .grid {
     grid-template-columns: repeat(4, 1fr);
   }
-}
-@media (min-width: 768px) {
+} */
+@media (max-width: 769px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .heading {
-    font-size: 44px;
-    line-height: 54px;
-  }
 }
 
-@media (max-width: 767px) {
-
-}

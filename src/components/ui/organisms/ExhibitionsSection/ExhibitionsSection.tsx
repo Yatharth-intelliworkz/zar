@@ -69,7 +69,7 @@ export default function ExhibitionsSection({ title = "Upcoming Exhibitions", id 
             <p className={styles.eventDescription}>
               Sharjah Watch and Jewellery Show 2026 is a biannual event that will present the latest jewelry designs, trends in watch collections, and jewelry made up of precious stones and diamonds.
             </p>
-            <Button href="#" variant="outline" showArrow>
+            <Button href="/event" variant="outline" showArrow>
               View Event
             </Button>
           </div>

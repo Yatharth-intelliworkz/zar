@@ -1,11 +1,23 @@
 import Image from 'next/image';
 import PageHeader from '@/components/ui/PageHeader/PageHeader';
 import { fetchProducts } from '@/lib/api/catalog';
+import catalogData from '@/lib/data/catalog.json';
 import ProductListingClient from './ProductListingClient';
 import styles from './page.module.css';
 
 interface Props {
   params: Promise<{ purity: string; category: string; style: string }>;
+}
+
+export function generateStaticParams() {
+  const catalog = catalogData as {
+    purities: { purity: string; categories: { slug: string; styles: { slug: string }[] }[] }[];
+  };
+  return catalog.purities.flatMap((p) =>
+    p.categories.flatMap((c) =>
+      c.styles.map((s) => ({ purity: p.purity, category: c.slug, style: s.slug }))
+    )
+  );
 }
 
 function formatName(slug: string) {

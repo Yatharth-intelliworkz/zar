@@ -81,7 +81,7 @@ export default function EventPage() {
         description="Discover our latest gold bangle collections showcased across prestigious jewellery exhibitions and trade shows." 
       />
 
-      <div className="banner">
+      <div className="bannerImage">
         <Image
           src="/images/about/about_banner.webp"
           alt="Crafting gold bangle"

@@ -1,10 +1,18 @@
 import PageHeader from '@/components/ui/PageHeader/PageHeader';
 import CollectionGrid from '@/components/ui/organisms/CollectionGrid/CollectionGrid';
 import { fetchStyles } from '@/lib/api/catalog';
+import catalogData from '@/lib/data/catalog.json';
 import styles from './page.module.css';
 
 interface Props {
   params: Promise<{ purity: string; category: string }>;
+}
+
+export function generateStaticParams() {
+  const catalog = catalogData as { purities: { purity: string; categories: { slug: string }[] }[] };
+  return catalog.purities.flatMap((p) =>
+    p.categories.map((c) => ({ purity: p.purity, category: c.slug }))
+  );
 }
 
 function formatName(slug: string) {

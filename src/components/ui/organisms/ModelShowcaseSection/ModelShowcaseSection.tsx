@@ -88,8 +88,8 @@ export default function ModelShowcaseSection() {
                       interaction-prompt="auto"
                       shadow-intensity="0"
                       exposure="1"
-                      loading="lazy"
-                      reveal="auto"
+                      loading={index < 3 ? "eager" : "lazy"}  // first 3 are visible
+                      reveal={index < 3 ? "auto" : "interaction"}
                       className={styles.viewer}
                     />
                   </div>

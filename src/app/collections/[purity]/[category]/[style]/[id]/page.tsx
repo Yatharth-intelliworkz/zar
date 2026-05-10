@@ -3,12 +3,34 @@ import ProductGallery from '@/components/ProductGallery/ProductGallery';
 import ProductInfo from '@/components/ProductInfo/ProductInfo';
 import RelatedProductsSlider from '@/components/RelatedProductsSlider/RelatedProductsSlider';
 import { fetchProductDetail } from '@/lib/api/catalog';
+import catalogData from '@/lib/data/catalog.json';
 import { notFound } from 'next/navigation';
 import styles from './page.module.css';
 
 type Props = {
   params: Promise<{ purity: string; category: string; style: string; id: string }>;
 };
+
+export function generateStaticParams() {
+  const catalog = catalogData as {
+    purities: {
+      purity: string;
+      categories: { slug: string; styles: { slug: string; products: { id: string }[] }[] }[];
+    }[];
+  };
+  return catalog.purities.flatMap((p) =>
+    p.categories.flatMap((c) =>
+      c.styles.flatMap((s) =>
+        s.products.map((prod) => ({
+          purity: p.purity,
+          category: c.slug,
+          style: s.slug,
+          id: prod.id,
+        }))
+      )
+    )
+  );
+}
 
 type TradeHighlight = {
   icon: string;

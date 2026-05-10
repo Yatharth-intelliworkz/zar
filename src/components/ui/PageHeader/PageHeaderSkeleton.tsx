@@ -11,7 +11,7 @@ export default function PageHeaderSkeleton({ showBanner = true }: PageHeaderSkel
         <div className={styles.breadcrumbs} />
         <div className={styles.title} />
       </div>
-      {showBanner ? <div className={styles.banner} /> : null}
+      {showBanner ? <div className={styles.bannerImage} /> : null}
     </section>
   );
 }
