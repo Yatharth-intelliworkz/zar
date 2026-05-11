@@ -10,14 +10,14 @@ const skeletonCards = Array.from({ length: 3 });
 
 export default function CareerSlider() {
   const slides = [
-    '/images/career/career3.webp',
-    '/images/career/career4.webp',
-    '/images/career/career5.webp',
-    '/images/career/career2.webp',
-    '/images/career/career3.webp',
-    '/images/career/career4.webp',
-    '/images/career/career5.webp',
-    '/images/career/career2.webp',
+    '/images/career/career-11.webp',
+    '/images/career/career-12.webp',
+    '/images/career/career-13.webp',
+    '/images/career/career-14.webp',
+    '/images/career/career-15.webp',
+    '/images/career/career-11.webp',
+    '/images/career/career-12.webp',
+    '/images/career/career-13.webp',
   ];
 
   const [loadedImages, setLoadedImages] = useState<boolean[]>(() =>

@@ -39,7 +39,7 @@ export default function ClientelePage() {
       />
       <div className='bannerImage'>
               <Image
-                src="/images/about/about_banner.webp"
+                src="/images/client_bg.webp"
                 alt="Crafting gold bangle"
                 fill
                 style={{ objectFit: 'cover' }}

@@ -26,7 +26,7 @@ export default function PartnerPage() {
 
       <div className='bannerImage'>
         <Image
-          src="/images/about/about_banner.webp"
+          src="/images/partner_bg.webp"
           alt="Crafting gold bangle"
           fill
           style={{ objectFit: 'cover' }}

@@ -22,7 +22,7 @@ export default function ContactPage() {
       {/* <div style={{ width: '100%', position: 'relative', height: 400, margin: '40px 0' }} className='bannerImage'> */}
       <div className='bannerImage'>
         <Image
-          src="/images/about/about_banner.webp"
+          src="/images/contact_bg.webp"
           alt="Crafting gold bangle"
           fill
           style={{ objectFit: 'cover' }}
