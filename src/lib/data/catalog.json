@@ -19,12 +19,12 @@
                   "name": "Design No. BAPL22K01",
                   "description": "Plain Bangles & Bracelet crafted in 22K gold for modern and traditional assortments.",
                   "price": 24075,
-                  "image": "/images/homepage/product_1.webp",
+                  "image": "/images/products/prod-1.webp",
                   "sku": "BAPL-22K-001",
                   "images": [
-                    "/images/homepage/product_1.webp",
-                    "/images/homepage/product_2.webp",
-                    "/images/homepage/product_3.webp"
+                    "/images/products/prod-1.webp",
+                    "/images/products/prod-2.webp",
+                    "/images/products/prod-3.webp"
                   ]
                 },
                 {
@@ -33,7 +33,7 @@
                   "name": "Design No. BAPL22K02",
                   "description": "Plain Bangles & Bracelet crafted in 22K gold for modern and traditional assortments.",
                   "price": 24550,
-                  "image": "/images/homepage/product_2.webp",
+                  "image": "/images/products/prod-1.webp",
                   "sku": "BAPL-22K-002",
                   "images": [
                     "/images/homepage/product_2.webp",
@@ -47,7 +47,7 @@
                   "name": "Design No. BAPL22K03",
                   "description": "Plain Bangles & Bracelet crafted in 22K gold for modern and traditional assortments.",
                   "price": 25025,
-                  "image": "/images/homepage/product_3.webp",
+                  "image": "/images/products/prod-1.webp",
                   "sku": "BAPL-22K-003",
                   "images": [
                     "/images/homepage/product_3.webp",

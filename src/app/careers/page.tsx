@@ -260,7 +260,7 @@ export default function CareersPage() {
       <section ref={openingsRef} className={`mt-100 ${styles.openingsSection}`}>
         <div className="container">
           <h2 className="fs_54 txt_center" style={{ marginBottom: '12px' }}>CURRENT OPENINGS</h2>
-          <p>
+          <p className='txt_center'>
             Explore opportunities across teams and find a role aligned with your skills, experience, and growth.
           </p>
           
