@@ -19,9 +19,9 @@
   top: 100px; /* Offset for header/navbar */
 }
 
-.infoColumn {
+/* .infoColumn {
   padding: 20px 0;
-}
+} */
 
 .tradeHighlights {
   background: linear-gradient(90deg, rgba(234, 225, 217, 0), #f9f4f0 49.04%, rgba(234, 225, 217, 0));

@@ -10,9 +10,6 @@ export default function CartDrawer() {
   const dispatch = useAppDispatch();
   const { items, isOpen } = useAppSelector((state) => state.cart);
 
-  const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const totalQty = items.reduce((sum, item) => sum + item.quantity, 0);
-
   return (
     <>
       <div
@@ -28,7 +25,7 @@ export default function CartDrawer() {
         aria-modal="true"
       >
         <div className={styles.header}>
-          <h2 className={styles.title}>Cart ({totalQty})</h2>
+          <h2 className={styles.title}>Cart ({items.length})</h2>
           <button
             className={styles.closeBtn}
             onClick={() => dispatch(toggleCart())}
@@ -61,7 +58,6 @@ export default function CartDrawer() {
                   </div>
                   <div className={styles.itemDetails}>
                     <p className={styles.itemName}>{item.name}</p>
-                    <p className={styles.itemQty}>Qty: {item.quantity}</p>
                   </div>
                   <button
                     className={styles.removeBtn}
@@ -75,10 +71,6 @@ export default function CartDrawer() {
             </div>
 
             <div className={styles.footer}>
-              <div className={styles.total}>
-                <span>Total</span>
-                <span>₹{total.toLocaleString('en-IN')}</span>
-              </div>
               <button className={styles.checkoutBtn}>
                 Proceed to Enquire
                 <svg width="18" height="12" viewBox="0 0 19 12" fill="none" xmlns="http://www.w3.org/2000/svg">

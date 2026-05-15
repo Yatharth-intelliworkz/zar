@@ -17,8 +17,7 @@
                   "id": "plain-1",
                   "slug": "plain-1",
                   "name": "Design No. BAPL22K01",
-                  "description": "Defined by its geometric form and balanced composition, this earring design is developed for contemporary gold jewellery collections. The fan-shaped silhouette features a deep green inlay at the center, framed with precision-set stones along the outer edge to create controlled contrast and visual clarity. Fine gold borders enhance the structure while maintaining a clean, lightweight profile. Engineered for consistency in finish and wearability, the design offers a refined addition suited for modern retail assortments.",
-                  "price": 24075,
+                  "description": "Defined by its geometric form and balanced composition, this earring design is developed for contemporary gold jewellery collections. The fan-shaped silhouette features a deep green inlay at the center, framed with precision-set stones along the outer edge to create controlled contrast and visual clarity. Fine gold borders enhance the structure while maintaining a clean, lightweight profile. Engineered for consistency in finish and wearability, the design offers a refined addition suited for modern retail assortments.",                  
                   "image": "/images/products/prod-1.webp",
                   "sku": "BAPL-22K-001",
                   "images": [
@@ -46,14 +45,13 @@
                       "details": "Yes (Blue)"
                     }
                   ],
-                  "manufacturingHtml": "<h2>Manufacturing &amp; Customization Support</h2><p>Zar offers the following B2B support for this design:</p><ul><li><strong>Enamel Customization:</strong> Can choose from a variety of available colors</li><li><strong>Size and Weight Scalability:</strong> Customizable to your required weight and size, with possibility of a slight modification to the design</li><li><strong>Branding:</strong> In-store customization support for retailers, hall-marking, private labelling for bulk buying</li></ul>"
+                  "manufacturingHtml": "<h6>Manufacturing &amp; Customization Support</h6><p>Zar offers the following B2B support for this design:</p><ul><li><strong>Enamel Customization:</strong> Can choose from a variety of available colors</li><li><strong>Size and Weight Scalability:</strong> Customizable to your required weight and size, with possibility of a slight modification to the design</li><li><strong>Branding:</strong> In-store customization support for retailers, hall-marking, private labelling for bulk buying</li></ul>"
                 },
                 {
                   "id": "plain-2",
                   "slug": "plain-2",
                   "name": "Design No. BAPL22K02",
                   "description": "Plain Bangles & Bracelet crafted in 22K gold for modern and traditional assortments.",
-                  "price": 24550,
                   "image": "/images/products/prod-1.webp",
                   "sku": "BAPL-22K-002",
                   "images": [

@@ -1,26 +1,29 @@
 .infoContainer {
   display: flex;
   flex-direction: column;
-  gap: 24px;
   color: var(--text-color, #333);
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: 60px;
+  line-height: 80px;
+  font-family: var(--font-heading);
   font-weight: 500;
   margin: 0;
-  color: var(--primary-color, #a8813a);
+  color: var(--color-brown);
 }
 
 .sku {
-  font-size: 0.9rem;
-  color: var(--text-muted, #777);
-  margin-top: -10px;
+  font-size: 18px;
+  line-height: 26px;
+  color: #666;
+  margin-bottom: 30px;
 }
 
 .description{
+  margin-top: 30px;
   padding-top:50px;
-  border-top: 1px solid #e8e0d0;
+  border-top: 1px solid #8D7547;
 }
 
 /* ── Meta row: purity badge, weight badge, finish line ── */
@@ -49,8 +52,7 @@
 
 .metaText {
   font-size: 18px;
-  color: #666666;
-  letter-spacing: -0.5px;
+  color: #A38274;
   font-family: var(--font-body, 'Helvetica Neue', sans-serif);
 }
 
@@ -77,10 +79,11 @@
 }
 
 .specificationsTitle {
-  font-size: 33px;
-  font-family: var(--font-body, 'Helvetica Neue', sans-serif);
+  font-size: 20px;
+  line-height: 24px;
+  font-family: var(--font-body);
   font-weight: 400;
-  margin: 0 0 14px;
+  margin: 0 0 10px;
   color: #000;
 }
 
@@ -121,7 +124,7 @@
 /* ── Technical Specifications table ── */
 .techSpecsContainer {
   border-top: none;
-  padding-top: 20px;
+  margin: 40px 0;
 }
 
 .techSpecTable {
@@ -170,7 +173,6 @@
   font-size: 18px;
   font-family: var(--font-body, 'Helvetica Neue', sans-serif);
   font-weight: 400;
-  margin: 0 0 8px;
   color: #000;
 }
 
@@ -221,10 +223,7 @@
   color: #666666;
 }
 
-/* ── Enquire button ── */
-.actions {
-  margin-top: 6px;
-}
+
 
 .inquireBtn {
   background-color: var(--primary-color, #a8813a);

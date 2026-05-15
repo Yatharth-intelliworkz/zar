@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import type { Swiper as SwiperType } from 'swiper';
-import Button from '@/components/ui/atoms/Button/Button';
+import CartButton from '@/components/ui/atoms/CartButton/CartButton';
 import EnquiryModal from '@/components/ui/organisms/EnquiryModal/EnquiryModal';
 import styles from './RelatedProductsSlider.module.css';
 
@@ -118,14 +118,10 @@ export default function RelatedProductsSlider({
                     <p className={styles.productDesc}>{product.description}</p>
                   </div>
                   <div onClick={(event) => event.stopPropagation()}>
-                    <Button
-                      variant="primary"
-                      showArrow
+                    <CartButton
                       onClick={() => openEnquiry(product)}
                       className={styles.enquireBtn}
-                    >
-                      Enquire Now
-                    </Button>
+                    />
                   </div>
                 </div>
               </div>

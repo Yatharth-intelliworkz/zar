@@ -20,6 +20,35 @@ interface ProductInfoProps {
   product: ProductDetails;
 }
 
+function renderManufacturingContent(manufacturing: ProductDetails['manufacturing'], manufacturingHtml: ProductDetails['manufacturingHtml']) {
+  if (manufacturingHtml) {
+    return (
+      <div className={styles.manufacturingContainer}>
+        {parse(manufacturingHtml)}
+      </div>
+    );
+  }
+
+  if (manufacturing) {
+    return (
+      <div className={styles.manufacturingContainer}>
+        <h2 className={styles.manufacturingHeading}>{manufacturing.heading}</h2>
+        <p className={styles.manufacturingSubtitle}>{manufacturing.subtitle}</p>
+        <ul className={styles.manufacturingList}>
+          {manufacturing.points.map((point) => (
+            <li key={point.label} className={styles.manufacturingItem}>
+              <span className={styles.manufacturingLabel}>{point.label}: </span>
+              {point.text}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
+  return null;
+}
+
 export default function ProductInfo({ product }: ProductInfoProps) {
   const dispatch = useAppDispatch();
 
@@ -34,15 +63,15 @@ export default function ProductInfo({ product }: ProductInfoProps) {
     dispatch(toggleCart());
   }
 
+  const manufacturingContent = renderManufacturingContent(product.manufacturing, product.manufacturingHtml);
+
   return (
-    <>
       <div className={styles.infoContainer}>
         <h1 className={styles.title}>{product.title}</h1>
         <p className={styles.sku}>{product.sku}</p>
 
         <div className={styles.actions}>
-          <CartButton
-            showArrow
+          <CartButton            
             onClick={handleAddToCart}
             className={styles.enquireBtn}
           />
@@ -56,9 +85,9 @@ export default function ProductInfo({ product }: ProductInfoProps) {
         {(product.purity || product.pcs || product.finish) && (
           <div className={styles.metaRow}>
             {product.purity && (
-              <div className={styles.metaItem}>                
+              <div className={styles.metaItem}>
                 <svg
-                className={styles.metaIcon}
+                  className={styles.metaIcon}
                   width="36"
                   height="36"
                   viewBox="0 0 36 36"
@@ -77,21 +106,23 @@ export default function ProductInfo({ product }: ProductInfoProps) {
                     <path d="M13.7812 22.2188C16.5199 21.3061 19.4801 21.3061 22.2188 22.2188C21.7624 20.8491 21.5339 19.4245 21.5339 18C21.5339 16.5755 21.7624 15.1509 22.2188 13.7812C20.8491 14.2376 19.4245 14.4661 18 14.4661C16.5755 14.4661 15.1509 14.2376 13.7812 13.7812C14.2376 15.1509 14.4661 16.5755 14.4661 18C14.4661 19.4245 14.2376 20.8491 13.7812 22.2188Z" stroke="#D0B480" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
                   </g>
                 </svg>
-                <span className={styles.metaText}>{product.purity}</span>
+                <span>{product.purity}</span>
               </div>
             )}
 
             {product.pcs && (
               <div className={styles.metaItem}>
-                <span className={styles.metaText}>Pcs: {product.pcs}</span>
+                <div>
+                  <span className={styles.metaText}>Pcs:</span> {product.pcs}
+                </div>
               </div>
             )}
 
             {product.finish && (
               <div className={styles.metaFinishItem}>
-                <p className={styles.finishLine}>
+                <div className={styles.finishLine}>
                   <span className={styles.metaText}>Finish:</span> {product.finish}
-                </p>
+                </div>
               </div>
             )}
           </div>
@@ -134,26 +165,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
         )}
 
         {/* Manufacturing & Customization Support - PRIORITY TO HTML */}
-        {product.manufacturingHtml ? (
-          <div className={styles.manufacturingContainer}>
-            {parse(product.manufacturingHtml)}
-          </div>
-        ) : product.manufacturing ? (
-          <div className={styles.manufacturingContainer}>
-            <h2 className={styles.manufacturingHeading}>{product.manufacturing.heading}</h2>
-            <p className={styles.manufacturingSubtitle}>{product.manufacturing.subtitle}</p>
-            <ul className={styles.manufacturingList}>
-              {product.manufacturing.points.map((point) => (
-                <li key={point.label} className={styles.manufacturingItem}>
-                  <span className={styles.manufacturingLabel}>{point.label}: </span>
-                  {point.text}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : null}
+        {manufacturingContent}
       </div>
-
-    </>
   );
 }
