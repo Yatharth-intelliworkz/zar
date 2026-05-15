@@ -59,6 +59,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
       price: product.price,
       quantity: 1,
       image: product.image,
+      purity: product.purity,
     }));
     dispatch(toggleCart());
   }

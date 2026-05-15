@@ -58,6 +58,11 @@ export default function CartDrawer() {
                   </div>
                   <div className={styles.itemDetails}>
                     <p className={styles.itemName}>{item.name}</p>
+                    {item.purity && (
+                      <p className={styles.itemPurity}>
+                        Purity: {item.purity === '22k' ? '22K Gold' : item.purity === '18k' ? '18K Gold' : item.purity}
+                      </p>
+                    )}
                   </div>
                   <button
                     className={styles.removeBtn}

@@ -1,3 +1,41 @@
+const testimonials = [
+  {
+    message:
+      'ZAR Jewels exceeded our expectations with their craftsmanship and timely delivery. Our customers love the designs!',
+    name: 'Anjali Mehra',
+    designation: 'Store Manager, Anjali Jewellers',
+  },
+  {
+    message:
+      'We have been sourcing bangles from ZAR for years. Their quality and service are unmatched in the industry.',
+    name: 'Rajesh Sen',
+    designation: 'Director, B.C. Sen Jewellers',
+  },
+  {
+    message:
+      'The consistency and finish of ZAR products help us maintain our reputation for excellence. Highly recommended!',
+    name: 'Priya Bhima',
+    designation: 'Procurement Head, Bhima Jewellers',
+  },
+  {
+    message:
+      'ZAR’s distribution network ensures we always have the latest collections in stock. Our partnership is invaluable.',
+    name: 'Sunil Josco',
+    designation: 'Owner, Josco Jewellers',
+  },
+  {
+    message:
+      'From design to delivery, ZAR’s team is professional and responsive. Our sales have grown since working with them.',
+    name: 'Meena Malabar',
+    designation: 'Sales Lead, Malabar Gold & Diamonds',
+  },
+  {
+    message:
+      'We appreciate ZAR’s commitment to quality and innovation. Their bangles are always in demand at our stores.',
+    name: 'Amit Senco',
+    designation: 'Partner, Senco Gold & Diamonds',
+  },
+];
 import Image from 'next/image';
 import styles from './page.module.css';
 import PageHeader from '@/components/ui/PageHeader/PageHeader';
@@ -107,6 +145,21 @@ export default function ClientelePage() {
       </section>
 
       <RetailerSlider />
+
+      <section className="mt-100 mb-100">
+        <div className="container">
+          <h4 className='fs_54 txt_center'>What Our Customers Say</h4>
+          <div className={styles.testimonialGrid}>
+            {testimonials.map((testimonial, i) => (
+              <div key={i} className={styles.testimonialCard}>
+                <div className={styles.testimonialText}>{testimonial.message}</div>
+                <div className={styles.testimonialName}>{testimonial.name}</div>
+                <div className={styles.testimonialDesignation}>{testimonial.designation}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

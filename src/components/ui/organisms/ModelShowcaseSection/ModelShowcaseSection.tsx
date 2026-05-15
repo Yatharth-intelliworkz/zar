@@ -36,9 +36,9 @@ export default function ModelShowcaseSection() {
           <p className="">
             Discover a curated range of lightweight gold bangles that balance tradition and modern design, crafted with precision and consistency at scale.
           </p>
-          <Button href="javascript:void(0)" variant="primary" showArrow>
+          {/* <Button href="javascript:void(0)" variant="primary" showArrow>
             Explore Collections
-          </Button>
+          </Button> */}
         </header>
 
         <div className={styles.sliderWrapper}>
