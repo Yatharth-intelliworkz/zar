@@ -3,7 +3,7 @@
 }
 
 .inner {
-  max-width: 1400px;
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -23,6 +23,13 @@
   line-height: 1.1;
   color: var(--color-brown);
   text-transform: uppercase;
+}
+
+.productDesc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 
 .controls {

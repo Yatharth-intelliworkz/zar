@@ -6,6 +6,8 @@ import { useRouter } from 'next/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import type { Swiper as SwiperType } from 'swiper';
 import CartButton from '@/components/ui/atoms/CartButton/CartButton';
+import { useAppDispatch } from '@/store/hooks';
+import { addItem, toggleCart } from '@/features/cart/cartSlice';
 import EnquiryModal from '@/components/ui/organisms/EnquiryModal/EnquiryModal';
 import styles from './RelatedProductsSlider.module.css';
 
@@ -14,6 +16,7 @@ interface Product {
   title: string;
   description: string;
   image: string;
+  purity?: string;
 }
 
 interface RelatedProductsSliderProps {
@@ -28,6 +31,7 @@ export default function RelatedProductsSlider({
   basePath,
 }: RelatedProductsSliderProps) {
   const router = useRouter();
+  const dispatch = useAppDispatch();
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [enquiryOpen, setEnquiryOpen] = useState(false);
@@ -46,6 +50,18 @@ export default function RelatedProductsSlider({
 
   function goToProduct(productId: string) {
     router.push(`${basePath}/${productId}`);
+  }
+
+  function handleAddToCart(product: Product) {
+    dispatch(addItem({
+      id: product.id,
+      name: product.title,
+      price: product.price ?? 0,
+      quantity: 1,
+      image: product.image,
+      purity: product.purity,
+    }));
+    dispatch(toggleCart());
   }
 
   return (
@@ -119,7 +135,7 @@ export default function RelatedProductsSlider({
                   </div>
                   <div onClick={(event) => event.stopPropagation()}>
                     <CartButton
-                      onClick={() => openEnquiry(product)}
+                      onClick={() => handleAddToCart(product)}
                       className={styles.enquireBtn}
                     />
                   </div>

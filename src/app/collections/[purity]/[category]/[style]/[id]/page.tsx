@@ -166,6 +166,8 @@ export default async function ProductDetailPage({ params }: Props) {
       title: item.name,
       description: item.description,
       image: item.image,
+      purity: item.purity,
+      price: item.price,
     }))}
     basePath={`/collections/${purity}/${category}/${style}`}
   />
