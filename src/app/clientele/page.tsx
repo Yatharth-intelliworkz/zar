@@ -1,32 +1,33 @@
+"use client";
 import Image from 'next/image';
 import styles from './page.module.css';
 import PageHeader from '@/components/ui/PageHeader/PageHeader';
 import RetailerSlider from '@/components/ui/organisms/RetailerSlider/RetailerSlider';
+import testimonials from '@/lib/data/text_testimonials';
+import clientLogos from '@/lib/data/client_logos';
+import { useState } from 'react';
+import NavTabs from '@/components/ui/NavTabs/NavTabs';
 
-export const metadata = {
-  title: 'Our Clientele — Zar Jewels',
-  description: 'Zar Jewels serves India\'s top retail jewellers with premium gold bangles.',
-};
+type Nation = 'uae' | 'india';
 
-const clients = [
-  { name: 'anjali', logo: '/images/clients/anjali.webp' },
-  { name: 'b.c.sen', logo: '/images/clients/b.c.sen.webp' },
-  { name: 'bhima', logo: '/images/clients/bhima.webp' },
-  { name: 'goldplus', logo: '/images/clients/goldplus.webp' },
-  { name: 'josco', logo: '/images/clients/josco.webp' },
-  { name: 'joyalukkas', logo: '/images/clients/joyalukkas.webp' },
-  { name: 'Kalyan Jewellers', logo: '/images/clients/kalyan.webp' },
-  { name: 'khazana', logo: '/images/clients/khazana.webp' },
-  { name: 'malabar', logo: '/images/clients/malabar.webp' },
-  { name: 'nac', logo: '/images/clients/nac.webp' },
-  { name: 'p.c.chandra', logo: '/images/clients/p.c.chandra.webp' },
-  { name: 'prince', logo: '/images/clients/prince.webp' },
-  { name: 'sawansukha', logo: '/images/clients/sawansukha.webp' },
-  { name: 'senco', logo: '/images/clients/senco.webp' },
-  { name: 'tanishq', logo: '/images/clients/tanishq.webp' },
-];
+interface LogoGridProps {
+  selectedNation: Nation;
+}
+function LogoGrid({ selectedNation }: LogoGridProps) {
+  const filtered = clientLogos.filter(l => l.nation === selectedNation);
+  return (
+    <div className={styles.flexBox}>
+      {filtered.map((client, i) => (
+        <div key={i} className={styles.logoItem}>
+          <Image src={client.logo} alt={client.name} width={160} height={60} />
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default function ClientelePage() {
+  const [selectedNation, setSelectedNation] = useState<'uae' | 'india'>('uae');
   return (
     <main className={styles.page}>
       <PageHeader
@@ -47,14 +48,10 @@ export default function ClientelePage() {
               />
             </div>
 
+
       <section className={`container mt-100 ${styles.section2}`}>
-        <div className={styles.flexBox}>
-          {clients.map((client, i) => (
-            <div key={i} className={styles.logoItem}>
-              <Image src={client.logo} alt={client.name} width={160} height={60} />
-            </div>
-          ))}
-        </div>
+        <NavTabs selectedNation={selectedNation} setSelectedNation={setSelectedNation} />
+        <LogoGrid selectedNation={selectedNation} />
         <p className={styles.staticText}>
           ZAR has grown steadily over decades, building a strong network across India through consistent quality and reliable manufacturing. With over 30 distribution centres and a presence in more than 1,000 retail outlets, the brand continues to strengthen its reach and partnerships.
           <br /><br />
@@ -107,6 +104,20 @@ export default function ClientelePage() {
       </section>
 
       <RetailerSlider />
+      <section className="mt-100 mb-100">
+        <div className="container">
+          <h4 className="fs_54 txt_center">What Our Customers Say</h4>
+          <div className={styles.text_testi_grid}>
+            {testimonials.map((testi, idx) => (
+              <div className={styles.text_test_card} key={idx}>
+                <div className={styles.testi_message}>{testi.message}</div>
+                <div className={styles.testi_name}>{testi.name}</div>
+                <div className={styles.testi_designation}>{testi.designation}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

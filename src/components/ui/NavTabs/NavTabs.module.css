@@ -1,0 +1,13 @@
+.activeTab {
+  background: #CFB480;
+  color: #fff;
+  border: 1px solid #CFB480;
+  padding: 8px 24px;
+  cursor: pointer;
+}
+.inactiveTab {
+  color: #000;
+  border: 1px solid #CFB480;
+  padding: 8px 24px;
+  cursor: pointer;
+}

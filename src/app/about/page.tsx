@@ -96,6 +96,12 @@ export default function AboutPage() {
               <Image src="/images/about/about_2.webp" alt="Zar founders and team" fill className={styles.legacyImage} />
             </div>
           </div>
+          <div className={styles.legacyBottomText}>
+              <p>For us, legacy is not preserved - it is advanced.</p>
+              <p>As design and markets evolve, so do we through refinement, adaptation, and higher expectations.</p>
+              <p>As design and markets evolve, so do we through refinement, adaptation, and higher expectations.</p>
+              <p>Because progress is the only way forward.</p>
+          </div>
         </div>
       </section>
 

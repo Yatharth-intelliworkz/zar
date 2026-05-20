@@ -106,7 +106,6 @@
   }
 }
 
-
 .legacyGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -135,6 +134,13 @@
 .legacyTextBlock p:last-child {
   margin-bottom: 0;
 }
+
+.legacyBottomText p:nth-child(1) {
+  
+}
+.legacyBottomText p:nth-child(2) {}
+.legacyBottomText p:nth-child(3) {}
+.legacyBottomText p:nth-child(4) {}
 
 .visionMissionSection {
   padding: 100px 0;

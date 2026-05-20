@@ -259,7 +259,7 @@ export default function EnquiryModal({ open, onClose, productName }: EnquiryModa
     </div>
   );
 
-  if (!isMounted) {
+  if (!isMounted || !open) {
     return null;
   }
 
