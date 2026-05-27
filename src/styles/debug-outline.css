@@ -1,0 +1,4 @@
+/* DEBUG: Outline all elements to find overlays blocking interaction */
+* {
+  outline: 1px solid red !important;
+}

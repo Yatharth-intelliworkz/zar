@@ -14,6 +14,27 @@ interface TimelineItem {
 
 const timelineData: TimelineItem[] = [
   {
+    year: '1920',
+    title: 'The Founding Era',
+    description: 'The journey begins with Girdharlal & Bros, focusing on specialised gold bangle manufacturing. A legacy rooted in craftsmanship and tradition.',
+    image: '/images/about/about_5.webp',
+    tags: ['Heritage', 'Founding', 'Gold'],
+  },
+  {
+    year: '1930',
+    title: 'The Founding Era',
+    description: 'The journey begins with Girdharlal & Bros, focusing on specialised gold bangle manufacturing. A legacy rooted in craftsmanship and tradition.',
+    image: '/images/about/about_5.webp',
+    tags: ['Heritage', 'Founding', 'Gold'],
+  },
+  {
+    year: '1940',
+    title: 'The Founding Era',
+    description: 'The journey begins with Girdharlal & Bros, focusing on specialised gold bangle manufacturing. A legacy rooted in craftsmanship and tradition.',
+    image: '/images/about/about_5.webp',
+    tags: ['Heritage', 'Founding', 'Gold'],
+  },
+  {
     year: '1950',
     title: 'The Founding Era',
     description: 'The journey begins with Girdharlal & Bros, focusing on specialised gold bangle manufacturing. A legacy rooted in craftsmanship and tradition.',
@@ -51,18 +72,19 @@ const timelineData: TimelineItem[] = [
 ];
 
 // ── Drum constants ──────────────────────────────────────────────────
-const N            = timelineData.length; // total data items
-const SLOT         = 56;                  // px — must match CSS var --slot
-const TOTAL_SLOTS  = 7;                   // slots in the track (buffers on each side)
-const CENTER       = 3;                   // slot index that sits at visual center
+const N    = timelineData.length; // total data items
+const SLOT = 56;                  // px — must match CSS var --slot
 
 function wrap(idx: number) {
   return ((idx % N) + N) % N;
 }
 
+
 export default function Timeline() {
-  const [current, setCurrent]           = useState(0);
+  const [current, setCurrent] = useState(0);
   const [contentVisible, setContentVisible] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+  const [slotConfig, setSlotConfig] = useState({ TOTAL_SLOTS: 7, CENTER: 3 });
 
   const drumColRef   = useRef<HTMLDivElement>(null);
   const trackRef     = useRef<HTMLDivElement>(null);
@@ -74,11 +96,36 @@ export default function Timeline() {
 
   const activeData = timelineData[current];
 
+  // Responsive slot config
+  useEffect(() => {
+    function handleResize() {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+      setSlotConfig(mobile ? { TOTAL_SLOTS: 5, CENTER: 2 } : { TOTAL_SLOTS: 7, CENTER: 3 });
+    }
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Ensure the center slot is always the selected one after slotConfig changes
+  useEffect(() => {
+    // When slotConfig changes (e.g., switching between mobile/desktop),
+    // adjust current so the selected year is always in the visual center
+    setCurrent((prev) => {
+      // The center slot should always show the current year
+      // So, if the slot count changes, keep the same year centered
+      return wrap(prev);
+    });
+    currentRef.current = wrap(currentRef.current);
+  }, [slotConfig]);
+
+
   // ── Center calculation ────────────────────────────────────────────
   const getCenter = useCallback(() => {
     const colH = drumColRef.current?.clientHeight ?? 300;
-    return colH / 2 - CENTER * SLOT - SLOT / 2;
-  }, []);
+    return colH / 2 - slotConfig.CENTER * SLOT - SLOT / 2;
+  }, [slotConfig]);
 
   const snapTrack = useCallback(() => {
     if (!trackRef.current) return;
@@ -181,25 +228,52 @@ export default function Timeline() {
             <div className={styles.drumAccent} />
 
             <div ref={trackRef} className={styles.drumTrack}>
-              {Array.from({ length: TOTAL_SLOTS }, (_, i) => {
-                const dataIdx = wrap(current + i - CENTER);
-                const dist    = Math.abs(i - CENTER);
-                return (
-                  <div
-                    key={i}
-                    className={styles.yearSlot}
-                    data-dist={dist}
-                    onClick={() => dist !== 0 && step(i - CENTER)}
-                    role={dist !== 0 ? 'button' : undefined}
-                    aria-label={dist !== 0 ? `Go to ${timelineData[dataIdx].year}` : undefined}
-                    tabIndex={dist === 0 ? 0 : -1}
-                  >
-                    <span className={styles.yearLabel}>
-                      {timelineData[dataIdx].year}
-                    </span>
-                  </div>
-                );
-              })}
+              {(() => {
+                const slots = [];
+                const total = slotConfig.TOTAL_SLOTS;
+                const center = slotConfig.TOTAL_SLOTS === 5 ? 2 : slotConfig.CENTER;
+                const firstIdx = Math.max(0, current - center);
+                const lastIdx = Math.min(timelineData.length - 1, current + (total - center - 1));
+                // Calculate how many empty slots needed at start and end
+                const emptyStart = Math.max(0, center - current);
+                const emptyEnd = Math.max(0, (firstIdx + total - 1) - (timelineData.length - 1));
+                // Fill leading empty slots
+                for (let i = 0; i < emptyStart; i++) {
+                  slots.push(
+                    <div key={`empty-start-${i}`} className={`${styles.yearSlot} ${styles.yearSlotEmpty}`} data-dist={Math.abs(i - center)}>
+                      <span className={styles.yearLabel}>&nbsp;</span>
+                    </div>
+                  );
+                }
+                // Fill timeline slots
+                for (let i = firstIdx; i <= lastIdx && slots.length < total; i++) {
+                  const dist = Math.abs(slots.length - center);
+                  slots.push(
+                    <div
+                      key={i}
+                      className={styles.yearSlot}
+                      data-dist={dist}
+                      onClick={() => dist !== 0 && step(i - current)}
+                      role={dist !== 0 ? 'button' : undefined}
+                      aria-label={dist !== 0 ? `Go to ${timelineData[i].year}` : undefined}
+                      tabIndex={dist === 0 ? 0 : -1}
+                    >
+                      <span className={styles.yearLabel}>
+                        {timelineData[i].year}
+                      </span>
+                    </div>
+                  );
+                }
+                // Fill trailing empty slots
+                for (let i = 0; slots.length < total; i++) {
+                  slots.push(
+                    <div key={`empty-end-${i}`} className={`${styles.yearSlot} ${styles.yearSlotEmpty}`} data-dist={Math.abs(slots.length - center)}>
+                      <span className={styles.yearLabel}>&nbsp;</span>
+                    </div>
+                  );
+                }
+                return slots;
+              })()}
             </div>
           </div>
 

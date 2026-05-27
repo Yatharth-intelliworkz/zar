@@ -256,7 +256,7 @@ export default function AboutPage() {
       <Timeline />
 
       {/* {design & finish section} */}
-      <section className="mt-100">
+      <section className="mt-100 d_none">
         <div className="container">
           <div className={styles.abt_des_wrapper}>
             <div>

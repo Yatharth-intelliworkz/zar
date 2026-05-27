@@ -429,3 +429,24 @@ textarea::placeholder {
 
 
 /* resposnive css starts  */
+@media (max-width: 575px) {
+  .storyGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .storyGrid .fs_54 {
+    margin-bottom: 30px;
+  }
+
+  .valuesGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+.d_none {
+    display: none;
+  }
+}
+
+/* resposnive css ends  */
